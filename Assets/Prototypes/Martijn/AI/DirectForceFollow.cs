@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AI : MonoBehaviour {
+public class DirectForceFollow: MonoBehaviour {
     public Rigidbody rbself;
     public Transform transplayer;
     public Transform transself;
