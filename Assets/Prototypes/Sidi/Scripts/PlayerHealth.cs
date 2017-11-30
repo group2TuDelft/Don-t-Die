@@ -17,7 +17,6 @@ public class PlayerHealth : MonoBehaviour
 
 	Animator anim;
 	Slider healthSlider;
-	AudioSource playerAudio;
 	PlayerMovement playerMovement;
 	PlayerShooting playerShooting;
 	bool isDead;
@@ -29,7 +28,6 @@ public class PlayerHealth : MonoBehaviour
     void Awake ()
 	{
 		healthSlider = GameObject.Find ("HealthSlider").GetComponent<UnityEngine.UI.Slider>();
-		playerAudio = GetComponent<AudioSource> ();
 		playerMovement = GetComponent<PlayerMovement> ();
 		playerShooting = GetComponentInChildren<PlayerShooting> ();
 		anim = GetComponent<Animator> ();
