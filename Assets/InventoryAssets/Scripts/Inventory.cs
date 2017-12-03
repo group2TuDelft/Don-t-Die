@@ -4,16 +4,17 @@ using UnityEngine;
 using UnityEngine.UI;
 
 // This script will be used to couple the inventory database to the UI and make it visable in game.
-public class Inventory : MonoBehaviour {
+public class Inventory : MonoBehaviour
+{
 
     // Required UI objects
     GameObject inventoryPanel;
-    GameObject slotPanel;
+    GameObject WeaponSlotPanel;
+    GameObject InventorySlotPanel;
 
     // Temporary UI elements:
     // Chest objects/vars/int etc
     public GameObject ChestPanel;
-    private int chestSlotAmount;
 
     ItemDatabase database;
 
@@ -21,7 +22,10 @@ public class Inventory : MonoBehaviour {
     public GameObject inventorySlot;
     public GameObject inventoryItem;
 
-    private int slotAmount;
+    private int weaponSlotAmount;
+    public int chestSlotAmount;
+    private int inventorySlotAmount;
+
     public List<Item> items = new List<Item>();
     public List<GameObject> slots = new List<GameObject>();
 
@@ -31,20 +35,31 @@ public class Inventory : MonoBehaviour {
         // Grabs the itemdatabase functions
         database = GetComponent<ItemDatabase>();
         //
-        slotAmount = 10;
+        weaponSlotAmount = 4;
+        inventorySlotAmount = 8;
+        //
         inventoryPanel = GameObject.Find("InventoryPanel");
-        slotPanel = inventoryPanel.transform.Find("SlotPanel").gameObject;
-        // Initializes the inventory Slots
-        for (int i = 0; i < slotAmount; i++)
+        WeaponSlotPanel = inventoryPanel.transform.Find("WeaponSlotPanel").gameObject;
+        InventorySlotPanel = inventoryPanel.transform.Find("InventorySlotPanel").gameObject;
+        // Initializes the first 4 inventory Slots.
+        for (int i = 0; i < weaponSlotAmount; i++)
         {
             items.Add(new Item());
             slots.Add(Instantiate(inventorySlot));
             slots[i].GetComponent<inventorySlot>().id = i;
-            slots[i].transform.SetParent(slotPanel.transform);
+            slots[i].transform.SetParent(WeaponSlotPanel.transform);
+        }
+        // Initializes the next 8 inventory Slots.
+        for (int j = 0; j < inventorySlotAmount; j++)
+        {
+            items.Add(new Item());
+            slots.Add(Instantiate(inventorySlot));
+            slots[j + weaponSlotAmount].GetComponent<inventorySlot>().id = j + weaponSlotAmount;
+            slots[j + weaponSlotAmount].transform.SetParent(InventorySlotPanel.transform);
         }
 
         // 
-        InitializeChest();
+        //InitializeChest();
 
         // Adding Initial Items.
         AddItem(0);
@@ -71,7 +86,8 @@ public class Inventory : MonoBehaviour {
                 }
             }
         }
-        else {
+        else
+        {
             for (int i = 0; i < items.Count; i++)
             {
                 // Checks if the slot is empty. (in the start function all slots are initialized with id = -1)
@@ -110,26 +126,59 @@ public class Inventory : MonoBehaviour {
     {
         for (int i = 0; i < items.Count; i++)
         {
-            if (items[i].ID == item.ID) {
+            if (items[i].ID == item.ID)
+            {
                 return true;
             }
         }
         return false;
     }
 
-    public void InitializeChest() {
-    // Chest Initialization: //////////////////////////////////////////////
+    public void InitializeChest(GameObject chest)
+    {
+        // Chest Initialization: //////////////////////////////////////////////
 
-    chestSlotAmount = 8;
-        // Chest Slot Initialization:
-        for (int j = 0; j<chestSlotAmount; j++)
+        chestSlotAmount = 8;
+        
+        // Initialize Slots
+        for (int j = 0; j < chestSlotAmount; j++)
         {
             items.Add(new Item());
             slots.Add(Instantiate(inventorySlot));
-            slots[j + slotAmount].GetComponent<inventorySlot>().id = j + slotAmount;
-            slots[j + slotAmount].transform.SetParent(ChestPanel.transform);
+            slots[j + weaponSlotAmount + inventorySlotAmount].GetComponent<inventorySlot>().id = j + weaponSlotAmount + inventorySlotAmount;
+            slots[j + weaponSlotAmount + inventorySlotAmount].transform.SetParent(ChestPanel.transform);
+            items[j + weaponSlotAmount + inventorySlotAmount] = chest.GetComponent<ChestStorage>().itemsInChest[j];
+
+            if (items[j + weaponSlotAmount + inventorySlotAmount].ID != -1) { 
+
+            // Draw Items
+            GameObject itemObj = Instantiate(inventoryItem);
+            itemObj.GetComponent<itemData>().item = items[j + weaponSlotAmount + inventorySlotAmount];
+            itemObj.GetComponent<itemData>().slotid = j + weaponSlotAmount + inventorySlotAmount;
+            itemObj.transform.SetParent(slots[j + weaponSlotAmount + inventorySlotAmount].transform);
+            itemObj.transform.position = slots[j + weaponSlotAmount + inventorySlotAmount].transform.position;
+            itemObj.GetComponent<Image>().sprite = items[j + weaponSlotAmount + inventorySlotAmount].Sprite;
+            itemObj.name = items[j + weaponSlotAmount + inventorySlotAmount].Title;
+
+            }
         }
 
         ////////////////////////////////////////////////////////////////////////
+    }
+
+    public void SaveChest(GameObject chest)
+    {
+        for (int j = 0; j < chestSlotAmount; j++)
+        {
+            chest.GetComponent<ChestStorage>().itemsInChest[j] = items[j + weaponSlotAmount + inventorySlotAmount];
+        }
+
+        for (int j = 0; j < chestSlotAmount; j++)
+        {
+            Destroy(slots[(chestSlotAmount - j) + weaponSlotAmount + inventorySlotAmount - 1]);
+            slots.Remove(slots[(chestSlotAmount - j) + weaponSlotAmount + inventorySlotAmount - 1]);
+            items.Remove(items[(chestSlotAmount - j) + weaponSlotAmount + inventorySlotAmount - 1]);
+        }
+
     }
 }

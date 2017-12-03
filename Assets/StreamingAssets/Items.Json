@@ -40,19 +40,5 @@
     "stackable": true,
     "rarety": 1,
     "slug": "great_red_box"
-  },
-  {
-    "id": 3,
-    "title": "White Cilinder",
-    "value": 4,
-    "stats": {
-      "power": 10,
-      "defence": 4,
-      "vitality": 2
-    },
-    "description": "An Epic white cilinder",
-    "stackable": false,
-    "rarety": 1,
-    "slug": "white_cilinder"
   }
 ]

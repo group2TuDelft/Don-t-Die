@@ -18,18 +18,10 @@ public class worldInteraction : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // Left Click Interactions
         if (Input.GetMouseButtonDown(0) && !UnityEngine.EventSystems.EventSystem.current.IsPointerOverGameObject())
         {
             GetInteraction();
         }
-
-        if (Input.GetKeyDown(KeyCode.Escape))
-        {
-            GetEscInteraction();
-        }
-
-
     }
 
     // This sends out a ray from the camera to the pointer until it potentially hits a gameObject and returns which object it hit.
@@ -45,36 +37,21 @@ public class worldInteraction : MonoBehaviour
             {
                 interactedObject.SetActive(false);
                 inv.AddItem(2);
-                Debug.Log ("Picked Up Red Box");
-            }
-            if (interactedObject.tag == "White Cilinder")
-            {
-                interactedObject.SetActive(false);
-                inv.AddItem(3);
             }
             if (interactedObject.tag == "Chest")
             {
-                Debug.Log("Clicked Chest");
-
                 if (ChestPanel.activeSelf == true)
                 {
+                    inv.SaveChest(interactedObject);
                     ChestPanel.gameObject.SetActive(false);
                 }
                 else
                 {
                     ChestPanel.gameObject.SetActive(true);
+                    inv.InitializeChest(interactedObject);
                 }
 
             }
         }
     }
-
-    private void GetEscInteraction()
-    {
-        if (ChestPanel.activeSelf == true)
-        {
-            ChestPanel.gameObject.SetActive(false);
-        }
-    }
-
 }

@@ -10,8 +10,7 @@ public class itemData : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDrag
     public Item item;
     public int amount;
     public int slotid;
-
-    private Transform origionalParent;
+    
     private Inventory inv;
 
     void Start()
@@ -25,8 +24,8 @@ public class itemData : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDrag
     {
         if (item != null)
         {
+            Debug.Log("bebug");
             // rendering order shizzle
-            origionalParent = this.transform.parent;
             // Sets position of the item to the mouse pointer
             this.transform.SetParent(this.transform.parent.parent.parent.parent); 
             this.transform.position = eventData.position;
