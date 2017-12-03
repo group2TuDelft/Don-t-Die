@@ -3,23 +3,24 @@ using System.Collections;
 
 public class EnemyAttack : MonoBehaviour
 {
-    public float timeBetweenAttacks = 0.5f;
-    public int attackDamage = 10;
-
-
+	 
     Animator anim;
     GameObject player;
     PlayerHealth playerHealth;
-    EnemyHealth enemyHealth;
+	EnemyMovement enemyMovement;
+    //EnemyHealth enemyHealth;
     bool playerInRange;
     float timer;
+	float timeBetweenAttacks = 0.5f;
+	int attackDamage = 10;
 
 
     void Awake ()
     {
         player = GameObject.FindGameObjectWithTag ("Player");
         playerHealth = player.GetComponent <PlayerHealth> ();
-        enemyHealth = GetComponent<EnemyHealth>();
+		enemyMovement = GetComponent<EnemyMovement>();
+        //enemyHealth = GetComponent<EnemyHealth>();
         anim = GetComponent <Animator> ();
     }
 
@@ -46,7 +47,7 @@ public class EnemyAttack : MonoBehaviour
     {
         timer += Time.deltaTime;
 
-        if(timer >= timeBetweenAttacks && playerInRange && enemyHealth.currentHealth > 0)
+		if(timer >= timeBetweenAttacks && playerInRange) //&& enemyHealth.currentHealth > 0)
         {
             Attack ();
         }
@@ -54,6 +55,7 @@ public class EnemyAttack : MonoBehaviour
         if(playerHealth.currentHealth <= 0)
         {
             anim.SetTrigger ("PlayerDead");
+			enemyMovement.enabled = false;
         }
     }
 

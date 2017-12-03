@@ -16,7 +16,7 @@ public class PlayerHealth : MonoBehaviour
 
 
 	Animator anim;
-	Slider healthSlider;
+	//Slider healthSlider;
 	PlayerMovement playerMovement;
 	PlayerShooting playerShooting;
 	bool isDead;
@@ -27,9 +27,9 @@ public class PlayerHealth : MonoBehaviour
 
     void Awake ()
 	{
-		healthSlider = GameObject.Find ("HealthSlider").GetComponent<UnityEngine.UI.Slider>();
+		//healthSlider = GameObject.Find ("HealthSlider").GetComponent<UnityEngine.UI.Slider>();
 		playerMovement = GetComponent<PlayerMovement> ();
-		playerShooting = GetComponentInChildren<PlayerShooting> ();
+		//playerShooting = GetComponentInChildren<PlayerShooting> ();
 		anim = GetComponent<Animator> ();
 		currentHealth = startingHealth;
 
@@ -38,12 +38,12 @@ public class PlayerHealth : MonoBehaviour
 
     void Update ()
     {
-		if (damaged) {
-			damageImage.color = flashColour;
-		} else {
-			damageImage.color = Color.Lerp (damageImage.color, Color.clear, flashSpeed * Time.deltaTime);
-		}
-		damaged = false;
+		//if (damaged) {
+			//damageImage.color = flashColour;
+		//} else {
+			//damageImage.color = Color.Lerp (damageImage.color, Color.clear, flashSpeed * Time.deltaTime);
+		//}
+		//damaged = false;
     }
 
 
@@ -51,7 +51,7 @@ public class PlayerHealth : MonoBehaviour
     {
 		damaged = true;
 		currentHealth -= amount;
-		healthSlider.value = currentHealth;
+		//healthSlider.value = currentHealth;
 
 		if (currentHealth <= 0 && !isDead) {
 			Die ();
@@ -66,9 +66,9 @@ public class PlayerHealth : MonoBehaviour
 		anim.SetTrigger ("Die");
 
 
-		playerShooting.DisableEffects ();
+		//playerShooting.DisableEffects ();
 		playerMovement.enabled = false;
-		playerShooting.enabled = false;
+		//playerShooting.enabled = false;
     }
 
 

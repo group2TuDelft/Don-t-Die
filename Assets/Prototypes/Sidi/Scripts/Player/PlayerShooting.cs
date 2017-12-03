@@ -11,7 +11,7 @@ public class PlayerShooting : MonoBehaviour
     Ray shootRay = new Ray();
     RaycastHit shootHit;
     int shootableMask;
-    ParticleSystem gunParticles;
+    //ParticleSystem gunParticles;
     LineRenderer gunLine;
     Light gunLight;
     float effectsDisplayTime = 0.2f;
@@ -20,7 +20,7 @@ public class PlayerShooting : MonoBehaviour
     void Awake ()
     {
         shootableMask = LayerMask.GetMask ("Shootable");
-        gunParticles = GetComponent<ParticleSystem> ();
+        //gunParticles = GetComponent<ParticleSystem> ();
         gunLine = GetComponent <LineRenderer> ();
         gunLight = GetComponent<Light> ();
     }
