@@ -5,6 +5,10 @@ TagManager:
   serializedVersion: 2
   tags:
   - HealthSlider
+  - Heart75
+  - Heart50
+  - Heart25
+  - HeartFull
   layers:
   - Default
   - TransparentFX
