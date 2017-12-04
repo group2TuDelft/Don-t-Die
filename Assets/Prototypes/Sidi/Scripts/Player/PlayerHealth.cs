@@ -7,12 +7,7 @@ using UnityEngine.SceneManagement;
 
 public class PlayerHealth : MonoBehaviour
 {
-  
-	public int startingHealth = 100;
-	public int currentHealth;
-	public Image damageImage;
-	public float flashSpeed = 5f;
-	public Color flashColour = new Color (1f, 0f, 0f, 0.1f);
+
 
 
 	Image fullHeart;
@@ -25,9 +20,9 @@ public class PlayerHealth : MonoBehaviour
 	PlayerShooting playerShooting;
 	bool isDead;
 	bool damaged;
-
-
-
+	int startingHealth = 100;
+	int currentHealth;
+	float flashSpeed = 5f;
 
     void Awake ()
 	{
@@ -64,7 +59,7 @@ public class PlayerHealth : MonoBehaviour
 		} else if (currentHealth < 25) {
 			heart50.enabled = false;
 			heart25.enabled = true;
-		} else if (currentHealth == 0) {
+		} else if (isDead) {
 			heart25.enabled = false;
 		}
 		//healthSlider.value = currentHealth;
@@ -74,6 +69,10 @@ public class PlayerHealth : MonoBehaviour
 		}
     }
 
+	public int getCurrentHealth()
+	{
+		return currentHealth;
+	}
 
     void Die ()
     {

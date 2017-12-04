@@ -8,7 +8,7 @@ using UnityEngine.AI;
 public class EnemyHealth : MonoBehaviour
 {
 	
-	public float sinkSpeed = 2.5f;
+	 
 	public int scoreValue = 10;
 	public int startingHealth = 100;
 	public int currentHealth;
@@ -17,6 +17,7 @@ public class EnemyHealth : MonoBehaviour
 	AudioSource enemyAudio;
 	CapsuleCollider capsuleCollider;
 
+	float sinkSpeed = 2.5f;
 	bool isDead;
 	bool isSinking;
 
