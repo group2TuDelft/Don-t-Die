@@ -9,6 +9,7 @@ public class PlayerShooting : MonoBehaviour
 	public Transform bulletSpawn;
 
 
+
     float timer;
     Ray shootRay = new Ray();
     RaycastHit shootHit;
@@ -74,7 +75,7 @@ public class PlayerShooting : MonoBehaviour
             EnemyHealth enemyHealth = shootHit.collider.GetComponent <EnemyHealth> ();
             if(enemyHealth != null)
             {
-                enemyHealth.TakeDamage (damagePerShot, shootHit.point);
+				enemyHealth.TakeDamage (damagePerShot); //shootHit.point);
             }
             gunLine.SetPosition (1, shootHit.point);
         }

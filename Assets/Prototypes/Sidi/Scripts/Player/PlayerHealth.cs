@@ -43,23 +43,20 @@ public class PlayerHealth : MonoBehaviour
     {
 		damaged = true;
 		currentHealth -= amount;
-				if (currentHealth < 75 && currentHealth >= 50) {
+		if (currentHealth < 75 && currentHealth >= 50) {
 			heartImage.sprite = hearts [1];
-				} else if (currentHealth < 50 && currentHealth >= 25) {
+		} else if (currentHealth < 50 && currentHealth >= 25) {
 			heartImage.sprite = hearts [2];
-				} else if (currentHealth < 25) {
+		} else if (currentHealth < 25) {
 			heartImage.sprite = hearts [3];
-				}
+		}
 		
-				healthSlider.value = currentHealth;
+		healthSlider.value = currentHealth;
 		
-				if (currentHealth <= 0 && !isDead) {
-					Die ();
-			heartImage.enabled = false;
-				}
-
-
-
+		if (currentHealth <= 0 && !isDead) {
+			Die ();
+		heartImage.enabled = false;
+		}
     }
 
 	public int getCurrentHealth()

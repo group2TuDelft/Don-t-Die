@@ -39,7 +39,7 @@ public class EnemyHealth : MonoBehaviour
     }
 
 
-    public void TakeDamage (int amount, Vector3 hitPoint)
+	public void TakeDamage (int amount)//, Vector3 hitPoint)
     {
 		if (isDead)
 			return;
@@ -50,6 +50,17 @@ public class EnemyHealth : MonoBehaviour
 			Death ();
 		}
     }
+
+
+	void OnTriggerEnter( Collider other){
+		if (other.tag == "Bullet") {
+			currentHealth -= 30;
+		}
+
+		if (currentHealth <= 0) {
+			Death ();
+		}
+	}
 
 
     void Death ()

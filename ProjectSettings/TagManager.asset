@@ -9,6 +9,8 @@ TagManager:
   - Heart50
   - Heart25
   - HeartFull
+  - Bullet
+  - Enemy
   layers:
   - Default
   - TransparentFX
