@@ -14,10 +14,10 @@ public class PlayerShooting : MonoBehaviour
     Ray shootRay = new Ray();
     RaycastHit shootHit;
     int shootableMask;
- 
     LineRenderer gunLine;
     Light gunLight;
     float effectsDisplayTime = 0.2f;
+	bool bulletHit = false;
 
 
     void Awake ()
@@ -95,7 +95,7 @@ public class PlayerShooting : MonoBehaviour
 			bulletSpawn.rotation);
 
 		// Add velocity to the bullet
-		bullet.GetComponent<Rigidbody>().velocity = bullet.transform.forward * 6;
+		bullet.GetComponent<Rigidbody>().velocity = bullet.transform.forward * 6; 
 
 		// Destroy the bullet after 2 seconds
 		Destroy(bullet, 2.0f);        

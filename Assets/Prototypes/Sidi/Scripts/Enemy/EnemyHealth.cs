@@ -45,25 +45,12 @@ public class EnemyHealth : MonoBehaviour
 			return;
 
 		currentHealth -= amount;
-
 		if (currentHealth <= 0) {
 			Death ();
 		}
+
     }
-
-
-	void OnTriggerEnter( Collider other){
-		if (other.tag == "Bullet") {
-			currentHealth -= 30;
-			other.GetComponent<Renderer> ().enabled = false;
-		}
-
-		if (currentHealth <= 0) {
-			Death ();
-		}
-	}
-
-
+		
     void Death ()
     {
 		isDead = true;
