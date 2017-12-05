@@ -5,6 +5,8 @@ public class PlayerShooting : MonoBehaviour
     public int damagePerShot = 20;
     public float timeBetweenBullets = 0.15f;
     public float range = 100f;
+	public GameObject bulletPrefab;
+	public Transform bulletSpawn;
 
 
     float timer;
@@ -33,6 +35,12 @@ public class PlayerShooting : MonoBehaviour
         {
             Shoot ();
         }
+
+		if (Input.GetKeyDown(KeyCode.Space))
+		{
+			Fire();
+		}
+
 
         if(timer >= timeBetweenBullets * effectsDisplayTime)
         {
@@ -75,4 +83,20 @@ public class PlayerShooting : MonoBehaviour
             gunLine.SetPosition (1, shootRay.origin + shootRay.direction * range);
         }
     }
+
+
+	void Fire()
+	{
+		// Create the Bullet from the Bullet Prefab
+		var bullet = (GameObject)Instantiate(
+			bulletPrefab,
+			bulletSpawn.position,
+			bulletSpawn.rotation);
+
+		// Add velocity to the bullet
+		bullet.GetComponent<Rigidbody>().velocity = bullet.transform.forward * 6;
+
+		// Destroy the bullet after 2 seconds
+		Destroy(bullet, 2.0f);        
+	}
 }
