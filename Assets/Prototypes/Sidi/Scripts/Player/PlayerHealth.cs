@@ -49,7 +49,6 @@ public class PlayerHealth : MonoBehaviour
     {
 		damaged = true;
 		currentHealth -= amount;
-
 		if (currentHealth < 75 && currentHealth >= 50) {
 			fullHeart.enabled = false;
 			heart75.enabled = true;
@@ -59,15 +58,17 @@ public class PlayerHealth : MonoBehaviour
 		} else if (currentHealth < 25) {
 			heart50.enabled = false;
 			heart25.enabled = true;
-		} else if (isDead) {
-			heart25.enabled = false;
 		}
 
 		healthSlider.value = currentHealth;
 
 		if (currentHealth <= 0 && !isDead) {
 			Die ();
+			heart25.enabled = false;
 		}
+
+
+
     }
 
 	public int getCurrentHealth()
@@ -86,10 +87,5 @@ public class PlayerHealth : MonoBehaviour
 		playerMovement.enabled = false;
 		playerShooting.enabled = false;
     }
-
-
-    public void RestartLevel ()
-    {
-        SceneManager.LoadScene (0);
-    }
+		
 }
