@@ -7,12 +7,14 @@ public class worldInteraction : MonoBehaviour
 
     //
     public GameObject ChestPanel;
-
+    private GameObject ActiveChest;
     private Inventory inv;
+    private Crafting craftingWindows;
 
     void Start()
     {
         inv = GameObject.Find("Inventory").GetComponent<Inventory>();
+        craftingWindows = inv.GetComponent<Crafting>();
     }
 
     // Update is called once per frame
@@ -38,15 +40,20 @@ public class worldInteraction : MonoBehaviour
                 interactedObject.SetActive(false);
                 inv.AddItem(2);
             }
+            if (interactedObject.tag == "WorkBench")
+            {
+                craftingWindows.ActivateWorkBench();
+            }
             if (interactedObject.tag == "Chest")
             {
                 if (ChestPanel.activeSelf == true)
                 {
-                    inv.SaveChest(interactedObject);
+                    inv.SaveChest(ActiveChest);
                     ChestPanel.gameObject.SetActive(false);
                 }
                 else
                 {
+                    ActiveChest = interactedObject;
                     ChestPanel.gameObject.SetActive(true);
                     inv.InitializeChest(interactedObject);
                 }

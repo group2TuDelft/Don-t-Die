@@ -1,44 +1,530 @@
 [
   {
-    "id": 0,
-    "title": "Steel Gloves",
-    "value": 6,
+    "id": 1000,
+    "title": "Wood",
     "stats": {
-      "power": 1,
-      "defence": 4,
-      "vitality": 2
+      "damage": 0,
+      "range": 0
     },
-    "description": "Gloves made of steel",
+    "description": "Wood, This can be used to craft items on a workbench",
+    "stackable": true,
+    "itemtype": "resource",
+    "slug": "wood"
+  },
+  {
+    "id": 1001,
+    "title": "Stone",
+    "stats": {
+      "damage": 0,
+      "range": 0
+    },
+    "description": "Stone, This can be used to craft items on a workbench",
+    "stackable": true,
+    "itemtype": "resource",
+    "slug": "stone"
+  },
+  {
+    "id": 1002,
+    "title": "Iron",
+    "stats": {
+      "damage": 0,
+      "range": 0
+    },
+    "description": "Iron",
+    "stackable": true,
+    "itemtype": "resource",
+    "slug": "iron"
+  },
+  {
+    "id": 1003,
+    "title": "Coal",
+    "stats": {
+      "damage": 0,
+      "range": 0
+    },
+    "description": "Coal",
+    "stackable": true,
+    "itemtype": "resource",
+    "slug": "coal"
+  },
+  {
+    "id": 1004,
+    "title": "Steel",
+    "stats": {
+      "damage": 0,
+      "range": 0
+    },
+    "description": "Steel",
+    "stackable": true,
+    "itemtype": "resource",
+    "slug": "steel"
+  },
+  {
+    "id": 1005,
+    "title": "Gunpowder",
+    "stats": {
+      "damage": 0,
+      "range": 0
+    },
+    "description": "boom",
+    "stackable": true,
+    "itemtype": "resource",
+    "slug": "gunpowder"
+  },
+  {
+    "id": 1006,
+    "title": "Carbon Fiber",
+    "stats": {
+      "damage": 0,
+      "range": 0
+    },
+    "description": "Carbon Fiber, used for crafting in a 3d printer",
+    "stackable": true,
+    "itemtype": "resource",
+    "slug": "carbon_fiber"
+  },
+  {
+    "id": 1007,
+    "title": "Explosives",
+    "stats": {
+      "damage": 0,
+      "range": 0
+    },
+    "description": "Boom",
+    "stackable": true,
+    "itemtype": "resource",
+    "slug": "explosives"
+  },
+  {
+    "id": 1008,
+    "title": "Alien Fuel",
+    "stats": {
+      "damage": 0,
+      "range": 0
+    },
+    "description": "Alien Fuel",
+    "stackable": true,
+    "itemtype": "resource",
+    "slug": "alien_fuel"
+  },
+  {
+    "id": 1009,
+    "title": "Alien Composites",
+    "stats": {
+      "damage": 0,
+      "range": 0
+    },
+    "description": "Alien Composites",
+    "stackable": true,
+    "itemtype": "resource",
+    "slug": "alien_composites"
+  },
+  {
+    "id": 1010,
+    "title": "Alien Computer Chip",
+    "stats": {
+      "damage": 0,
+      "range": 0
+    },
+    "description": "Alien Computer Chip",
+    "stackable": true,
+    "itemtype": "resource",
+    "slug": "alien_computer_chip"
+  },
+  {
+    "id": 0,
+    "title": "Rock",
+    "stats": {
+      "damage": 2,
+      "range": 0
+    },
+    "description": "A beautifull rock",
     "stackable": false,
-    "rarety": 2,
-    "slug": "steel_gloves"
+    "itemtype": "weapon",
+    "slug": "beginner_rock"
   },
   {
     "id": 1,
-    "title": "The Great Stick",
-    "value": 543,
+    "title": "Med Kit",
     "stats": {
-      "power": 10,
-      "defence": 4,
-      "vitality": 2
+      "damage": 0,
+      "range": 0
     },
-    "description": "A stick that is great",
-    "stackable": true,
-    "rarety": 6,
-    "slug": "the_great_stick"
+    "description": "A med kit used for healing",
+    "stackable": false,
+    "itemtype": "resource",
+    "slug": "beginner_stone"
   },
   {
     "id": 2,
-    "title": "The Great Red Box",
-    "value": 420,
+    "title": "Red Box",
     "stats": {
-      "power": 10,
-      "defence": 4,
-      "vitality": 2
+      "damage": 0,
+      "range": 0
     },
-    "description": "An Epic Box that is red",
+    "description": "A red box",
     "stackable": true,
-    "rarety": 1,
-    "slug": "great_red_box"
+    "itemtype": "resource",
+    "slug": "a_red_box"
+  },
+  {
+    "id": 3,
+    "title": "Catapult",
+    "stats": {
+      "damage": 1,
+      "range": 3
+    },
+    "description": "Launches pebbles of 90 grams over 3 meters",
+    "stackable": false,
+    "itemtype": "weapon",
+    "slug": "catapult"
+  },
+  {
+    "id": 4,
+    "title": "Spear",
+    "stats": {
+      "damage": 4,
+      "range": 0
+    },
+    "description": "Stab them with the pointy end",
+    "stackable": false,
+    "itemtype": "weapon",
+    "slug": "spear"
+  },
+  {
+    "id": 5,
+    "title": "Pebbles",
+    "stats": {
+      "damage": 0,
+      "range": 0
+    },
+    "description": "Ammo for your catapult",
+    "stackable": true,
+    "itemtype": "ammo",
+    "slug": "pebbles"
+  },
+  {
+    "id": 6,
+    "title": "Bow",
+    "stats": {
+      "damage": 2,
+      "range": 0
+    },
+    "description": "A beautifull bow",
+    "stackable": false,
+    "itemtype": "weapon",
+    "slug": "bow"
+  },
+  {
+    "id": 7,
+    "title": "Stone tip arrows",
+    "stats": {
+      "damage": 0,
+      "range": 0
+    },
+    "description": "Ammo for your bow",
+    "stackable": true,
+    "itemtype": "ammo",
+    "slug": "arrow"
+  },
+  {
+    "id": 8,
+    "title": "Furnace Blower",
+    "stats": {
+      "damage": 0,
+      "range": 0
+    },
+    "description": "Needed to make use of a furnance and anvil",
+    "stackable": false,
+    "itemtype": "resource",
+    "slug": "furnace_blower"
+  },
+  {
+    "id": 9,
+    "title": "Halbert",
+    "stats": {
+      "damage": 6,
+      "range": 0
+    },
+    "description": "A spear and an axe combined!",
+    "stackable": false,
+    "itemtype": "weapon",
+    "slug": "halbert"
+  },
+  {
+    "id": 10,
+    "title": "3 Bolt Crossbow",
+    "stats": {
+      "damage": 2,
+      "range": 0
+    },
+    "description": "Medieval shotgun?",
+    "stackable": false,
+    "itemtype": "weapon",
+    "slug": "three_bolt_shotgun"
+  },
+  {
+    "id": 11,
+    "title": "Bolts",
+    "stats": {
+      "damage": 0,
+      "range": 0
+    },
+    "description": "Pointy sticks, used as ammo for your crossbow.",
+    "stackable": true,
+    "itemtype": "ammo",
+    "slug": "bolts"
+  },
+  {
+    "id": 14,
+    "title": "Cogg",
+    "stats": {
+      "damage": 0,
+      "range": 0
+    },
+    "description": "A cogg needed to make use of the factory chain belt.",
+    "stackable": false,
+    "itemtype": "resource",
+    "slug": "cogg"
+  },
+  {
+    "id": 15,
+    "title": "Machete",
+    "stats": {
+      "damage": 8,
+      "range": 0
+    },
+    "description": "Rambo's favorite stabby thing",
+    "stackable": false,
+    "itemtype": "weapon",
+    "slug": "machete"
+  },
+  {
+    "id": 16,
+    "title": "Revolver",
+    "stats": {
+      "damage": 5,
+      "range": 0
+    },
+    "description": "Shoots bullets",
+    "stackable": false,
+    "itemtype": "weapon",
+    "slug": "revolver"
+  },
+  {
+    "id": 17,
+    "title": "Revolver Ammo",
+    "stats": {
+      "damage": 0,
+      "range": 0
+    },
+    "description": "Ammo for your revolver.",
+    "stackable": true,
+    "itemtype": "ammo",
+    "slug": "revolver_ammo"
+  },
+  {
+    "id": 18,
+    "title": "2 Gauge Shotgun",
+    "stats": {
+      "damage": 10,
+      "range": 0
+    },
+    "description": "2 Gauge Shotgun",
+    "stackable": false,
+    "itemtype": "weapon",
+    "slug": "shotgun"
+  },
+  {
+    "id": 19,
+    "title": "Shotgun Ammo",
+    "stats": {
+      "damage": 0,
+      "range": 0
+    },
+    "description": "Ammo for your shotgun.",
+    "stackable": true,
+    "itemtype": "ammo",
+    "slug": "shotgun_ammo"
+  },
+  {
+    "id": 20,
+    "title": "Computer Chip",
+    "stats": {
+      "damage": 0,
+      "range": 0
+    },
+    "description": "Computer Chip, this is needed for using the 3D printer",
+    "stackable": false,
+    "itemtype": "resource",
+    "slug": "computer_chip"
+  },
+  {
+    "id": 21,
+    "title": "ChainSaw",
+    "stats": {
+      "damage": 10,
+      "range": 0
+    },
+    "description": "Not for chopping wood",
+    "stackable": false,
+    "itemtype": "weapon",
+    "slug": "chainsaw"
+  },
+  {
+    "id": 22,
+    "title": "Desert Eagle",
+    "stats": {
+      "damage": 8,
+      "range": 0
+    },
+    "description": "Beautifull hand gun.",
+    "stackable": false,
+    "itemtype": "weapon",
+    "slug": "desert_eagle"
+  },
+  {
+    "id": 23,
+    "title": "Desert Eagle Ammo",
+    "stats": {
+      "damage": 0,
+      "range": 0
+    },
+    "description": "Ammo for your desert eagle.",
+    "stackable": true,
+    "itemtype": "ammo",
+    "slug": "desert_eagle_ammo"
+  },
+  {
+    "id": 24,
+    "title": "Semi-Automatic Shotgun",
+    "stats": {
+      "damage": 8,
+      "range": 0
+    },
+    "description": "Yep, it is a semi automatic shotgun.",
+    "stackable": false,
+    "itemtype": "weapon",
+    "slug": "semi_auto_shotgun"
+  },
+  {
+    "id": 25,
+    "title": "Semi-Automatic Shotgun Ammo",
+    "stats": {
+      "damage": 0,
+      "range": 0
+    },
+    "description": "Ammo for your semi automatic shotgun.",
+    "stackable": true,
+    "itemtype": "ammo",
+    "slug": "semi_auto_shotgun_ammo"
+  },
+  {
+    "id": 26,
+    "title": "M14",
+    "stats": {
+      "damage": 6,
+      "range": 0
+    },
+    "description": "Just an M14.",
+    "stackable": false,
+    "itemtype": "weapon",
+    "slug": "m14"
+  },
+  {
+    "id": 27,
+    "title": "M14 Ammo",
+    "stats": {
+      "damage": 0,
+      "range": 0
+    },
+    "description": "Ammo for your M14.",
+    "stackable": true,
+    "itemtype": "resource",
+    "slug": "m14_ammo"
+  },
+  {
+    "id": 28,
+    "title": "Grenade Launcher",
+    "stats": {
+      "damage": 30,
+      "range": 0
+    },
+    "description": "Launches boom stuff",
+    "stackable": false,
+    "itemtype": "weapon",
+    "slug": "grenade_launcher"
+  },
+  {
+    "id": 29,
+    "title": "Grenades",
+    "stats": {
+      "damage": 0,
+      "range": 0
+    },
+    "description": "Ammo for your grenade launcher.",
+    "stackable": true,
+    "itemtype": "ammo",
+    "slug": "grenades"
+  },
+  {
+    "id": 30,
+    "title": "13Aerj&*/**?/&@",
+    "stats": {
+      "damage": 0,
+      "range": 0
+    },
+    "description": "Might have something to do with the weird alien machine",
+    "stackable": false,
+    "itemtype": "resource",
+    "slug": "weird_alien_machine_part"
+  },
+  {
+    "id": 31,
+    "title": "Plasma Sword",
+    "stats": {
+      "damage": 20,
+      "range": 0
+    },
+    "description": "It's a sword made of plasma.",
+    "stackable": false,
+    "itemtype": "weapon",
+    "slug": "plasma_sword"
+  },
+  {
+    "id": 32,
+    "title": "Alien Rifle",
+    "stats": {
+      "damage": 20,
+      "range": 0
+    },
+    "description": "It's a rifle but alien.",
+    "stackable": false,
+    "itemtype": "weapon",
+    "slug": "alien_rifle"
+  },
+  {
+    "id": 33,
+    "title": "Alien Shotun",
+    "stats": {
+      "damage": 26,
+      "range": 0
+    },
+    "description": "It's a shotgun but alien.",
+    "stackable": false,
+    "itemtype": "weapon",
+    "slug": "alien_shotgun"
+  },
+  {
+    "id": 34,
+    "title": "Alien Ammo",
+    "stats": {
+      "damage": 0,
+      "range": 0
+    },
+    "description": "Stuff for alien guns.",
+    "stackable": false,
+    "itemtype": "resource",
+    "slug": "alien_ammo"
   }
 ]

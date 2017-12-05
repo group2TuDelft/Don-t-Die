@@ -18,7 +18,6 @@ public class ItemDatabase : MonoBehaviour {
         // Json mapper allows you to covnert data to json format and vice versa
 		itemData = JsonMapper.ToObject(File.ReadAllText(Application.dataPath + "/StreamingAssets/Items.json"));
         ConstructItemDatabase();
-        Debug.Log(FetchItemByID(0).Description);
 	}
 
     public Item FetchItemByID(int id)
@@ -40,9 +39,9 @@ public class ItemDatabase : MonoBehaviour {
     {
         for (int i = 0; i < itemData.Count; i++)
         {
-            dataBase.Add(new Item((int)itemData[i]["id"], (string)itemData[i]["title"], (int)itemData[i]["value"],
-                (int)itemData[i]["stats"]["power"], (int)itemData[i]["stats"]["defence"], (int)itemData[i]["stats"]["vitality"],
-                itemData[i]["description"].ToString(), (bool)itemData[i]["stackable"], (int)itemData[i]["rarety"],
+            dataBase.Add(new Item((int)itemData[i]["id"], (string)itemData[i]["title"],
+                (int)itemData[i]["stats"]["damage"], (int)itemData[i]["stats"]["range"],
+                itemData[i]["description"].ToString(), (bool)itemData[i]["stackable"], itemData[i]["itemtype"].ToString(),
                 itemData[i]["slug"].ToString()));
         }
     }
@@ -53,28 +52,24 @@ public class Item
 {
     public int ID { get; set; }
     public string Title { get; set; }
-    public int Value { get; set; }
-    public int Power { get; set; }
-    public int Defence { get; set; }
-    public int Vitality { get; set; }
+    public int Damage { get; set; }
+    public int Range { get; set; }
     public string Description { get; set; }
     public bool Stackable { get; set; }
-    public int Rarity { get; set; }
+    public string ItemType { get; set; }
     public string Slug { get; set; }
     public Sprite Sprite { get; set; }
 
     // this handle the actual storing the values of an item.
-    public Item(int id, string title, int value, int power, int defence, int vitality, string description, bool stackable, int rarity, string slug )
+    public Item(int id, string title, int damage, int range, string description, bool stackable, string itemtype, string slug )
     {
         this.ID = id;
         this.Title = title;
-        this.Value = value;
-        this.Power = power;
-        this.Defence = defence;
-        this.Vitality = vitality;
+        this.Damage = damage;
+        this.Range = range;
         this.Description = description;
         this.Stackable = stackable;
-        this.Rarity = rarity;
+        this.ItemType = itemtype;
         this.Slug = slug;
         this.Sprite = Resources.Load<Sprite>("Sprites/Items/" + slug);
     }

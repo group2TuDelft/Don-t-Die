@@ -24,7 +24,6 @@ public class itemData : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDrag
     {
         if (item != null)
         {
-            Debug.Log("bebug");
             // rendering order shizzle
             // Sets position of the item to the mouse pointer
             this.transform.SetParent(this.transform.parent.parent.parent.parent); 
@@ -48,8 +47,8 @@ public class itemData : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDrag
     public void OnEndDrag(PointerEventData eventData)
     {
         // Set the item to the right slot position, either back to its old one or to the new one it found.
+        GetComponent<CanvasGroup>().blocksRaycasts = true;
         this.transform.SetParent(inv.slots[slotid].transform);
         this.transform.position = inv.slots[slotid].transform.position;
-        GetComponent<CanvasGroup>().blocksRaycasts = true;
     }
 }

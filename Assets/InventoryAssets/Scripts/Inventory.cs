@@ -6,14 +6,12 @@ using UnityEngine.UI;
 // This script will be used to couple the inventory database to the UI and make it visable in game.
 public class Inventory : MonoBehaviour
 {
-
-    // Required UI objects
+    // Required UI objects - Inventory
     GameObject inventoryPanel;
     GameObject WeaponSlotPanel;
     GameObject InventorySlotPanel;
 
-    // Temporary UI elements:
-    // Chest objects/vars/int etc
+    // Required UI objects - Chest/Storage:
     public GameObject ChestPanel;
 
     ItemDatabase database;
@@ -22,8 +20,9 @@ public class Inventory : MonoBehaviour
     public GameObject inventorySlot;
     public GameObject inventoryItem;
 
+    // Slot Amounts
     private int weaponSlotAmount;
-    public int chestSlotAmount;
+    private int chestSlotAmount;
     private int inventorySlotAmount;
 
     public List<Item> items = new List<Item>();
@@ -58,15 +57,20 @@ public class Inventory : MonoBehaviour
             slots[j + weaponSlotAmount].transform.SetParent(InventorySlotPanel.transform);
         }
 
-        // 
-        //InitializeChest();
-
         // Adding Initial Items.
         AddItem(0);
-        AddItem(1);
-        AddItem(1);
-        AddItem(1);
-        AddItem(1);
+        AddItem(2);
+        AddItem(2);
+        AddItem(2);
+        AddItem(2);
+        AddItem(1000);
+        AddItem(1000);
+        AddItem(1000);
+        AddItem(1000);
+        AddItem(1001);
+        AddItem(1001);  
+        AddItem(1002);
+        AddItem(1003);
     }
 
     // function used to add an item
@@ -121,6 +125,36 @@ public class Inventory : MonoBehaviour
 
     }
 
+    public void DeleteItem (int id, int amount)
+    {
+        Item itemToDel = database.FetchItemByID(id);
+
+        if (CheckItemInInventory(itemToDel))
+        {
+            for (int i = 0; i < items.Count; i++)
+            {
+                if (items[i].ID == id)
+                {
+                    itemData data = slots[i].transform.GetChild(0).GetComponent<itemData>();
+                    data.amount = data.amount - amount;
+
+                    if (data.amount == 0)
+                    {
+
+                        items.Remove(items[i]);
+                        items.Insert(i, new Item());
+                        
+                        DestroyImmediate(slots[i].transform.GetChild(0).gameObject);
+                    }
+                    else
+                    { 
+                    data.transform.GetChild(0).GetComponent<Text>().text = data.amount.ToString();
+                    }
+                }
+            }
+        }
+    }
+
     // Function that checks if an item is in the inventory.
     bool CheckItemInInventory(Item item)
     {
@@ -134,24 +168,32 @@ public class Inventory : MonoBehaviour
         return false;
     }
 
+    // Chest Initialization: ///////////////////////////////////////////////////////
+    // This function creates any storage panel and destroys it upon opening     ////
+    // and closing. The chests themself will contain data about their inventory ////
+    // This will be loaded in upon opening them.                                ////
+    ////////////////////////////////////////////////////////////////////////////////
+
     public void InitializeChest(GameObject chest)
     {
-        // Chest Initialization: //////////////////////////////////////////////
 
         chestSlotAmount = 8;
         
-        // Initialize Slots
         for (int j = 0; j < chestSlotAmount; j++)
-        {
+        {   
+            // Initialize Slots
             items.Add(new Item());
             slots.Add(Instantiate(inventorySlot));
             slots[j + weaponSlotAmount + inventorySlotAmount].GetComponent<inventorySlot>().id = j + weaponSlotAmount + inventorySlotAmount;
             slots[j + weaponSlotAmount + inventorySlotAmount].transform.SetParent(ChestPanel.transform);
+            
+            // Load items from list in chestStorage
             items[j + weaponSlotAmount + inventorySlotAmount] = chest.GetComponent<ChestStorage>().itemsInChest[j];
 
+            // Set Correct Amount
             if (items[j + weaponSlotAmount + inventorySlotAmount].ID != -1) { 
 
-            // Draw Items
+            // Draw Items if there are any
             GameObject itemObj = Instantiate(inventoryItem);
             itemObj.GetComponent<itemData>().item = items[j + weaponSlotAmount + inventorySlotAmount];
             itemObj.GetComponent<itemData>().slotid = j + weaponSlotAmount + inventorySlotAmount;
@@ -159,18 +201,29 @@ public class Inventory : MonoBehaviour
             itemObj.transform.position = slots[j + weaponSlotAmount + inventorySlotAmount].transform.position;
             itemObj.GetComponent<Image>().sprite = items[j + weaponSlotAmount + inventorySlotAmount].Sprite;
             itemObj.name = items[j + weaponSlotAmount + inventorySlotAmount].Title;
-
+            
+            // Loads and displays the amount of the items
+            itemData data = slots[j + weaponSlotAmount + inventorySlotAmount].transform.GetChild(0).GetComponent<itemData>();
+            data.amount = chest.GetComponent<ChestStorage>().amountInChest[j];
+                if (data.amount > 1) { 
+                data.transform.GetChild(0).GetComponent<Text>().text = data.amount.ToString();
+                }
             }
         }
-
-        ////////////////////////////////////////////////////////////////////////
     }
 
+    // Stores All the changes made to the chest slots into the chest data and destroys the chestUI.
     public void SaveChest(GameObject chest)
     {
         for (int j = 0; j < chestSlotAmount; j++)
         {
             chest.GetComponent<ChestStorage>().itemsInChest[j] = items[j + weaponSlotAmount + inventorySlotAmount];
+
+            if (items[j + weaponSlotAmount + inventorySlotAmount].ID != -1)
+            {
+                itemData data = slots[j + weaponSlotAmount + inventorySlotAmount].transform.GetChild(0).GetComponent<itemData>();
+                chest.GetComponent<ChestStorage>().amountInChest[j] = data.amount;
+            }
         }
 
         for (int j = 0; j < chestSlotAmount; j++)
