@@ -15,7 +15,7 @@ public class PlayerHealth : MonoBehaviour
 	Image heart50;
 	Image heart25;
 	Animator anim;
-	//Slider healthSlider;
+	Slider healthSlider;
 	PlayerMovement playerMovement;
 	PlayerShooting playerShooting;
 	bool isDead;
@@ -30,7 +30,7 @@ public class PlayerHealth : MonoBehaviour
 		heart75 = GameObject.Find("Heart75").GetComponent<UnityEngine.UI.Image>();
 		heart50 = GameObject.Find("Heart50").GetComponent<UnityEngine.UI.Image>();
 		heart25 = GameObject.Find("Heart25").GetComponent<UnityEngine.UI.Image>();
-		//healthSlider = GameObject.Find ("HealthSlider").GetComponent<UnityEngine.UI.Slider>();
+		healthSlider = GameObject.Find ("HealthSlider").GetComponent<UnityEngine.UI.Slider>();
 		playerMovement = GetComponent<PlayerMovement> ();
 		playerShooting = GetComponentInChildren<PlayerShooting> ();
 		anim = GetComponent<Animator> ();
@@ -41,7 +41,7 @@ public class PlayerHealth : MonoBehaviour
 
     void Update ()
     {
-
+		
     }
 
 
@@ -62,7 +62,8 @@ public class PlayerHealth : MonoBehaviour
 		} else if (isDead) {
 			heart25.enabled = false;
 		}
-		//healthSlider.value = currentHealth;
+
+		healthSlider.value = currentHealth;
 
 		if (currentHealth <= 0 && !isDead) {
 			Die ();
