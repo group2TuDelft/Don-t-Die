@@ -86,7 +86,7 @@ public class PlayerShooting : MonoBehaviour
     }
 
 
-	void Fire()
+	void Fire ()
 	{
 		// Create the Bullet from the Bullet Prefab
 		var bullet = (GameObject)Instantiate(

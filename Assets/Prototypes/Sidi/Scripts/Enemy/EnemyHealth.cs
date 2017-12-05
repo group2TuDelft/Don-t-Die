@@ -55,6 +55,7 @@ public class EnemyHealth : MonoBehaviour
 	void OnTriggerEnter( Collider other){
 		if (other.tag == "Bullet") {
 			currentHealth -= 30;
+			other.GetComponent<Renderer> ().enabled = false;
 		}
 
 		if (currentHealth <= 0) {
