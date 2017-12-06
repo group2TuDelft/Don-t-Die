@@ -6,7 +6,8 @@ public class worldInteraction : MonoBehaviour
 {
 
     //
-    public GameObject ChestPanel;
+
+    [SerializeField] GameObject ChestPanel;
     private GameObject ActiveChest;
     private Inventory inv;
     private Crafting craftingWindows;

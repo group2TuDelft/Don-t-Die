@@ -14,18 +14,18 @@ public class craftingButton : MonoBehaviour {
     private List<int> locations = new List<int>(new int[11]);
     ItemDatabase database;
     //
-    public int AmountMade;
-    public int woodCost;
-    public int stoneCost;
-    public int ironCost;
-    public int coalCost;
-    public int steelCost;
-    public int gunpowderCost;
-    public int carbonFiberCost;
-    public int explosivesCost;
-    public int alienFuelCost;
-    public int alienCompositesCost;
-    public int alienComputerChipCost;
+    [SerializeField] int AmountMade;
+    [SerializeField] int woodCost;
+    [SerializeField] int stoneCost;
+    [SerializeField] int ironCost;
+    [SerializeField] int coalCost;
+    [SerializeField] int steelCost;
+    [SerializeField] int gunpowderCost;
+    [SerializeField] int carbonFiberCost;
+    [SerializeField] int explosivesCost;
+    [SerializeField] int alienFuelCost;
+    [SerializeField] int alienCompositesCost;
+    [SerializeField] int alienComputerChipCost;
     //
     private bool yayorneigh;
     
@@ -105,8 +105,7 @@ public class craftingButton : MonoBehaviour {
         }
 
         // Create the item
-        inv.AddItem(id);
-        for (int i = 0; i < AmountMade - 1; i++) {
+        for (int i = 0; i < AmountMade; i++) {
             inv.AddItem(id);
         }
     }

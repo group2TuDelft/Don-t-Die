@@ -12,13 +12,13 @@ public class Inventory : MonoBehaviour
     GameObject InventorySlotPanel;
 
     // Required UI objects - Chest/Storage:
-    public GameObject ChestPanel;
+    [SerializeField] GameObject ChestPanel;
 
     ItemDatabase database;
 
     // Universal inventory item and slots
-    public GameObject inventorySlot;
-    public GameObject inventoryItem;
+    [SerializeField] GameObject inventorySlot;
+    [SerializeField] GameObject inventoryItem;
 
     // Slot Amounts
     private int weaponSlotAmount;

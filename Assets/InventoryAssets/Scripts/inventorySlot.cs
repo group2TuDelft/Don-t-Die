@@ -34,7 +34,6 @@ public class inventorySlot : MonoBehaviour, IDropHandler {
         // Takes care of the case of there already being an item in the inventory slot.
         else
         {
-            if (this.transform.GetChild(0) != null) { 
             // Get Item to be replaced to the old location of the dropped object
             Transform item = this.transform.GetChild(0);                              // Get old item
             item.GetComponent<itemData>().slotid = droppedItem.slotid;                // Set slot id to new id
@@ -49,7 +48,6 @@ public class inventorySlot : MonoBehaviour, IDropHandler {
             droppedItem.slotid = id;
             droppedItem.transform.SetParent(this.transform);
             droppedItem.transform.position = this.transform.position;
-            }
         }
     }
 
