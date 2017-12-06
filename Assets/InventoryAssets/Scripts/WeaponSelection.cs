@@ -14,7 +14,6 @@ public class WeaponSelection : MonoBehaviour {
     // visable slider located over the slots
     [SerializeField] GameObject Slider;
     private int activeSlotId = 0;
-    private int activeWeapon = -1;
 
     IEnumerator Start()
     {
@@ -48,9 +47,6 @@ public class WeaponSelection : MonoBehaviour {
     {
         // Behind the scenes
         activeSlotId = key - 1;
-        activeWeapon = inv.items[activeSlotId].ID;
-
-        Debug.Log(activeWeapon);
 
         // Visual
         Slider.transform.position  = inv.slots[activeSlotId].transform.position;
@@ -58,7 +54,7 @@ public class WeaponSelection : MonoBehaviour {
 
     public int GetWeaponID ()
     {
-        return activeWeapon;
+        return inv.items[activeSlotId].ID;
     }
 
 }
