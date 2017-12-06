@@ -10,7 +10,7 @@ public class PlayerHealth : MonoBehaviour
 
 
 
-	Animator anim;
+	//Animator anim;
 	Slider healthSlider;
 	PlayerMovement playerMovement;
 	PlayerShooting playerShooting;
@@ -27,7 +27,7 @@ public class PlayerHealth : MonoBehaviour
 		healthSlider = GameObject.Find ("HealthSlider").GetComponent<UnityEngine.UI.Slider>();
 		playerMovement = GetComponent<PlayerMovement> ();
 		playerShooting = GetComponentInChildren<PlayerShooting> ();
-		anim = GetComponent<Animator> ();
+		//anim = GetComponent<Animator> ();
 		currentHealth = startingHealth;
 
     }
@@ -67,9 +67,6 @@ public class PlayerHealth : MonoBehaviour
     void Die ()
     {
 		isDead = true;
-
-		anim.SetTrigger ("Die");
-
 
 		playerShooting.DisableEffects ();
 		playerMovement.enabled = false;

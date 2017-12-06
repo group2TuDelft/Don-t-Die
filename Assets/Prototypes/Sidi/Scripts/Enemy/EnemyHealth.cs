@@ -13,7 +13,7 @@ public class EnemyHealth : MonoBehaviour
 	public int startingHealth = 100;
 	public int currentHealth;
 
-	Animator anim;
+	//Animator anim;
 	AudioSource enemyAudio;
 	CapsuleCollider capsuleCollider;
 
@@ -23,7 +23,7 @@ public class EnemyHealth : MonoBehaviour
 
     void Awake ()
     {
-		anim = GetComponent<Animator> ();
+		//anim = GetComponent<Animator> ();
 		enemyAudio = GetComponent<AudioSource> ();
 		capsuleCollider = GetComponent<CapsuleCollider> ();
 
@@ -56,8 +56,6 @@ public class EnemyHealth : MonoBehaviour
 		isDead = true;
 
 		capsuleCollider.isTrigger = true;
-
-		anim.SetTrigger ("Die");
 	
 		ScoreManager.score += scoreValue;
 		StartSinking ();
