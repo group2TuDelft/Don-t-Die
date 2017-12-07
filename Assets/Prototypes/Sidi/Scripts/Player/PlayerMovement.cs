@@ -5,13 +5,16 @@ public class PlayerMovement : MonoBehaviour
 	public float speed = 10f;
 	public float smoothing = 5f;
 
-	Vector3 movement_v;
-	Vector3 movement_h;
+	Vector3 movement;
 	Animator anim;
 	CharacterController controller;
 	Rigidbody playerRigidbody;
 	int floorMask;
 	float camRayLength = 100f;
+	float h;
+	float v;
+	bool direction;
+	 
 
 	void Awake()
 	{
@@ -24,28 +27,35 @@ public class PlayerMovement : MonoBehaviour
 	void Update()
 	{
 		SetAnimation ();
+		h = Input.GetAxisRaw ("Horizontal");
+		v = Input.GetAxisRaw ("Vertical");
 	}
-
+		
 	void FixedUpdate()
 	{
-		float h = Input.GetAxis ("Horizontal");
-		float v = Input.GetAxis ("Vertical");
 
-		Move (h, v);
+		Move ();
 
 		Turn ();
 
 	}
 
-	void Move(float h, float v)
+	void Move()
 	{
-		//movement.Set (h, 0f, v);
-
-		movement_v= transform.forward * v * speed * Time.deltaTime;
-
-		playerRigidbody.MovePosition (playerRigidbody.position + movement_v);
-
-	
+		if(Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.S)){
+			direction = true;
+		}
+		if(Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.D)){
+			direction = false;
+		}
+		if (direction == true) {
+			movement = transform.forward * v * speed * Time.deltaTime;
+			playerRigidbody.MovePosition (playerRigidbody.position + movement);
+		} else {
+			movement.Set(h,0f,0f);
+			movement *= speed * Time.deltaTime;
+			playerRigidbody.transform.Translate (movement);
+		}
 	}
 
 	void Turn()
@@ -64,7 +74,7 @@ public class PlayerMovement : MonoBehaviour
 		}
 	}
 	void SetAnimation () {
-		if (Input.GetKey ("up")) {
+		if (Input.GetKey (KeyCode.W)) {
 			if (Input.GetKey (KeyCode.LeftControl)) {
 				anim.SetBool ("AnimRun", true);
 			} else {

@@ -1,8 +1,0 @@
-﻿# Icons: FontAwesome - Release notes
-
-## 1.1.0 - 29.11.2017
-* Demo scene largely improved
-* Editor scripts added
-
-## 1.0.0 - 06.11.2017
-* Production release
