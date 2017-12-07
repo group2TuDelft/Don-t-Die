@@ -5,17 +5,19 @@ using UnityEngine;
 //
 using UnityEngine.EventSystems;
 
-public class itemData : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler {
+public class itemData : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler, IPointerEnterHandler, IPointerExitHandler {
 
     public Item item;
     public int amount;
     public int slotid;
     
     private Inventory inv;
+    private DisplayInfo disp;
 
     void Start()
     {
         inv = GameObject.Find("Inventory").GetComponent<Inventory>();
+        disp = GameObject.Find("Inventory").GetComponent<DisplayInfo>();
     }
 
     // Drag an drop functions : 
@@ -50,5 +52,15 @@ public class itemData : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDrag
         GetComponent<CanvasGroup>().blocksRaycasts = true;
         this.transform.SetParent(inv.slots[slotid].transform);
         this.transform.position = inv.slots[slotid].transform.position;
+    }
+
+    public void OnPointerEnter(PointerEventData eventData)
+    {
+        disp.DisplayTextStart(item);
+    }
+
+    public void OnPointerExit(PointerEventData eventData)
+    {
+        disp.DisplayTextEnd(item);
     }
 }
