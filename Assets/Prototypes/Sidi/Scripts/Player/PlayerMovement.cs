@@ -2,7 +2,8 @@
 
 public class PlayerMovement : MonoBehaviour
 {
-	public float speed = 1000f;
+	public float speed = 10f;
+	public float smoothing = 5f;
 
 	Vector3 movement;
 	Animator anim;
@@ -26,8 +27,8 @@ public class PlayerMovement : MonoBehaviour
 
 	void FixedUpdate()
 	{
-		float h = Input.GetAxisRaw ("Horizontal");
-		float v = Input.GetAxisRaw ("Vertical");
+		float h = Input.GetAxis ("Horizontal");
+		float v = Input.GetAxis ("Vertical");
 
 		Move (h, v);
 
@@ -37,9 +38,11 @@ public class PlayerMovement : MonoBehaviour
 
 	void Move(float h, float v)
 	{
-		movement.Set (h, 0f, v);
-		movement = movement.normalized * speed * Time.deltaTime;
-		playerRigidbody.MovePosition (transform.forward + movement);
+		//movement.Set (h, 0f, v);
+		movement = transform.forward*v* speed * Time.deltaTime;
+		playerRigidbody.MovePosition (playerRigidbody.position + movement);
+
+	
 	}
 
 	void Turn()
