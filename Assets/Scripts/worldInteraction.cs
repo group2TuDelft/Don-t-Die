@@ -6,30 +6,25 @@ public class worldInteraction : MonoBehaviour
 {
 
     //
-    public GameObject ChestPanel;
 
+    [SerializeField] GameObject ChestPanel;
+    private GameObject ActiveChest;
     private Inventory inv;
+    private Crafting craftingWindows;
 
     void Start()
     {
         inv = GameObject.Find("Inventory").GetComponent<Inventory>();
+        craftingWindows = inv.GetComponent<Crafting>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        // Left Click Interactions
         if (Input.GetMouseButtonDown(0) && !UnityEngine.EventSystems.EventSystem.current.IsPointerOverGameObject())
         {
             GetInteraction();
         }
-
-        if (Input.GetKeyDown(KeyCode.Escape))
-        {
-            GetEscInteraction();
-        }
-
-
     }
 
     // This sends out a ray from the camera to the pointer until it potentially hits a gameObject and returns which object it hit.
@@ -45,36 +40,26 @@ public class worldInteraction : MonoBehaviour
             {
                 interactedObject.SetActive(false);
                 inv.AddItem(2);
-                Debug.Log ("Picked Up Red Box");
             }
-            if (interactedObject.tag == "White Cilinder")
+            if (interactedObject.tag == "WorkBench")
             {
-                interactedObject.SetActive(false);
-                inv.AddItem(3);
+                craftingWindows.ActivateWorkBench();
             }
             if (interactedObject.tag == "Chest")
             {
-                Debug.Log("Clicked Chest");
-
                 if (ChestPanel.activeSelf == true)
                 {
+                    inv.SaveChest(ActiveChest);
                     ChestPanel.gameObject.SetActive(false);
                 }
                 else
                 {
+                    ActiveChest = interactedObject;
                     ChestPanel.gameObject.SetActive(true);
+                    inv.InitializeChest(interactedObject);
                 }
 
             }
         }
     }
-
-    private void GetEscInteraction()
-    {
-        if (ChestPanel.activeSelf == true)
-        {
-            ChestPanel.gameObject.SetActive(false);
-        }
-    }
-
 }

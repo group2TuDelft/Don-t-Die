@@ -21,8 +21,6 @@ public class inventorySlot : MonoBehaviour, IDropHandler {
         // Get all item data
         itemData droppedItem = eventData.pointerDrag.GetComponent<itemData>();
 
-        Debug.Log(id);
-
         // Takes care of the case of the item being dropped on an empty slot.
         if (inv.items[id].ID == -1)
         {
