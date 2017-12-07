@@ -5,7 +5,8 @@ public class PlayerMovement : MonoBehaviour
 	public float speed = 10f;
 	public float smoothing = 5f;
 
-	Vector3 movement;
+	Vector3 movement_v;
+	Vector3 movement_h;
 	Animator anim;
 	CharacterController controller;
 	Rigidbody playerRigidbody;
@@ -39,8 +40,10 @@ public class PlayerMovement : MonoBehaviour
 	void Move(float h, float v)
 	{
 		//movement.Set (h, 0f, v);
-		movement = transform.forward*v* speed * Time.deltaTime;
-		playerRigidbody.MovePosition (playerRigidbody.position + movement);
+
+		movement_v= transform.forward * v * speed * Time.deltaTime;
+
+		playerRigidbody.MovePosition (playerRigidbody.position + movement_v);
 
 	
 	}
