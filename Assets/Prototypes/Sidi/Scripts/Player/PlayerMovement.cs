@@ -2,7 +2,7 @@
 
 public class PlayerMovement : MonoBehaviour
 {
-	public float speed = 10f;
+	public float speed = 8f;
 	public float smoothing = 5f;
 
 	Vector3 movement;
@@ -49,6 +49,11 @@ public class PlayerMovement : MonoBehaviour
 			direction = false;
 		}
 		if (direction == true) {
+			if (v == 1 && Input.GetKey (KeyCode.LeftControl)) {
+				speed = 17;
+			} else {
+				speed = 8;
+			}
 			movement = transform.forward * v * speed * Time.deltaTime;
 			playerRigidbody.MovePosition (playerRigidbody.position + movement);
 		} else {
