@@ -7,7 +7,8 @@ public class worldInteraction : MonoBehaviour
 
     //
 
-    [SerializeField] GameObject ChestPanel;
+    private GameObject ChestPanel;
+    private GameObject Canvas;
     private GameObject ActiveChest;
     private Inventory inv;
     private Crafting craftingWindows;
@@ -15,6 +16,8 @@ public class worldInteraction : MonoBehaviour
     void Start()
     {
         inv = GameObject.Find("Inventory").GetComponent<Inventory>();
+        Canvas = GameObject.Find("MainCanvas");
+        ChestPanel = Canvas.transform.GetChild(1).GetChild(0).gameObject;
         craftingWindows = inv.GetComponent<Crafting>();
     }
 

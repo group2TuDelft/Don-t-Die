@@ -12,13 +12,24 @@ public class WeaponSelection : MonoBehaviour {
 
     private Inventory inv;
     // visable slider located over the slots
-    [SerializeField] GameObject Slider;
+    private GameObject Slider;
     private int activeSlotId = 0;
+    private GameObject Canvas;
 
-    IEnumerator Start()
+    void Start ()
     {
+        Canvas = GameObject.Find("MainCanvas");
         inv = GameObject.Find("Inventory").GetComponent<Inventory>();
-        yield return new WaitForSeconds(1/10);
+        Slider = Canvas.transform.GetChild(0).GetChild(2).gameObject;
+        Slider.transform.position = inv.slots[activeSlotId].transform.position;
+        StartCoroutine("WaitAndTransform");
+    }
+    
+    // This function is needed in order to transform to the first slot panel at the start of the game
+    // This is because the position of the slot isnt defined in time otherwise. 
+    IEnumerator WaitAndTransform()
+    {
+        yield return new WaitForSeconds(1/10f);
         Slider.transform.position = inv.slots[activeSlotId].transform.position;
     }
     

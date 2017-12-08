@@ -7,7 +7,14 @@ using UnityEngine;
 public class DisplayInfo : MonoBehaviour {
 
     // Get the text object
-    [SerializeField] GameObject displaytext;
+    private GameObject displaytext;
+    private GameObject Canvas;
+
+    void Start ()
+    {
+        Canvas = GameObject.Find("MainCanvas");
+        displaytext = Canvas.transform.GetChild(3).GetChild(0).gameObject;
+    }
 
     public void DisplayTextStart(Item item)
     {

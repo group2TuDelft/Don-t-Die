@@ -12,13 +12,14 @@ public class Inventory : MonoBehaviour
     GameObject InventorySlotPanel;
 
     // Required UI objects - Chest/Storage:
-    [SerializeField] GameObject ChestPanel;
+    private GameObject ChestPanel;
+    private GameObject Canvas;
 
     ItemDatabase database;
 
     // Universal inventory item and slots
-    [SerializeField] GameObject inventorySlot;
-    [SerializeField] GameObject inventoryItem;
+    private GameObject inventorySlot;
+    private GameObject inventoryItem;
 
     // Slot Amounts
     private int weaponSlotAmount;
@@ -40,6 +41,10 @@ public class Inventory : MonoBehaviour
         inventoryPanel = GameObject.Find("InventoryPanel");
         WeaponSlotPanel = inventoryPanel.transform.Find("WeaponSlotPanel").gameObject;
         InventorySlotPanel = inventoryPanel.transform.Find("InventorySlotPanel").gameObject;
+        Canvas = GameObject.Find("MainCanvas");
+        ChestPanel = Canvas.transform.GetChild(1).GetChild(0).gameObject;
+        inventoryItem = Resources.Load<GameObject>("Prefabs/ItemSlot/Item");
+        inventorySlot = Resources.Load<GameObject>("Prefabs/ItemSlot/ItemSlot");
         // Initializes the first 4 inventory Slots.
         for (int i = 0; i < weaponSlotAmount; i++)
         {
