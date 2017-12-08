@@ -5,6 +5,8 @@ public class PlayerMovement : MonoBehaviour
 	public float speed = 8f;
 	public float smoothing = 5f;
 
+	[SerializeField] Camera mainCamera;
+	[SerializeField] Camera FPC;
 	Vector3 movement;
 	Animator anim;
 	CharacterController controller;
@@ -13,6 +15,8 @@ public class PlayerMovement : MonoBehaviour
 	float camRayLength = 100f;
 	float h;
 	float v;
+	float mouse_x;
+	float mouse_y;
 	bool direction;
 	 
 
@@ -22,6 +26,7 @@ public class PlayerMovement : MonoBehaviour
 		anim = GetComponent<Animator>();
 		playerRigidbody = GetComponent<Rigidbody>();
 		controller = GetComponent <CharacterController>();
+
 	}
 
 	void Update()
@@ -29,19 +34,29 @@ public class PlayerMovement : MonoBehaviour
 		SetAnimation ();
 		h = Input.GetAxisRaw ("Horizontal");
 		v = Input.GetAxisRaw ("Vertical");
+		mouse_x = Input.GetAxisRaw ("Mouse X");
+		mouse_y = Input.GetAxisRaw ("Mouse Y");
 	}
 		
 	void FixedUpdate()
 	{
-
-		Move ();
-
-		Turn ();
-
+		if (Input.GetKey (KeyCode.X)) {
+			mainCamera.enabled = false;
+			FPC.enabled = true;
+			Vector3 newRotation = transform.localEulerAngles;
+			newRotation.y = transform.localEulerAngles.y + mouse_x;
+			transform.localEulerAngles = newRotation;
+			Move ();
+		} else {
+			mainCamera.enabled = true;
+			FPC.enabled = false;
+			Turn ();
+			Move ();
+		}
 	}
 
 	void Move()
-	{
+	{	
 		if(Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.S)){
 			direction = true;
 		}
