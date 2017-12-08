@@ -93,6 +93,7 @@ public class PlayerMovement : MonoBehaviour
 			playerRigidbody.MoveRotation (newRotation);
 		}
 	}
+
 	void SetAnimation () {
 		if (Input.GetKey (KeyCode.W)) {
 			if (Input.GetKey (KeyCode.LeftControl)) {
