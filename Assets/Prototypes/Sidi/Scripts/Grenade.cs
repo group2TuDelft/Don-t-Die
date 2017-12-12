@@ -26,8 +26,11 @@ public class Grenade : MonoBehaviour {
 	}
 
 	void Explode(){
-		Instantiate (explosionParticle, transform.position, transform.rotation);
+
+		Debug.Log ("I am back");
+		GameObject obj = Instantiate (explosionParticle, transform.position, transform.rotation);
 
 		Destroy (this.gameObject);
+		Destroy (obj, 3f);
 	}
 }
