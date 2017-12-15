@@ -1,6 +1,6 @@
 fileFormatVersion: 2
-guid: df1a823536bee1f46b64b371ba105232
-timeCreated: 1512655894
+guid: 2c5bdac95d8138c448577e0bc21d8442
+timeCreated: 1513337257
 licenseType: Free
 ModelImporter:
   serializedVersion: 22
@@ -54,7 +54,7 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: brick_material
-    second: {fileID: 2100000, guid: 6eb8609bcaa3c824bb225b45e59090d5, type: 2}
+    second: {fileID: 2100000, guid: a2cbd05500bb6fe4db162b5c34f4ad73, type: 2}
   materials:
     importMaterials: 1
     materialName: 0

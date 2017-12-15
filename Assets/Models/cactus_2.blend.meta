@@ -1,6 +1,6 @@
 fileFormatVersion: 2
-guid: df2254f54cf12174fb113aea60b9de78
-timeCreated: 1512655897
+guid: 7a4b9a865ff4c6140bb81857ad9e27a8
+timeCreated: 1513337276
 licenseType: Free
 ModelImporter:
   serializedVersion: 22
@@ -17,7 +17,7 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: cactus_material_
-    second: {fileID: 2100000, guid: a961face8cad8b94fb8d2ed3ca129878, type: 2}
+    second: {fileID: 2100000, guid: 074888fc42e1dfd499322a31b968d0c4, type: 2}
   materials:
     importMaterials: 1
     materialName: 0

@@ -1,6 +1,6 @@
 fileFormatVersion: 2
-guid: 317247b01fe9d4a4d9f4d91d70dbba41
-timeCreated: 1512655829
+guid: 296f6557aa27a164987844f0b67f5d78
+timeCreated: 1513337227
 licenseType: Free
 ModelImporter:
   serializedVersion: 22
@@ -17,12 +17,12 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: bullet_huls
-    second: {fileID: 2100000, guid: ef426416f0ac1e64bba19f421305e050, type: 2}
+    second: {fileID: 2100000, guid: 8b81a4f480c73ee4d827132099073bf4, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: bullet_top
-    second: {fileID: 2100000, guid: 3a3bcc93ad97bcd428a42bdc67ee327d, type: 2}
+    second: {fileID: 2100000, guid: 1fe50e049a89d504b908bca8565674ab, type: 2}
   materials:
     importMaterials: 1
     materialName: 0

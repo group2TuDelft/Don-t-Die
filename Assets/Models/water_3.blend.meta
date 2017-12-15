@@ -1,6 +1,6 @@
 fileFormatVersion: 2
-guid: adc3293cc1655e2449b1e21be569907d
-timeCreated: 1512655848
+guid: d3e70df8e4c85f249aa4ee4f3b945371
+timeCreated: 1513337309
 licenseType: Free
 ModelImporter:
   serializedVersion: 22
@@ -17,7 +17,7 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: water_material_1
-    second: {fileID: 2100000, guid: 4aa24fc53b463af4cbf7bff7ce0d2322, type: 2}
+    second: {fileID: 2100000, guid: 35e9aa7895e325342b77ca2e3dc231ca, type: 2}
   materials:
     importMaterials: 1
     materialName: 0

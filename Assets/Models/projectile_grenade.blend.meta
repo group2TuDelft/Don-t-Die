@@ -1,6 +1,6 @@
 fileFormatVersion: 2
-guid: 3a88b1b7c3b892d4b9d7ee1407089812
-timeCreated: 1512655833
+guid: 08d2b1198271ceb4ea7fd35f1f3021b0
+timeCreated: 1513337222
 licenseType: Free
 ModelImporter:
   serializedVersion: 22
@@ -17,12 +17,12 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: grenade_body
-    second: {fileID: 2100000, guid: 71029cecb712d1449a49477f7fe7d998, type: 2}
+    second: {fileID: 2100000, guid: 66763fcb84c441547819ef95ab2be561, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: grenade_top
-    second: {fileID: 2100000, guid: 2dc45f7b1775adb489d06cb104d62c3d, type: 2}
+    second: {fileID: 2100000, guid: 2511d67a24edafc4d92e5c84b85e3aa6, type: 2}
   materials:
     importMaterials: 1
     materialName: 0

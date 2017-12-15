@@ -1,6 +1,6 @@
 fileFormatVersion: 2
-guid: 3ba85d8d6896bdc4ca68197a1fc69499
-timeCreated: 1512655834
+guid: b47ad1e9739e79345a5847b7329b7528
+timeCreated: 1513337296
 licenseType: Free
 ModelImporter:
   serializedVersion: 22
@@ -17,7 +17,7 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: dessert_rock_material_
-    second: {fileID: 2100000, guid: e22d8929487dcd44c895569f57b30612, type: 2}
+    second: {fileID: 2100000, guid: 80db66b1be057764fb671c5eaafcc313, type: 2}
   materials:
     importMaterials: 1
     materialName: 0

@@ -1,6 +1,6 @@
 fileFormatVersion: 2
-guid: 3991c0076f51d4241876e5f498c917fc
-timeCreated: 1512655831
+guid: 9a0322e5debd44849a7cd7c616368f68
+timeCreated: 1513337285
 licenseType: Free
 ModelImporter:
   serializedVersion: 22
@@ -17,7 +17,7 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: pine_material_2
-    second: {fileID: 2100000, guid: 64d8b6461015392488acdfe207e6952c, type: 2}
+    second: {fileID: 2100000, guid: 5d983ec2907b55a48b8b76a10dcc566b, type: 2}
   materials:
     importMaterials: 1
     materialName: 0

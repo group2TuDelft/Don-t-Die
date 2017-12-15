@@ -1,6 +1,6 @@
 fileFormatVersion: 2
-guid: b97fc1344b7e7dc418537caceef1cf1f
-timeCreated: 1512655855
+guid: 887e602de6419eb45898334b2285d972
+timeCreated: 1513337278
 licenseType: Free
 ModelImporter:
   serializedVersion: 22
@@ -17,17 +17,17 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: arrow_feather_1
-    second: {fileID: 2100000, guid: 86c7bc56fa7fa304096c8bff0ee38083, type: 2}
+    second: {fileID: 2100000, guid: 00537756d77719f4ca931120571143ed, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: arrow_metal_1
-    second: {fileID: 2100000, guid: b648667e99920c049acd9f0493519c37, type: 2}
+    second: {fileID: 2100000, guid: 2e77d4129ed7d2144b7795f22b7e2d95, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: arrow_stick_1
-    second: {fileID: 2100000, guid: 8bfcfc078a48b9444b1438ee1d60e135, type: 2}
+    second: {fileID: 2100000, guid: 9b4557c19c018f0468bc3d22031a5226, type: 2}
   materials:
     importMaterials: 1
     materialName: 0

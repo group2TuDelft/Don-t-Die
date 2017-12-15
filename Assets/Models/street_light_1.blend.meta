@@ -1,6 +1,6 @@
 fileFormatVersion: 2
-guid: 78ee9b247640b3c499ae43e059291040
-timeCreated: 1512655840
+guid: 31fae1f549256f148a07ec2c5805257b
+timeCreated: 1513337265
 licenseType: Free
 ModelImporter:
   serializedVersion: 22
@@ -24,12 +24,12 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: street_light_material_1
-    second: {fileID: 2100000, guid: fae6a22683236cf4ba388146a4eab877, type: 2}
+    second: {fileID: 2100000, guid: 946a3f86c1d385a45adda8d6947cd00e, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: street_light_material_2
-    second: {fileID: 2100000, guid: 4ef8c1d239d6b424ba4340dbd5a8aea2, type: 2}
+    second: {fileID: 2100000, guid: 4348318e39392a44a897f6eb693797c1, type: 2}
   materials:
     importMaterials: 1
     materialName: 0

@@ -1,6 +1,6 @@
 fileFormatVersion: 2
-guid: afec75d43671c424cb23709231f4c0dd
-timeCreated: 1512655850
+guid: ce6814f73582bbc4fa3a121883a6d5f6
+timeCreated: 1513337306
 licenseType: Free
 ModelImporter:
   serializedVersion: 22
@@ -17,7 +17,7 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: grass_material
-    second: {fileID: 2100000, guid: 952c259a548dd0348b1c304077835b9b, type: 2}
+    second: {fileID: 2100000, guid: ef74d00398bed4242bc522af313700d4, type: 2}
   materials:
     importMaterials: 1
     materialName: 0

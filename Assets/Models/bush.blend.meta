@@ -1,6 +1,6 @@
 fileFormatVersion: 2
-guid: 138e077a253b43840af19b62574818a9
-timeCreated: 1512655819
+guid: 8d8712ec28060764a8fd46a53d1ea836
+timeCreated: 1513337282
 licenseType: Free
 ModelImporter:
   serializedVersion: 22
@@ -17,7 +17,7 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: bush_material
-    second: {fileID: 2100000, guid: eb0564fbbc8b95445ac951133ab7a16e, type: 2}
+    second: {fileID: 2100000, guid: 02ff16149125e914c8d2e17abfb44d1a, type: 2}
   materials:
     importMaterials: 1
     materialName: 0

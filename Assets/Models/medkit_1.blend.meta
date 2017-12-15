@@ -1,6 +1,6 @@
 fileFormatVersion: 2
-guid: b1cb0f6345d7c78449ba7f078f71ebba
-timeCreated: 1512655852
+guid: 2fa2847dd1c96b847b7c68600f9c0afa
+timeCreated: 1513337261
 licenseType: Free
 ModelImporter:
   serializedVersion: 22
@@ -17,7 +17,7 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: None__medkit_texture_jpg
-    second: {fileID: 2100000, guid: e911f99be281b9741975f268278df3be, type: 2}
+    second: {fileID: 2100000, guid: 4fb4e2041ea9b6245ab233f77e955864, type: 2}
   materials:
     importMaterials: 1
     materialName: 0

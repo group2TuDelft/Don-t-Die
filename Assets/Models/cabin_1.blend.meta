@@ -1,6 +1,6 @@
 fileFormatVersion: 2
-guid: f9575583963832648abc5d74171edec1
-timeCreated: 1512655907
+guid: bfebcf7a296a05943989f7a2333f0354
+timeCreated: 1513337301
 licenseType: Free
 ModelImporter:
   serializedVersion: 22
@@ -34,17 +34,17 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: cabin_glass_1
-    second: {fileID: 2100000, guid: 8691530584e54ca44b546b15fd89aa2c, type: 2}
+    second: {fileID: 2100000, guid: 7e011cda5de21ac4cb4d0f2db308b1ec, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: cabin_wood_1
-    second: {fileID: 2100000, guid: 94f817a8512d8834b9c6e4fdb477f83a, type: 2}
+    second: {fileID: 2100000, guid: 43c945b5e73036041bbff22b2573c474, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: cabin_wood_2
-    second: {fileID: 2100000, guid: fb56806086297f649b328e33c8ff5ba1, type: 2}
+    second: {fileID: 2100000, guid: a2f6aac07cb828c41be41120a4be358e, type: 2}
   materials:
     importMaterials: 1
     materialName: 0

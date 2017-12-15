@@ -1,6 +1,6 @@
 fileFormatVersion: 2
-guid: fcbf07681c915434cad625a6ea5ade0b
-timeCreated: 1512655909
+guid: 9137939a49bd2944592508a76cab6a21
+timeCreated: 1513337283
 licenseType: Free
 ModelImporter:
   serializedVersion: 22
@@ -17,7 +17,7 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Material__bricks_texture_1_png
-    second: {fileID: 2100000, guid: 005c515243d3c7040b655f93cfcd9540, type: 2}
+    second: {fileID: 2100000, guid: 71c1b2fa6bc92b54f9e1e10345045c10, type: 2}
   materials:
     importMaterials: 1
     materialName: 0

@@ -1,6 +1,6 @@
 fileFormatVersion: 2
-guid: ead0afff1cfab5e4382a30cb79b77eea
-timeCreated: 1512657050
+guid: b13a9d71e45c9b54baad780938ea9181
+timeCreated: 1513337294
 licenseType: Free
 ModelImporter:
   serializedVersion: 22
@@ -17,22 +17,12 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: tree_1
-    second: {fileID: 2100000, guid: 76989742a259a884b91d3fbafd75aedc, type: 2}
+    second: {fileID: 2100000, guid: f4719167e1c1bb140a80e310fed6fbad, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: tree_2
-    second: {fileID: 2100000, guid: 4bfb9c2ac7644ae41b6a239ec5fabb3b, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: tree_material_1
-    second: {fileID: 2100000, guid: 5c61e5616569ce246b6cb6627a4c2f9a, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: tree_material_2
-    second: {fileID: 2100000, guid: 54597def2f8233e458dba5eee6be094d, type: 2}
+    second: {fileID: 2100000, guid: 9e0430ab4eab73c42bd8f804e5e5ba09, type: 2}
   materials:
     importMaterials: 1
     materialName: 0

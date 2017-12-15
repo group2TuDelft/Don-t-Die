@@ -1,6 +1,6 @@
 fileFormatVersion: 2
-guid: d90e9eb632a90d943b6e82201d93c33b
-timeCreated: 1512655861
+guid: 00532197175b5064082850cca1bc90af
+timeCreated: 1513337219
 licenseType: Free
 ModelImporter:
   serializedVersion: 22
@@ -29,12 +29,12 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: cliff_material_1
-    second: {fileID: 2100000, guid: d76a3a8d6c826fb4ea185e82e18e0274, type: 2}
+    second: {fileID: 2100000, guid: 01378d74b72bb7e4f9179eb6fb83f5bf, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: cliff_material_2
-    second: {fileID: 2100000, guid: 471f896fc502696449c9868f84764293, type: 2}
+    second: {fileID: 2100000, guid: 21a5e3acdd8b17344a97e72975adfe0a, type: 2}
   materials:
     importMaterials: 1
     materialName: 0

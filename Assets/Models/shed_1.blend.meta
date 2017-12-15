@@ -1,6 +1,6 @@
 fileFormatVersion: 2
-guid: 1d9f2e041d3a8c84ca877f9d60bc97c0
-timeCreated: 1512741181
+guid: 2cacd7852a3679f45a46ad056a33e5aa
+timeCreated: 1513337260
 licenseType: Free
 ModelImporter:
   serializedVersion: 22
@@ -48,28 +48,28 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: Material_003
-    second: {fileID: 2100000, guid: 53e1d3b662404a84bafdbc8e9c354fdf, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Material_005
-    second: {fileID: 2100000, guid: ad89b08e0cacd6548a1d20d181498ea0, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
       name: roof_material__dakpannen_texture_2_png
-    second: {fileID: 2100000, guid: ac537ba114ae0dd4d8a82226d849282c, type: 2}
+    second: {fileID: 2100000, guid: 814dfb8355e200445829c416b4bc766a, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: roof_material__wood_planks_texture_1_png
-    second: {fileID: 2100000, guid: 87ab5efb862bdd441a0a5683cb451a3f, type: 2}
+    second: {fileID: 2100000, guid: 38b461e14c4f42e4f872278b42f32037, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: shed_glass
+    second: {fileID: 2100000, guid: de7ae33349c969f4c8f96b19154ef0a8, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: shed_walls_material__wood_planks_texture_1_png
-    second: {fileID: 2100000, guid: 87ab5efb862bdd441a0a5683cb451a3f, type: 2}
+    second: {fileID: 2100000, guid: 38b461e14c4f42e4f872278b42f32037, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: shed_window
+    second: {fileID: 2100000, guid: a4477f66312b61e4f972256b1a525aa9, type: 2}
   materials:
     importMaterials: 1
     materialName: 0

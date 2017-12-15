@@ -1,24 +1,15 @@
 fileFormatVersion: 2
-guid: 139cdf9cd1b934b4d9c36f62458cbbd8
-timeCreated: 1512657047
+guid: 321bc6a9d6fa9cf459d4fa4ff9f05c7d
+timeCreated: 1513337267
 licenseType: Free
 ModelImporter:
   serializedVersion: 22
   fileIDToRecycleName:
-    100000: Cylinder_000
-    100002: Icosphere
-    100004: //RootNode
-    400000: Cylinder_000
-    400002: Icosphere
-    400004: //RootNode
-    2300000: Cylinder_000
-    2300002: Icosphere
-    2300004: //RootNode
-    3300000: Cylinder_000
-    3300002: Icosphere
-    3300004: //RootNode
+    100000: //RootNode
+    400000: //RootNode
+    2300000: //RootNode
+    3300000: //RootNode
     4300000: Cylinder_000
-    4300002: Icosphere
     7400000: Default Take
     9500000: //RootNode
   externalObjects:
@@ -26,22 +17,12 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: tree_1
-    second: {fileID: 2100000, guid: 76989742a259a884b91d3fbafd75aedc, type: 2}
+    second: {fileID: 2100000, guid: f4719167e1c1bb140a80e310fed6fbad, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: tree_2
-    second: {fileID: 2100000, guid: 4bfb9c2ac7644ae41b6a239ec5fabb3b, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: tree_material_1
-    second: {fileID: 2100000, guid: 5c61e5616569ce246b6cb6627a4c2f9a, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: tree_material_2
-    second: {fileID: 2100000, guid: 54597def2f8233e458dba5eee6be094d, type: 2}
+    second: {fileID: 2100000, guid: 9e0430ab4eab73c42bd8f804e5e5ba09, type: 2}
   materials:
     importMaterials: 1
     materialName: 0

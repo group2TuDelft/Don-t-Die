@@ -1,6 +1,6 @@
 fileFormatVersion: 2
-guid: 8e3d4cf26c2ef8d45b8f5b367bcb0868
-timeCreated: 1512655843
+guid: a5fe1915388ad6d4c8909f2e5b9f5e56
+timeCreated: 1513337290
 licenseType: Free
 ModelImporter:
   serializedVersion: 22
@@ -17,7 +17,7 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: rock_grijs
-    second: {fileID: 2100000, guid: b17d1a292675db9469ac7cf9e09751c8, type: 2}
+    second: {fileID: 2100000, guid: 76e98d63d6022f7408079a56b3d77f9b, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
