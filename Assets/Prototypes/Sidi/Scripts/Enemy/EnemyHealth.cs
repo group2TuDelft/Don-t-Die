@@ -14,6 +14,7 @@ public class EnemyHealth : MonoBehaviour
 	public int currentHealth;
 
 	//Animator anim;
+	[SerializeField] Slider healthSlider;
 	AudioSource enemyAudio;
 	CapsuleCollider capsuleCollider;
 
@@ -45,6 +46,7 @@ public class EnemyHealth : MonoBehaviour
 			return;
 
 		currentHealth -= amount;
+		healthSlider.value = currentHealth;
 		if (currentHealth <= 0) {
 			Death ();
 		}
