@@ -8,8 +8,6 @@ public class PlayerMovement : MonoBehaviour
 	[SerializeField] Camera mainCamera;
 	[SerializeField] Camera FPC;
 	Vector3 movement;
-	Animator anim;
-	CharacterController controller;
 	Rigidbody playerRigidbody;
 	int floorMask;
 	float camRayLength = 100f;
@@ -23,15 +21,13 @@ public class PlayerMovement : MonoBehaviour
 	void Awake()
 	{
 		floorMask = LayerMask.GetMask ("Floor");
-		anim = GetComponent<Animator>();
 		playerRigidbody = GetComponent<Rigidbody>();
-		controller = GetComponent <CharacterController>();
+
 
 	}
 
 	void Update()
 	{
-		SetAnimation ();
 		h = Input.GetAxisRaw ("Horizontal");
 		v = Input.GetAxisRaw ("Vertical");
 		mouse_x = Input.GetAxisRaw ("Mouse X");
@@ -59,9 +55,11 @@ public class PlayerMovement : MonoBehaviour
 	{	
 		if(Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.S)){
 			direction = true;
+			speed = 8;
 		}
 		if(Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.D)){
 			direction = false;
+			speed = 6;
 		}
 		if (direction == true) {
 			if (v == 1 && Input.GetKey (KeyCode.LeftControl)) {
@@ -93,31 +91,4 @@ public class PlayerMovement : MonoBehaviour
 			playerRigidbody.MoveRotation (newRotation);
 		}
 	}
-
-	void SetAnimation () {
-		if (Input.GetKey (KeyCode.W)) {
-			if (Input.GetKey (KeyCode.LeftControl)) {
-				anim.SetBool ("AnimRun", true);
-			} else {
-				anim.SetBool ("AnimWalk", true);
-				anim.SetBool ("AnimRun", false);
-			} 
-		} else { 
-			anim.SetBool ("AnimWalk", false);
-			anim.SetBool ("AnimRun", false);
-		}
-		if (Input.GetKeyDown (KeyCode.Z)) {
-			if (anim.GetBool ("AnimHasGun") == true) {
-				anim.SetBool ("AnimHasGun", false);
-			} else {
-				anim.SetBool ("AnimHasGun", true);
-			}
-		}
-		if (Input.GetKey (KeyCode.Mouse0)) {
-			anim.SetBool ("AnimShooting", true);
-		} else {
-			anim.SetBool ("AnimShooting", false);
-		}
-	}
-
 }
