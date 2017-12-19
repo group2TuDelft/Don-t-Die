@@ -33,27 +33,21 @@ public class Hivemind_AI_Easy : MonoBehaviour {
        
         thistr = this.GetComponent<Transform>();
         thisgoal = thistr.position;
-
+        Debug.Log(thisgoal);
         for (int i = 1; i <= zombies; i++)
         {
             Vector3 spawnvector = new Vector3(Mathf.Sin(i) * i * spawnradius, 0, Mathf.Cos(i) * i * spawnradius) + this.transform.position;
             var zombie = Instantiate(Zombie, spawnvector, Quaternion.identity) as GameObject;
-            zombie.GetComponent<Zombie_AI>().spawnpoint = spawnvector;
+            zombie.GetComponent<Zombie_AI>().spawnpoint = spawnvector - thistr.position;
+            zombie.GetComponent<Zombie_AI>().hivemindposition = thistr.position;
             zombie.GetComponent<Zombie_AI>().goal = spawnvector;
             zombie.GetComponent<Zombie_AI>().agro = false;
+            zombie.layer = 2;
             Zombies.Add(zombie);
             Zombiestransform.Add(zombie.transform);
         }
         //playertr = GameObject.Find("Player").GetComponent<Transform>();    Werkt niet, weet niet waarom, maak ze maar even public
         //thisrb = this.GetComponent<Rigidbody>();
-    }
-
-    void GiveZombiesThisPosition()
-    {
-        foreach (GameObject i in Zombies)
-        {
-            i.GetComponent<Zombie_AI>().hivemindposition = thistr.position;
-        }
     }
 
     void CheckInLineOfSight()
@@ -64,13 +58,13 @@ public class Hivemind_AI_Easy : MonoBehaviour {
         {
             if (hitInfo.collider.tag == "Player") // Als die iets hit, en de hit is de player, doe dit
             {
-                Debug.Log("Ik zie je nu");
+                //Debug.Log("Ik zie je nu");
                 seeing = true;
             }
             // kan hier nog muren kapot maken in zetten
             else // Als die iets hit, maar het is niet player, doe dit
             {
-                Debug.Log("Ik zie je niet nu");
+                //Debug.Log("Ik zie je niet nu");
                 seeing = false;
             }
         }
@@ -80,13 +74,12 @@ public class Hivemind_AI_Easy : MonoBehaviour {
     {
         if (seeing && !agro)
         {
-            controlezombies = true;
             agro = true;
-            SetDestinationZombies();
+            SetAgroZombies();
         }
         if(seeing && agro)
         {
-            SetDestinationZombies();
+            //SetDestinationZombies();
         }
         if(!seeing && agro)
         {
@@ -94,8 +87,7 @@ public class Hivemind_AI_Easy : MonoBehaviour {
             if(deagrotimer > deagrotime)
             {
                 agro = false;
-                controlezombies = false;
-                GiveZombiesStartPosition();
+                SetAgroZombies();
             }
         }
        
@@ -104,9 +96,9 @@ public class Hivemind_AI_Easy : MonoBehaviour {
 
     }
 
-    void SetDestinationZombies()
+    void SetAgroZombies()
     {
-        if (controlezombies)
+        if (agro)
         {
             foreach(GameObject i in Zombies)
             {
@@ -119,7 +111,6 @@ public class Hivemind_AI_Easy : MonoBehaviour {
             foreach (GameObject i in Zombies)
             {
                 i.GetComponent<Zombie_AI>().agro = false;
-                i.GetComponent<Zombie_AI>().hivemindposition = thistr.position;
 
             }
         }
@@ -136,7 +127,7 @@ public class Hivemind_AI_Easy : MonoBehaviour {
                 zombiepositionmean += transform.position;
 
             }
-            destinationself = zombiepositionmean / count;
+            thisgoal = zombiepositionmean / count;
         }
         else
         {
@@ -148,7 +139,6 @@ public class Hivemind_AI_Easy : MonoBehaviour {
         if ((thistr.position - thisgoal).magnitude < 1f)
         {
             randomwalktimer += Time.deltaTime;
-            thisgoal = thistr.position;
             if (randomwalktimer > 3f)
             {
                 randomwalktimer = 0f;
@@ -158,25 +148,25 @@ public class Hivemind_AI_Easy : MonoBehaviour {
     }
     void MoveToDestination()
     {
-        movedirection = destinationself - this.transform.position;
+        movedirection = thisgoal - thistr.position;
         thisrb.AddForce(movedirection.normalized * speed * Time.deltaTime, ForceMode.VelocityChange);
     }
 
-    void GiveZombiesStartPosition()
+    void GiveZombiesHiveMindPosition()
     {
-        foreach (GameObject i in Zombies)
-        {
-            i.GetComponent<Zombie_AI>().goal = thistr.position + i.GetComponent<Zombie_AI>().spawnpoint;
+        if (!agro) {
+            foreach (GameObject i in Zombies)
+            {
+                i.GetComponent<Zombie_AI>().hivemindposition = thistr.position;
+            }
         }
     }
 // Update is called once per frame
-void Update () {
-        GiveZombiesThisPosition();
+    void Update () {
         CheckInLineOfSight();
         CheckAgro();
-        SetDestinationZombies();
         SetDestinationSelf();
-        GiveZombiesStartPosition();
+        GiveZombiesHiveMindPosition();
 		
 	}
 

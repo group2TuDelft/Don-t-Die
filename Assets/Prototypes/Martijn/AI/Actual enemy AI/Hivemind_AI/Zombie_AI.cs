@@ -4,11 +4,12 @@ using UnityEngine;
 
 public class Zombie_AI : MonoBehaviour {
 
-    public Vector3 goal;
+    public Vector3 goal { get; set; }
     public bool agro { get; set; }
+    private Vector3 destination;
     public float speed = 20f;
     public Vector3 hivemindposition { get; set; }
-    public Vector3 spawnpoint {get; set;}
+    public Vector3 spawnpoint;
 
     private Transform playertr;
     private Rigidbody thisrb;
@@ -25,9 +26,9 @@ public class Zombie_AI : MonoBehaviour {
         playertr = GameObject.Find("Player").GetComponent<Transform>();
         thisrb = this.GetComponent<Rigidbody>();
         thistr = this.GetComponent<Transform>();
-        hivemindposition = thistr.position;
-		
-	}
+        thisrb.constraints = RigidbodyConstraints.FreezeRotationX;
+      
+    }
 
 
     void SetDestinationSelf()
@@ -50,27 +51,50 @@ public class Zombie_AI : MonoBehaviour {
 
     void RandomWalk()
     {
-        if ((thistr.position - goal).magnitude < 0.1f)
+        if (((goal - thistr.position).magnitude < 1f) || ((goal - thistr.position).magnitude > 5f))
         {
             randomwalktimer += Time.deltaTime;
             if (randomwalktimer > 3f)
             {
+                randomwalkmedian = hivemindposition + spawnpoint;
                 randomwalktimer = 0f;
-                goal += new Vector3(Random.Range(-1.0f, 1f), 0f, Random.Range(-1.0f, 1f));
+                goal = randomwalkmedian + new Vector3(Random.Range(-3.0f, 3.0f), 0f, Random.Range(-3.0f, 3.0f));
             }
         }
     }
 
+    void SetPath()
+    {
+        RaycastHit hitInfo;
+        Vector3 direction = playertr.position - thistr.position;
+        if (Physics.Raycast(thistr.position, direction, out hitInfo))
+        {
+            if(hitInfo.collider.tag == "Player")
+            {
+                destination = playertr.position;
+            }
+            else
+            {
+                FindPath();
+            }
+        }
+    }
+
+    void FindPath()
+    {
+        
+    }
+
     void MoveSelf()
     {
+        // Straks van goal destination maken
         thisrb.AddForce((goal - thistr.position).normalized * speed * Time.deltaTime, ForceMode.VelocityChange);
+        thistr.forward = (goal - thistr.position);
     }
 	// Update is called once per frame
 	void Update () {
-        randomwalkmedian = hivemindposition + spawnpoint;
         SetDestinationSelf();
-        Debug.Log(agro);
-        Debug.Log(goal);
+        SetPath();
     }
 
     private void FixedUpdate()
