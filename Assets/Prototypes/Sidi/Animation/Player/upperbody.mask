@@ -1,0 +1,68 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!319 &31900000
+AvatarMask:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: upperbody
+  m_Mask: 00000000010000000100000000000000000000000100000001000000010000000100000000000000000000000100000001000000
+  m_Elements:
+  - m_Path: 
+    m_Weight: 1
+  - m_Path: Armature
+    m_Weight: 1
+  - m_Path: Armature/leg_control_L
+    m_Weight: 0
+  - m_Path: Armature/leg_control_L/foot_L
+    m_Weight: 0
+  - m_Path: Armature/leg_control_L/foot_L/Toes_L
+    m_Weight: 0
+  - m_Path: Armature/leg_control_R
+    m_Weight: 0
+  - m_Path: Armature/leg_control_R/foot_R_001
+    m_Weight: 0
+  - m_Path: Armature/leg_control_R/foot_R_001/Toes_R
+    m_Weight: 0
+  - m_Path: Armature/Torso
+    m_Weight: 1
+  - m_Path: Armature/Torso/Chest
+    m_Weight: 1
+  - m_Path: Armature/Torso/Chest/Neck
+    m_Weight: 1
+  - m_Path: Armature/Torso/Chest/Neck/Head
+    m_Weight: 1
+  - m_Path: Armature/Torso/Chest/Upper_Arm_L
+    m_Weight: 1
+  - m_Path: Armature/Torso/Chest/Upper_Arm_L/Lower_Arm_L
+    m_Weight: 1
+  - m_Path: Armature/Torso/Chest/Upper_Arm_L/Lower_Arm_L/Wrist_L
+    m_Weight: 1
+  - m_Path: Armature/Torso/Chest/Upper_Arm_L/Lower_Arm_L/Wrist_L/Hand_L
+    m_Weight: 1
+  - m_Path: Armature/Torso/Chest/Upper_Arm_L/Lower_Arm_L/Wrist_L/Hand_L/Fingers_L
+    m_Weight: 1
+  - m_Path: Armature/Torso/Chest/Upper_Arm_R
+    m_Weight: 1
+  - m_Path: Armature/Torso/Chest/Upper_Arm_R/Lower_Arm_R
+    m_Weight: 1
+  - m_Path: Armature/Torso/Chest/Upper_Arm_R/Lower_Arm_R/Wrist_R
+    m_Weight: 1
+  - m_Path: Armature/Torso/Chest/Upper_Arm_R/Lower_Arm_R/Wrist_R/Hand_R
+    m_Weight: 1
+  - m_Path: Armature/Torso/Chest/Upper_Arm_R/Lower_Arm_R/Wrist_R/Hand_R/Fingers_R
+    m_Weight: 1
+  - m_Path: Armature/Torso/upper_leg_L
+    m_Weight: 0
+  - m_Path: Armature/Torso/upper_leg_L/lower_Leg_L
+    m_Weight: 0
+  - m_Path: Armature/Torso/upper_leg_R_001
+    m_Weight: 0
+  - m_Path: Armature/Torso/upper_leg_R_001/lower_Leg_R_001
+    m_Weight: 0
+  - m_Path: clothes
+    m_Weight: 1
+  - m_Path: clothes/clothes_MeshPart0
+    m_Weight: 1
+  - m_Path: clothes/clothes_MeshPart1
+    m_Weight: 1
