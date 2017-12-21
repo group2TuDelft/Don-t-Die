@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481694, a: 1}
+  m_IndirectSpecularColor: {r: 0.4465785, g: 0.49641252, b: 0.574817, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -509,7 +509,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 240024216}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 548.5, y: 203, z: 0}
+  m_LocalPosition: {x: 411.5, y: 182, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1971427135}
@@ -547,7 +547,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 250015042}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 40, y: 183, z: 0}
+  m_LocalPosition: {x: 40, y: 162, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 240024220}
@@ -608,6 +608,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eea30dcf3483c44e1a36c66c174af623, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  text: {fileID: 0}
 --- !u!1 &311644328
 GameObject:
   m_ObjectHideFlags: 0
@@ -870,6 +871,8 @@ MonoBehaviour:
   blastForce: 1000
   explosionParticle: {fileID: 1000011797152326, guid: acf39d9f4addf294d93fa56fa373961b,
     type: 2}
+  countdown: 0
+  hasExploded: 0
 --- !u!1 &362938730
 GameObject:
   m_ObjectHideFlags: 0
@@ -924,6 +927,12 @@ MonoBehaviour:
   bulletPrefab: {fileID: 1809239966779722, guid: b2cbc21c7dbe84ba689fafcad37f71ba,
     type: 2}
   bulletSpawn: {fileID: 362938731}
+  timer: 0
+  shootableMask: 0
+  gunLine: {fileID: 0}
+  gunLight: {fileID: 0}
+  effectsDisplayTime: 0.2
+  bulletHit: 0
 --- !u!108 &362938733
 Light:
   m_ObjectHideFlags: 0
@@ -1960,6 +1969,15 @@ MonoBehaviour:
   smoothing: 5
   mainCamera: {fileID: 1163601933}
   FPC: {fileID: 862535909}
+  movement: {x: 0, y: 0, z: 0}
+  playerRigidbody: {fileID: 0}
+  floorMask: 0
+  camRayLength: 100
+  h: 0
+  v: 0
+  mouse_x: 0
+  mouse_y: 0
+  direction: 0
 --- !u!114 &952053680
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1972,6 +1990,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 544f2064df03e95419b4a5147c506b08, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  healthSlider: {fileID: 0}
+  playerMovement: {fileID: 0}
+  playerShooting: {fileID: 0}
+  isDead: 0
+  damaged: 0
+  startingHealth: 100
+  currentHealth: 0
+  flashSpeed: 5
   hearts:
   - {fileID: 21300000, guid: 3c41369fc275848b2a356fc79e9463d5, type: 3}
   - {fileID: 21300000, guid: b5cf2ae056d9240759532e26212d7a04, type: 3}
@@ -2103,6 +2129,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 133c06f5537d5dc40b4b4289698eedc2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  anim: {fileID: 0}
+  controller: {fileID: 0}
+  inventory: 0
 --- !u!1 &954235034
 GameObject:
   m_ObjectHideFlags: 0
@@ -2626,6 +2655,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   smoothing: 10
+  offset: {x: 0, y: 0, z: 0}
 --- !u!1 &1192692677
 GameObject:
   m_ObjectHideFlags: 0
@@ -3822,6 +3852,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94f6618a0da65fa45b24d5105d5d8422, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Player: {fileID: 0}
+  playerHealth: {fileID: 0}
+  enemyeHealth: {fileID: 0}
+  nav: {fileID: 0}
 --- !u!195 &1933326307
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -3896,6 +3930,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e15099f5ee559584089d5851df572def, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  anim: {fileID: 0}
+  player: {fileID: 0}
+  playerHealth: {fileID: 0}
+  enemyMovement: {fileID: 0}
+  enemyHealth: {fileID: 0}
+  playerInRange: 0
+  timer: 0
+  timeBetweenAttacks: 0.5
+  attackDamage: 5
 --- !u!114 &1933326312
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3911,6 +3954,11 @@ MonoBehaviour:
   startingHealth: 200
   currentHealth: 0
   healthSlider: {fileID: 1743295816}
+  enemyAudio: {fileID: 0}
+  capsuleCollider: {fileID: 0}
+  sinkSpeed: 2.5
+  isDead: 0
+  isSinking: 0
 --- !u!1 &1971427134
 GameObject:
   m_ObjectHideFlags: 0
@@ -3933,7 +3981,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1971427134}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -548.5, y: -203, z: 0}
+  m_LocalPosition: {x: -411.5, y: -182, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 928951418}
