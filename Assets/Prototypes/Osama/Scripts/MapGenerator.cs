@@ -20,17 +20,36 @@ public class MapGenerator : MonoBehaviour
     public bool autoUpdate;
     public TerrainType[] regions;
 
-    public float[,] generateNoiseMap()
+    private Color[] colourMap;
+    private Texture2D texture;
+    private Mesh meshMap;
+
+
+    public float[,] getNoiseMap()
     {
-        noiseMap = Noise.GenerateNoiseMap(mapWidth, mapHeight, seed, noiseScale, octaves, persistance, lacunarity, offset);
         return noiseMap;
     }
 
-    public Mesh GenerateMap()
+    public Texture2D getTexture()
+    {
+        return texture;
+    }
+
+    public Mesh getMesh()
+    {
+        return meshMap;
+    }
+
+    public Color[] getColour()
+    {
+        return colourMap;
+    }
+
+    public void GenerateMap()
     {
 
         noiseMap = Noise.GenerateNoiseMap(mapWidth, mapHeight, seed, noiseScale, octaves, persistance, lacunarity, offset);
-        Color[] colourMap = new Color[mapWidth * mapHeight];
+        colourMap = new Color[mapWidth * mapHeight];
         for (int y = 0; y < mapHeight; y++)
         {
             for (int x = 0; x < mapWidth; x++)
@@ -47,9 +66,9 @@ public class MapGenerator : MonoBehaviour
             }
         }
         MapDisplay display = GetComponent<MapDisplay>();
-        return display.DrawMesh(MeshGenerator.GenerateTerrainMesh(noiseMap, meshHeightMultiplier, meshHeightCurve), TextureGenerator.TextureFromColourMap(colourMap, mapWidth, mapHeight));
+        texture = TextureGenerator.TextureFromColourMap(colourMap, mapWidth, mapHeight);     
+        meshMap = display.DrawMesh(MeshGenerator.GenerateTerrainMesh(noiseMap, meshHeightMultiplier, meshHeightCurve), texture);
     }
-
 
     void OnValidate()
     {
