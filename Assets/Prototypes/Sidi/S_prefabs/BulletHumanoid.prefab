@@ -24,7 +24,7 @@ GameObject:
   - component: {fileID: 23879394560890150}
   - component: {fileID: 54977843348091132}
   - component: {fileID: 114726321844398072}
-  m_Layer: 9
+  m_Layer: 10
   m_Name: BulletHumanoid
   m_TagString: Bullet
   m_Icon: {fileID: 0}
@@ -111,6 +111,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a81030686a5e48e47a11f9ac621d5f04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hitParticle: {fileID: 1000013462590818, guid: ecdd96beb7f93494880c052dfccf9dc1,
+    type: 2}
 --- !u!135 &135008076261374660
 SphereCollider:
   m_ObjectHideFlags: 1
