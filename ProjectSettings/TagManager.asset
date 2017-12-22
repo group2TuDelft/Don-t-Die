@@ -8,6 +8,8 @@ TagManager:
   - HealthSlider
   - HeartFull
   - Enemy
+  - Gun
+  - Chest
   layers:
   - Default
   - TransparentFX
@@ -18,7 +20,7 @@ TagManager:
   - 
   - 
   - Floor
-  - 
+  - Shootable
   - 
   - 
   - 
