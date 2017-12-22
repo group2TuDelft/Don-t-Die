@@ -17,7 +17,7 @@ public class PlayerHealth : MonoBehaviour
 	PlayerAnimator playerAnimator;
 	bool isDead;
 	bool damaged;
-	int startingHealth = 100;
+	int startingHealth = 200;
 	int currentHealth;
 	float flashSpeed = 5f;
 	[SerializeField] Sprite [] hearts;

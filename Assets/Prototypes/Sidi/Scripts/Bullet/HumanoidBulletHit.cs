@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class HumanoidBulletHit : MonoBehaviour {
 
+	public GameObject hitParticle;
 	// Use this for initialization
 	void Start () {
 
@@ -18,7 +19,20 @@ public class HumanoidBulletHit : MonoBehaviour {
 		if (other.tag == "Player") {
 			PlayerHealth playerHealth = other.GetComponent<PlayerHealth> ();
 			playerHealth.TakeDamage (30);
-			this.GetComponent<Renderer> ().enabled = false;
 		}
+	}
+
+	void OnCollisionEnter(Collision other){
+		if (other.gameObject.tag == "Player")
+		{
+			Explode ();
+		}
+	}
+
+
+	void Explode (){
+		GameObject obj = Instantiate (hitParticle, transform.position, transform.rotation);
+		Destroy (obj, 1.5f);
+		Destroy (this.gameObject);
 	}
 }
