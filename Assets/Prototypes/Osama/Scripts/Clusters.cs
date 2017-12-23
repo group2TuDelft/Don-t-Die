@@ -37,9 +37,7 @@ public class Clusters : MonoBehaviour
 
                         allClusterObjects.Add(centerOfCluster);
                         amountClustersCreated++;
-                        Debug.Log("1: " + allClusterObjects.Count);
                         ObjectsInCluster(centerOfCluster, i);
-                        Debug.Log("2: " + allClusterObjects.Count);
                     }
                 }
                 loopsPerCluster++;
@@ -47,18 +45,13 @@ public class Clusters : MonoBehaviour
             }
         }
 
-        for (int i = 0; i < allClusterObjects.Count; i++)
-        {
-            Debug.Log(allClusterObjects[i].transform.position.y);
-        }
 
         for (int i = 0; i < allClusterObjects.Count; i++)
         {
             float xCoordObject = allClusterObjects[i].transform.position.x;
             float zCoordObject = allClusterObjects[i].transform.position.z;
             float heightObject = allClusterObjects[i].GetComponent<Renderer>().bounds.extents.y;
-            Debug.Log(heightObject);
-            allClusterObjects[i].transform.position += new Vector3(0f, CalculateHeightObject(xCoordObject, zCoordObject, heightObject), 0f);
+            allClusterObjects[i].transform.position += new Vector3(0f, CalculateHeightObject(xCoordObject, zCoordObject, heightObject), 0f);   
         }
     }
 
