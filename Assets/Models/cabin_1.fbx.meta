@@ -1,23 +1,26 @@
 fileFormatVersion: 2
 guid: cf2553abcedd84340bb85a171a4ded04
-timeCreated: 1513766902
+timeCreated: 1515486682
 licenseType: Free
 ModelImporter:
   serializedVersion: 22
   fileIDToRecycleName:
     100000: cabin walls
     100002: //RootNode
-    100004: roof
-    100006: window 1
-    100008: window 2
+    100004: light
+    100006: roof
+    100008: window 1
+    100010: window 2
     400000: cabin walls
     400002: //RootNode
-    400004: roof
-    400006: window 1
-    400008: window 2
+    400004: light
+    400006: roof
+    400008: window 1
+    400010: window 2
     2100000: cabin_wood_2
     2100002: cabin_wood_1
     2100004: cabin_glass_1
+    2100006: cabin_floor
     2300000: cabin walls
     2300002: roof
     2300004: window 1
@@ -30,6 +33,7 @@ ModelImporter:
     4300002: window 1
     4300004: window 2
     4300006: cabin walls
+    10800000: light
   externalObjects: {}
   materials:
     importMaterials: 1

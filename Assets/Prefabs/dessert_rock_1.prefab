@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4893787804861874}
   - component: {fileID: 33461008692901528}
   - component: {fileID: 23165153245155368}
-  - component: {fileID: 64162312691191252}
+  - component: {fileID: 65936404761941732}
   m_Layer: 0
   m_Name: dessert_rock_1
   m_TagString: Untagged
@@ -83,8 +83,8 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1796115533663684}
   m_Mesh: {fileID: 4300000, guid: f633863b684089941b4bc3b62c3156e3, type: 3}
---- !u!64 &64162312691191252
-MeshCollider:
+--- !u!65 &65936404761941732
+BoxCollider:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
@@ -92,8 +92,6 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 3
-  m_Convex: 0
-  m_CookingOptions: 14
-  m_SkinWidth: 0.01
-  m_Mesh: {fileID: 4300000, guid: f633863b684089941b4bc3b62c3156e3, type: 3}
+  serializedVersion: 2
+  m_Size: {x: 0.022036798, y: 0.021288268, z: 0.013569167}
+  m_Center: {x: -0.0010542106, y: -0.00087564933, z: 0.0067845834}

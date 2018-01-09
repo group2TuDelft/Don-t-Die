@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 4935682941906168}
   - component: {fileID: 33773938863338270}
   - component: {fileID: 23875929115374606}
+  - component: {fileID: 65097956473275336}
   m_Layer: 0
   m_Name: pickup_wood
   m_TagString: Untagged
@@ -83,3 +84,15 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1819806104779814}
   m_Mesh: {fileID: 4300000, guid: b801750c14cad7241b95555c1e096312, type: 3}
+--- !u!65 &65097956473275336
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1819806104779814}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.04006132, y: 0.034692224, z: 0.020160459}
+  m_Center: {x: -0.0017630197, y: 0.01854212, z: -0.00008022925}

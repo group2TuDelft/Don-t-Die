@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4641947989447634}
   - component: {fileID: 33082165180998574}
   - component: {fileID: 23833726448090606}
-  - component: {fileID: 64445761403510520}
+  - component: {fileID: 65232577055458092}
   m_Layer: 0
   m_Name: medkit_1
   m_TagString: Untagged
@@ -83,8 +83,8 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1830503975078160}
   m_Mesh: {fileID: 4300000, guid: a7325ad9c4428aa46893a58b07da51ac, type: 3}
---- !u!64 &64445761403510520
-MeshCollider:
+--- !u!65 &65232577055458092
+BoxCollider:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
@@ -92,8 +92,6 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 3
-  m_Convex: 0
-  m_CookingOptions: 14
-  m_SkinWidth: 0.01
-  m_Mesh: {fileID: 4300000, guid: a7325ad9c4428aa46893a58b07da51ac, type: 3}
+  serializedVersion: 2
+  m_Size: {x: 0.0042000003, y: 0.009999998, z: 0.008894248}
+  m_Center: {x: 0.00038754434, y: 0, z: 0.004447124}

@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 6759dcd9d6150cb44974123f5fc89c0b
-timeCreated: 1513766901
+timeCreated: 1515487932
 licenseType: Free
 ModelImporter:
   serializedVersion: 22
@@ -12,7 +12,8 @@ ModelImporter:
     100008: Plane.002
     100010: Plane.003
     100012: Plane.004
-    100014: //RootNode
+    100014: Point
+    100016: //RootNode
     400000: dak
     400002: muren
     400004: Plane
@@ -20,7 +21,8 @@ ModelImporter:
     400008: Plane.002
     400010: Plane.003
     400012: Plane.004
-    400014: //RootNode
+    400014: Point
+    400016: //RootNode
     2100000: shed window
     2100002: shed glass
     2100004: roof_material
@@ -46,6 +48,7 @@ ModelImporter:
     4300008: Plane
     4300010: dak
     4300012: muren
+    10800000: Point
   externalObjects: {}
   materials:
     importMaterials: 1
