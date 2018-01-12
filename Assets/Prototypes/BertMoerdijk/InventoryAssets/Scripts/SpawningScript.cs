@@ -16,6 +16,7 @@ public class SpawningScript : MonoBehaviour {
 	private float alienspawnradius;
     private float spawnradius;
     private int difficulty;
+
     private GameObject player;
     public List<GameObject> Enemies = new List<GameObject>();
 
@@ -34,33 +35,30 @@ public class SpawningScript : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-        // Random Spawing:
+        
+        // Actual Spawing:
+
         if (Time.fixedTime > 1)
         {
-            if (Time.fixedTime % 1 == 0)
+            if (Time.fixedTime % 10 == 0)
             {
-                Vector3 center = player.transform.position;
-				Vector3 pos = RandomCircle(center, alienspawnradius);
-				Vector3 pos2 = pos;
-				pos2.y = pos2.y + spawnradius;
-                Quaternion rot = Quaternion.FromToRotation(Vector3.forward, center - pos);
-                if (! Physics.CheckSphere(pos2, spawnradius)) { 
-                    Enemies.Add(Instantiate(AlienWithGun, pos, rot));
-                }
-
+            SpawnEnemyWithGun();
             }
-        }
+       }
 
+        // Deactivating when out of range, and activating whence in range.
         if (Time.fixedTime % 2 == 0) { 
             for (int i =0; i < Enemies.Count ; i++)
             {
-                if ((player.transform.position - Enemies[i].transform.position).magnitude > radius && Enemies[i].activeSelf == true)
-                {
-                    Enemies[i].SetActive(false);
-                }
-                if ((player.transform.position - Enemies[i].transform.position).magnitude < radius && Enemies[i].activeSelf == false)
-                {
-                    Enemies[i].SetActive(true);
+                if (Enemies[i] != null) { 
+                    if ((player.transform.position - Enemies[i].transform.position).magnitude > radius && Enemies[i].activeSelf == true)
+                    {
+                        Enemies[i].SetActive(false);
+                    }
+                    if ((player.transform.position - Enemies[i].transform.position).magnitude < radius && Enemies[i].activeSelf == false)
+                    {
+                        Enemies[i].SetActive(true);
+                    }
                 }
             }
         }
@@ -74,5 +72,19 @@ public class SpawningScript : MonoBehaviour {
         pos.z = center.z + radius * Mathf.Cos(ang * Mathf.Deg2Rad);
         pos.y = center.y;
         return pos;
+    }
+
+    // Checks for Spawning space and spawns the enemy if there is space.
+    void SpawnEnemyWithGun()
+    {
+        Vector3 center = player.transform.position;
+        Vector3 pos = RandomCircle(center, alienspawnradius);
+        Vector3 pos2 = pos;
+        pos2.y = pos2.y + spawnradius;
+        Quaternion rot = Quaternion.FromToRotation(Vector3.forward, center - pos);
+        if (!Physics.CheckSphere(pos2, spawnradius))
+        {
+            Enemies.Add(Instantiate(AlienWithGun, pos, rot));
+        }
     }
 }

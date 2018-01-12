@@ -64,11 +64,10 @@ public class Inventory : MonoBehaviour
 
         // Adding Initial Items.
         AddItem(0);
+        AddItem(4);
         AddItem(2);
-        AddItem(2);
-        AddItem(2);
-        AddItem(2);
-        AddItem(1000);
+        AddItem(5);
+        AddItem(7);
         AddItem(1000);
         AddItem(1000);
         AddItem(1000);
@@ -166,6 +165,19 @@ public class Inventory : MonoBehaviour
         for (int i = 0; i < items.Count; i++)
         {
             if (items[i].ID == item.ID)
+            {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    // Function that checks if an item is in the inventory, by id.
+    bool CheckItemInInventoryByID(int id)
+    {
+        for (int i = 0; i < items.Count; i++)
+        {
+            if (items[i].ID == id)
             {
                 return true;
             }

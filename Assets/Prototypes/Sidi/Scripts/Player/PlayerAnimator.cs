@@ -5,41 +5,55 @@ using UnityEngine;
 public class PlayerAnimator : MonoBehaviour {
 
 	private Animator anim;
-	private CharacterController controller;
 	private int inventory = 0;
-	WeaponSelection selector;
 	private int id;
-	PlayerMovement playerMovement;
-	PlayerShooting playerShooting;
+	private int active_id;
 	private GameObject Canvas;
 	private GameObject ChestInteractionText;
 	public bool chestInrange;
-	Chest chest;
 	private GameObject chestgobj;
 	private GameObject Gun;
+	private string currentweapon;
+	PlayerMovement playerMovement;
+	PlayerShooting playerShooting;
+	PlayerWeaponSelection playerWeaponSelection;
+	Chest chest;
 
 	// Use this for initialization
 
 	void Awake(){
 		playerMovement = GetComponent<PlayerMovement> ();
 		playerShooting = GetComponentInChildren<PlayerShooting> ();
+		playerWeaponSelection = GetComponent<PlayerWeaponSelection> ();
+
 	}
 
 	void Start () {
 		
 		anim = GetComponent<Animator>();
-		controller = GetComponent <CharacterController>();
 		Canvas = GameObject.Find ("MainCanvas");
 		ChestInteractionText = Canvas.transform.GetChild(6).gameObject;
 		ChestInteractionText.SetActive (false);
 		chestInrange = false;
 		Gun = GameObject.FindGameObjectWithTag ("Gun");
 
+		active_id = playerWeaponSelection.id;
+		id = playerWeaponSelection.id;
+		setCurrentWeaponTag();
+		setWeaponAnimation ();
 	}
 	
 	// Update is called once per frame
 	void Update () {
 		SetAnimation ();
+
+		id = playerWeaponSelection.id;
+		if (active_id != id) {
+			setCurrentWeaponTag ();
+			setWeaponAnimation ();
+			active_id = id;
+		}
+
 	}
 
 	// Triggers
@@ -136,23 +150,7 @@ public class PlayerAnimator : MonoBehaviour {
 		} else {
 			anim.SetBool ("AnimRun", false);
 		} 
-		
-		if (Input.GetKeyDown (KeyCode.Z)) {
-			SetWeapon ();
 
-			if (inventory == 0) {
-				anim.SetBool ("AnimHasGun", false);
-				anim.SetBool ("AnimHasSpear", false);
-			} 
-			if (inventory == 1) {
-				anim.SetBool ("AnimHasGun", true);
-				anim.SetBool ("AnimHasSpear", false);
-			} 
-			if (inventory == 2) {
-				anim.SetBool ("AnimHasGun", false);
-				anim.SetBool ("AnimHasSpear", true);
-			} 
-		}
 		if (Input.GetKey (KeyCode.Mouse0)) {
 			anim.SetBool ("AnimShooting", true);
 		} else {
@@ -169,13 +167,29 @@ public class PlayerAnimator : MonoBehaviour {
 		}			
 	}
 		
-	void SetWeapon () {
-		if (inventory != 2) {
-			inventory += 1;
-		} else {
-			inventory = 0;
+
+		
+	void setWeaponAnimation (){
+		setAnimationsFalse ();
+		if (currentweapon == "SMG" || currentweapon == "M4") {
+			anim.SetBool ("AnimHasGun", true);
+        }
+        if (currentweapon == "Spear" || currentweapon == "Halbert")
+        {
+            anim.SetBool("AnimHasSpear", true);
+        }
+    }
+
+	void setAnimationsFalse (){
+		anim.SetBool ("AnimHasGun", false);
+        anim.SetBool("AnimHasSpear", false);
+    }	
+
+	void setCurrentWeaponTag(){
+		currentweapon = "None";
+		if (id <= playerWeaponSelection.weapons.Count && id != -1) {
+			currentweapon = playerWeaponSelection.weapons [id].tag;
+			active_id = id;
 		}
 	}
-		
-
 }

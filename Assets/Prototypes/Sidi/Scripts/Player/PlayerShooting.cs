@@ -8,8 +8,6 @@ public class PlayerShooting : MonoBehaviour
 	public GameObject bulletPrefab;
 	public Transform bulletSpawn;
 
-
-
     float timer;
     Ray shootRay = new Ray();
     RaycastHit shootHit;
@@ -18,7 +16,7 @@ public class PlayerShooting : MonoBehaviour
     Light gunLight;
     float effectsDisplayTime = 0.2f;
 	bool bulletHit = false;
-
+    private AmmoScript ammoScript;
 
     void Awake ()
     {
@@ -62,7 +60,7 @@ public class PlayerShooting : MonoBehaviour
         timer = 0f;
 
         gunLight.enabled = true;
-
+        ammoScript.UpdateAmmo();
 
         gunLine.enabled = true;
         gunLine.SetPosition (0, transform.position);

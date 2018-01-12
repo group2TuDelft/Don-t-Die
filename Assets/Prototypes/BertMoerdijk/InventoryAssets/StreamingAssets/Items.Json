@@ -169,7 +169,7 @@
     "animation": "None"
   },
   {
-    "id": 2,
+    "id": 9,
     "title": "Red Box",
     "stats": {
       "damage": 0,
@@ -208,7 +208,7 @@
     "animation": "AnimHasSpear"
   },
   {
-    "id": 5,
+    "id": 18,
     "title": "Pebbles",
     "stats": {
       "damage": 0,
@@ -234,7 +234,7 @@
     "animation": "AnimBow"
   },
   {
-    "id": 7,
+    "id": 26,
     "title": "Stone tip arrows",
     "stats": {
       "damage": 0,
@@ -260,7 +260,7 @@
     "animation": "None"
   },
   {
-    "id": 9,
+    "id": 2,
     "title": "Halbert",
     "stats": {
       "damage": 6,
@@ -351,17 +351,17 @@
     "animation": "None"
   },
   {
-    "id": 18,
-    "title": "2 Gauge Shotgun",
+    "id": 5,
+    "title": "SMG",
     "stats": {
       "damage": 10,
       "range": 0
     },
-    "description": "2 Gauge Shotgun",
+    "description": "Maffia toys",
     "stackable": false,
     "itemtype": "weapon",
-    "slug": "shotgun",
-    "animation": "AnimShotgun"
+    "slug": "smg",
+    "animation": "AnimHasGun"
   },
   {
     "id": 19,
@@ -455,16 +455,16 @@
     "animation": "None"
   },
   {
-    "id": 26,
-    "title": "M14",
+    "id": 7,
+    "title": "M4",
     "stats": {
       "damage": 6,
       "range": 0
     },
-    "description": "Just an M14.",
+    "description": "Just an M4.",
     "stackable": false,
     "itemtype": "weapon",
-    "slug": "m14",
+    "slug": "m4",
     "animation": "AnimHasGun"
   },
   {
