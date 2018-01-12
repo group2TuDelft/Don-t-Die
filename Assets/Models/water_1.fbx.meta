@@ -1,16 +1,24 @@
 fileFormatVersion: 2
-guid: a7325ad9c4428aa46893a58b07da51ac
-timeCreated: 1515501434
+guid: b5133fb7c426de341a921a45ab32cc2a
+timeCreated: 1515501435
 licenseType: Free
 ModelImporter:
   serializedVersion: 22
   fileIDToRecycleName:
-    100000: //RootNode
-    400000: //RootNode
-    2100000: medkit_material
-    2300000: //RootNode
-    3300000: //RootNode
-    4300000: Cube.001
+    100000: Camera
+    100002: Cube
+    100004: Lamp
+    100006: //RootNode
+    400000: Camera
+    400002: Cube
+    400004: Lamp
+    400006: //RootNode
+    2000000: Camera
+    2100000: water material 1
+    2300000: Cube
+    3300000: Cube
+    4300000: Cube
+    10800000: Lamp
   externalObjects: {}
   materials:
     importMaterials: 1

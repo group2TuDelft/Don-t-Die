@@ -1,16 +1,24 @@
 fileFormatVersion: 2
 guid: 3c78db752fce3cd4e8e8a3e3b2209c01
-timeCreated: 1513766899
+timeCreated: 1515507440
 licenseType: Free
 ModelImporter:
   serializedVersion: 22
   fileIDToRecycleName:
     100000: //RootNode
+    100002: collider
+    100004: Cylinder
     400000: //RootNode
-    2100000: cactus material
-    2300000: //RootNode
-    3300000: //RootNode
-    4300000: Cylinder
+    400002: collider
+    400004: Cylinder
+    2100000: No Name
+    2100002: cactus material
+    2300000: collider
+    2300002: Cylinder
+    3300000: collider
+    3300002: Cylinder
+    4300000: collider
+    4300002: Cylinder
   externalObjects: {}
   materials:
     importMaterials: 1

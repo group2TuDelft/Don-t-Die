@@ -1,38 +1,68 @@
 fileFormatVersion: 2
 guid: cf2553abcedd84340bb85a171a4ded04
-timeCreated: 1515486682
+timeCreated: 1515501435
 licenseType: Free
 ModelImporter:
   serializedVersion: 22
   fileIDToRecycleName:
-    100000: cabin walls
-    100002: //RootNode
-    100004: light
-    100006: roof
-    100008: window 1
-    100010: window 2
-    400000: cabin walls
-    400002: //RootNode
-    400004: light
-    400006: roof
-    400008: window 1
-    400010: window 2
-    2100000: cabin_wood_2
-    2100002: cabin_wood_1
-    2100004: cabin_glass_1
-    2100006: cabin_floor
-    2300000: cabin walls
-    2300002: roof
-    2300004: window 1
-    2300006: window 2
-    3300000: cabin walls
-    3300002: roof
-    3300004: window 1
-    3300006: window 2
-    4300000: roof
-    4300002: window 1
-    4300004: window 2
-    4300006: cabin walls
+    100000: cabin door_left
+    100002: cabin door_right
+    100004: cabin floor
+    100006: cabin walls
+    100008: cabin walls.001
+    100010: cabin walls.002
+    100012: cabin walls.003
+    100014: //RootNode
+    100016: light
+    100018: roof
+    100020: window 1
+    100022: window 2
+    400000: cabin door_left
+    400002: cabin door_right
+    400004: cabin floor
+    400006: cabin walls
+    400008: cabin walls.001
+    400010: cabin walls.002
+    400012: cabin walls.003
+    400014: //RootNode
+    400016: light
+    400018: roof
+    400020: window 1
+    400022: window 2
+    2100000: cabin_wood_1
+    2100002: cabin_wood_2
+    2100004: cabin_floor
+    2100006: cabin_glass_1
+    2300000: cabin door_left
+    2300002: cabin door_right
+    2300004: cabin floor
+    2300006: cabin walls
+    2300008: cabin walls.001
+    2300010: cabin walls.002
+    2300012: cabin walls.003
+    2300014: roof
+    2300016: window 1
+    2300018: window 2
+    3300000: cabin door_left
+    3300002: cabin door_right
+    3300004: cabin floor
+    3300006: cabin walls
+    3300008: cabin walls.001
+    3300010: cabin walls.002
+    3300012: cabin walls.003
+    3300014: roof
+    3300016: window 1
+    3300018: window 2
+    4300000: cabin door_right
+    4300002: cabin door_left
+    4300004: cabin floor
+    4300006: cabin walls.003
+    4300008: cabin walls.002
+    4300010: cabin walls.001
+    4300012: roof
+    4300014: window 1
+    4300016: window 2
+    4300018: cabin walls
     10800000: light
   externalObjects: {}
   materials:

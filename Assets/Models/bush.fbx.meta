@@ -1,16 +1,24 @@
 fileFormatVersion: 2
 guid: d2ff05957a83e034795a4b16cf902975
-timeCreated: 1513766902
+timeCreated: 1515507441
 licenseType: Free
 ModelImporter:
   serializedVersion: 22
   fileIDToRecycleName:
     100000: //RootNode
+    100002: collider
+    100004: Icosphere
     400000: //RootNode
-    2100000: bush material
-    2300000: //RootNode
-    3300000: //RootNode
-    4300000: Icosphere
+    400002: collider
+    400004: Icosphere
+    2100000: No Name
+    2100002: bush material
+    2300000: collider
+    2300002: Icosphere
+    3300000: collider
+    3300002: Icosphere
+    4300000: collider
+    4300002: Icosphere
   externalObjects: {}
   materials:
     importMaterials: 1
