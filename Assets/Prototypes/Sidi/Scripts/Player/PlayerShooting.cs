@@ -60,7 +60,7 @@ public class PlayerShooting : MonoBehaviour
         timer = 0f;
 
         gunLight.enabled = true;
-        ammoScript.UpdateAmmo();
+        //ammoScript.UpdateAmmo();
 
         gunLine.enabled = true;
         gunLine.SetPosition (0, transform.position);
