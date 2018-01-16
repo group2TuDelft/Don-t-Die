@@ -8,7 +8,7 @@ public class Zombie_AI : MonoBehaviour {
     public bool agro { get; set; }
     private Vector3 destination;
     public float speed = 20f;
-    public Vector3 hivemindposition { get; set; }
+    public Vector3 hivemindposition;
     public Vector3 spawnpoint;
 
     private Transform playertr;
