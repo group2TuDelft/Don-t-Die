@@ -24,6 +24,7 @@ TagManager:
   - scifihandgun
   - scifibiggun
   - axe
+  - Mesh
   layers:
   - Default
   - TransparentFX
@@ -37,11 +38,11 @@ TagManager:
   - Shootable
   - Bullet
   - Gun
-  - 
-  - 
-  - 
-  - 
-  - 
+  - Mesh
+  - Cabins
+  - Bushes
+  - Chest
+  - Trees
   - 
   - 
   - 
