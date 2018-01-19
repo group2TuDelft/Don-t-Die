@@ -1,0 +1,41 @@
+{"id": 1000,"title": "Wood","description": "Wood, This can be used to craft items on a workbench","stackable": true,"itemtype": "resource","slug": "wood"}
+{"id": 1001,"title": "Stone","description": "Stone, This can be used to craft items on a workbench","stackable": true,"itemtype": "resource","slug": "stone"}
+{"id": 1002,"title": "Iron","description": "Iron","stackable": true,"itemtype": "resource","slug": "iron"}
+{"id": 1003,"title": "Coal","description": "Coal","stackable": true,"itemtype": "resource","slug": "coal"}
+{"id": 1004,"title": "Steel","description": "Steel","stackable": true,"itemtype": "resource","slug": "steel"}
+{"id": 1005,"title": "Gunpowder","description": "boom","stackable": true,"itemtype": "resource","slug": "gunpowder"}
+{"id": 1006,"title": "Carbon Fiber","description": "Carbon Fiber, used for crafting in a 3d printer","stackable": true,"itemtype": "resource","slug": "carbon_fiber"}
+{"id": 1007,"title": "Explosives","description": "Boom","stackable": true,"itemtype": "resource","slug": "explosives"}
+{"id": 1008,"title": "Alien Fuel","description": "Alien Fuel","stackable": true,"itemtype": "resource","slug": "alien_fuel"}
+{"id": 1009,"title": "Alien Composites","description": "Alien Composites","stackable": true,"itemtype": "resource","slug": "alien_composites"}
+{"id": 1010,"title": "Alien Computer Chip","description": "Alien Computer Chip","stackable": true,"itemtype": "resource","slug": "alien_computer_chip"}
+{"id": 0,"title": "Rock","description": "A beautifull rock","stackable": false,"itemtype": "weapon","slug": "beginner_rock"}
+{"id": 1,"title": "Med Kit","description": "A med kit used for healing","stackable": false,"itemtype": "resource","slug": "med_kit"}
+{"id": 24,"title": "BlunderBuss Ammo","description": "Ammo for your Blunderbuss","stackable": true,"itemtype": "ammo","slug": "bluderbuss_ammo"}
+{"id": 3,"title": "Catapult","description": "Launches pebbles of 9.0 grams over 3 meters","stackable": false,"itemtype": "weapon","slug": "catapult"}
+{"id": 4,"title": "Spear","description": "Stab them with the pointy end","stackable": false,"itemtype": "weapon","slug": "spear"}
+{"id": 18,"title": "Pebbles","description": "Ammo for your catapult","stackable": true,"itemtype": "ammo","slug": "pebbles"}
+{"id": 6,"title": "Bow","description": "A beautifull bow","stackable": false,"itemtype": "weapon","slug": "bow"}
+{"id": 26,"title": "Arrows","description": "Ammo for your bow","stackable": true,"itemtype": "ammo","slug": "arrows"}
+{"id": 22,"title": "Furnace Blower","description": "Needed to make use of a furnance and anvil","stackable": false,"itemtype": "resource","slug": "furnace_blower"}
+{"id": 2,"title": "Halbert","description": "A spear and an axe combined!","stackable": false,"itemtype": "weapon","slug": "halbert"}
+{"id": 8,"title": "Crossbow","description": "Xbow","stackable": false,"itemtype": "weapon","slug": "crossbow"}
+{"id": 16,"title": "Bolts","description": "Pointy sticks, used as ammo for your crossbow.","stackable": true,"itemtype": "ammo","slug": "bolts"}
+{"id": 33,"title": "Cogg","description": "A cogg needed to make use of the factory chain belt.","stackable": false,"itemtype": "resource","slug": "cogg"}
+{"id": 15,"title": "Axe","description": "Chop Chop","stackable": false,"itemtype": "weapon","slug": "axe"}
+{"id": 11,"title": "Revolver","description": "Shoots bullets","stackable": false,"itemtype": "weapon","slug": "revolver"},
+{"id": 17,"title": "Revolver Ammo","description": "Ammo for your revolver.","stackable": true,"itemtype": "ammo","slug": "revolver_ammo"}
+{"id": 5,"title": "SMG","description": "Maffia toys","stackable": false,"itemtype": "weapon","slug": "smg"}
+{"id": 19,"title": "Shotgun Ammo","description": "Ammo for your shotgun.","stackable": true,"itemtype": "ammo","slug": "shotgun_ammo"}
+{"id": 20,"title": "Computer Chip","description": "Computer Chip, this is needed for using the 3D printer","stackable": false,"itemtype": "resource","slug": "computer_chip"}
+{"id": 12,"title": "Shotgun","description": "Shotgun","stackable": false,"itemtype": "weapon","slug": "shotgun"}
+{"id": 10,"title": "M1911","description": "Beautifull hand gun.","stackable": false,"itemtype": "weapon","slug": "m1911"}
+{"id": 23,"title": "M1911 Ammo","description": "Ammo for your m1911.","stackable": true,"itemtype": "ammo","slug": "m1911_ammo"}
+{"id": 9,"title": "BlunderBuss","description": "Boom","stackable": false,"itemtype": "weapon","slug": "blunderbuss"}
+{"id": 25,"title": "SMG ammo","description": "Ammo for your SMG.","stackable": true,"itemtype": "ammo","slug": "smg_ammo"}
+{"id": 7,"title": "M4","description": "Just an M4.","stackable": false,"itemtype": "weapon","slug": "m4"}
+{"id": 27,"title": "M4 Ammo","description": "Ammo for your M14.","stackable": true,"itemtype": "resource","slug": "m4_ammo"}
+{"id": 30,"title": "13Aerj&*/**?/&@","description": "Might have something to do with the weird alien machine","stackable": false,"itemtype": "resource","slug": "weird_alien_machine_part"}
+{"id": 13,"title": "Alien HandGun","description": "It's a handgun but alien.","stackable": false,"itemtype": "weapon","slug": "scifihandgun"}
+{"id": 14,"title": "Big Alien Gun","description": "Let's see what it does.","stackable": false,"itemtype": "weapon","slug": "scifibiggun"}
+{"id": 34,"title": "Alien Ammo","description": "Stuff for alien guns.","stackable": true,"itemtype": "resource","slug": "alien_ammo"}
