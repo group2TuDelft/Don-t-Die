@@ -234,11 +234,6 @@ public class Humanoid_AI_Easy : MonoBehaviour {
     }
     // Update is called once per frame
     void Update () {
-        timer += Time.deltaTime;
-        if (timer > 5f)
-        {
-            Death();
-        }
         CheckInLineOfSight();
         CheckAgro();
         DecideDestination();
