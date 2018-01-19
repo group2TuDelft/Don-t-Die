@@ -12,35 +12,11 @@ public class Humanoid_AI_Easy : MonoBehaviour {
     private Transform player_tr;
     private Animator animator;
     private AudioManager audiomanager;
+    CapsuleCollider capsuleCollider;
 
-    public string diffeculty {get; set;} //Bepaald de moeilijkheid van de enemy
-    public float gametimer { get; set; } //Game timer die bepaalde instellingen van de enemies bepalen
-
-
-    private float timer;
-    public void setTimer(float time)
-    {
-        timer = time;
-    }
-    public float getTimer()
-    {
-        return timer;
-    }
-
-    public float Timer
-    {
-        get
-        {
-            return timer;
-        }
-        set
-        {
-            timer = value;
-        }
-    }
-
-
-    public float starting_health = 300f; //health waarmee de ennemy begint
+    public int scoreValue = 10;
+    public int starting_health = 300; //health waarmee de enemy begint
+    public int current_health = 1;
     public float agro_distance = 30f; // afstand waarbij die je ziet
     public float shoot_range = 60f; // Maximale schiet afstand
     public float shootingrotationspeed = 2f; // Snelheid waarbij de enemy draait als die aan het schieten is
@@ -60,18 +36,25 @@ public class Humanoid_AI_Easy : MonoBehaviour {
     private bool agro = false; // Boolean of deze enemy de player probeert aan te vallen
     private bool shooting = false; // Is die nu aan het schieten of niet
     private bool foundcover = false; // Boolean of deze enemy een valid cover heeft gevonden
+    private bool isdead = false; // Is this enemy dead?
 
     private bool findcoverloop = true; // Boolean die de radius find voor find cover functie bepaald
     private float findcoverradius = 0f; // Float die in de findcoverloop steeds groter wordt
 
-    private float walktimer = 0f; // Timer die gebruikt wordt om random walk te triggeren
+    private float timer = 0f; //General timer voor alles in deze class
+    private float walkcooldowntimer = 1f;
+    public float walkcooldown = 3f; // Tijd waartussen de enemy een nieuw random walk punt kiest
     private float shoottimer = 0f; // Timer die gebruikt wordt om shoot te triggeren
     private float audiotimer = 0f; // Timer om audio te triggeren
+
+    public float despawntime = 1.5f;
 
 
 
     // Use this for initialization
     void Start () {
+        current_health = starting_health;
+        capsuleCollider = GetComponent<CapsuleCollider>();
         animator = this.GetComponent<Animator>();
         navmesh = this.GetComponent<NavMeshAgent>();
         this_tr = this.GetComponent<Transform>();
@@ -79,8 +62,6 @@ public class Humanoid_AI_Easy : MonoBehaviour {
         audiomanager = FindObjectOfType<AudioManager>();
 
         navmesh.speed = normalspeed;
-        Timer = 0.4f;
-        setTimer(0.3f);
     }
 
     void CheckInLineOfSight() // Deze checkt of de enemy de player ziet
@@ -183,13 +164,14 @@ public class Humanoid_AI_Easy : MonoBehaviour {
         if ((this_tr.position - navmesh.destination).magnitude < 1f)
         { //  < dan tollerantie, anders waggelt die om de waypoint
             navmesh.destination = this_tr.position;
-            animator.SetBool("AnimWalk", false);      
-            walktimer += Time.deltaTime;
-            if (walktimer > 3f)
+            animator.SetBool("AnimWalk", false);
+            walkcooldowntimer += Time.deltaTime;
+            if (walkcooldowntimer > walkcooldown)
             {
+                walkcooldowntimer = 0f;
                 animator.SetBool("AnimWalk", true);
                 navmesh.destination += new Vector3(Random.Range(-20.0f, 20f), 0f, Random.Range(-20.0f, 20f));
-                walktimer = 0f;
+ 
             }
 
         }
@@ -202,15 +184,19 @@ public class Humanoid_AI_Easy : MonoBehaviour {
         {
             if ((player_tr.position - this_tr.position).magnitude < shoot_range)
             {
-                shooting = true;
-                animator.SetBool("AnimShooting", true);
                 navmesh.speed = shootingspeed;
 
                 if (shoottimer > reloadtime)
                 {
+                    shooting = true;
+                    animator.SetBool("AnimShooting", true);
                     Debug.Log("BANG"); // Dit moet nog echte schiet functie worden die player damaged
                     audiomanager.RandomPlay("plasmarifle");
                     shoottimer = 0f;
+                }
+                else if (shooting)
+                {
+                    animator.SetBool("AnimShooting", false);
                 }
             }
             else
@@ -248,6 +234,11 @@ public class Humanoid_AI_Easy : MonoBehaviour {
     }
     // Update is called once per frame
     void Update () {
+        timer += Time.deltaTime;
+        if (timer > 5f)
+        {
+            Death();
+        }
         CheckInLineOfSight();
         CheckAgro();
         DecideDestination();
@@ -259,4 +250,35 @@ public class Humanoid_AI_Easy : MonoBehaviour {
         PlayAudio();
 		
 	}
+
+    public void TakeDamage(int amount)
+    {
+        if (isdead)
+            return;
+
+        current_health -= amount;
+        if (current_health <= 0)
+        {
+            Death();
+        }
+
+    }
+
+    void Death()
+    {
+        if (!isdead)
+        {
+            animator.SetBool("AnimDead", true);
+            audiomanager.RandomPlay("HumanoidDeath");
+            Destroy(this.gameObject, despawntime);
+        }
+        isdead = true;
+        navmesh.destination = this_tr.position;
+
+
+        //capsuleCollider.isTrigger = true;
+
+        //ScoreManager.score += scoreValue;
+
+    }
 }

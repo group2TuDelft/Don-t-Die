@@ -13,8 +13,10 @@ public class Zergling_AI_Hard : MonoBehaviour
     private Animator animator;
     private AudioManager audiomanager;
 
-    public float starthealth = 200f;
-    public float currenthealth = 1f;
+    public int scoreValue = 10;
+    public int starthealth = 200;
+    public int currenthealth = 1;
+    private float timer = 0f;
 
     public float attackdistance = 2f; //Afstand waarbij Zergling aan kan vallen
     public float attackcooldown = 3f; //Tijd die tussen elke attack moet zitten
@@ -38,10 +40,13 @@ public class Zergling_AI_Hard : MonoBehaviour
     public float audiocooldownmin = 4f; // Min van dit hier boven
     private float audiocooldown = 0f; // De daadwerklijke cooldown
 
+    private float despawntime = 1.5f;
+
     private bool smelling = false;
     private bool seeing = false;
     private bool chasing = false;
     public bool howled = false;         // Heeft deze unit al gehowld?
+    private bool isdead = false;
 
     private void Awake()
     {
@@ -203,6 +208,7 @@ public class Zergling_AI_Hard : MonoBehaviour
     }
     void Update()
     {
+        timer += Time.deltaTime;
         CheckInLineOfSight();
         CheckSmelling();
         CheckAgro();
@@ -215,7 +221,41 @@ public class Zergling_AI_Hard : MonoBehaviour
         {
             RandomWalk();
         }
-        PlayAudio();
+        if (timer > 8)
+        {
+            Death();
+        }
+
+    }
+    public void TakeDamage(int amount)
+    {
+        if (isdead)
+            return;
+
+        currenthealth -= amount;
+        if (currenthealth <= 0)
+        {
+            Death();
+        }
+
+    }
+
+    void Death()
+    {
+        if (!isdead)
+        {
+            animator.SetBool("AnimDead", true);
+            audiomanager.RandomPlay("ZerglingDeath");
+            Destroy(this.gameObject, despawntime);
+        }
+        isdead = true;
+        navmesh.destination = thistr.position;
+
+
+        //capsuleCollider.isTrigger = true;
+
+        //ScoreManager.score += scoreValue;
 
     }
 }
+
