@@ -25,6 +25,8 @@ TagManager:
   - scifibiggun
   - axe
   - Mesh
+  - Cliff
+  - Score
   layers:
   - Default
   - TransparentFX
