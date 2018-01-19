@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: ab2675c3cb5e9b64ea793ecb67d6a414
-timeCreated: 1513256082
+timeCreated: 1516357339
 licenseType: Free
 ModelImporter:
   serializedVersion: 22
@@ -57,10 +57,10 @@ ModelImporter:
     400048: UpperLeg_R
     4300000: Character
     7400000: Default Take
-    7400002: Idle
-    7400004: Shooting
-    7400006: Walk
-    7400008: Dead
+    7400002: Dead
+    7400004: Idle
+    7400006: Shooting
+    7400008: Walk
     9500000: //RootNode
     13700000: Character
   externalObjects:
@@ -95,6 +95,34 @@ ModelImporter:
     extraExposedTransformPaths: []
     extraUserProperties: []
     clipAnimations:
+    - serializedVersion: 16
+      name: Default Take
+      takeName: Default Take
+      firstFrame: 0
+      lastFrame: 44
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
     - serializedVersion: 16
       name: Dead
       takeName: Dead

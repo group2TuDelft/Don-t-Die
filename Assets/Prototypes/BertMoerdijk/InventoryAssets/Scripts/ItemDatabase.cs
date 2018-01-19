@@ -30,7 +30,8 @@ public class ItemDatabase : MonoBehaviour {
             }
         }
 
-        Debug.Log("Requested Item does not excist");
+        Debug.Log("Requested Item does not excist with id:");
+        Debug.Log(id);
         return null;
     }
 

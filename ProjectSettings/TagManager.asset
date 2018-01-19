@@ -14,6 +14,17 @@ TagManager:
   - SMG
   - Halbert
   - M4
+  - Bow
+  - CrossBow
+  - BlunderBuss
+  - m1911
+  - revolver
+  - shotgun
+  - catapult
+  - scifihandgun
+  - scifibiggun
+  - axe
+  - Mesh
   layers:
   - Default
   - TransparentFX
@@ -27,11 +38,11 @@ TagManager:
   - Shootable
   - Bullet
   - Gun
-  - 
-  - 
-  - 
-  - 
-  - 
+  - Mesh
+  - Cabins
+  - Bushes
+  - Chest
+  - Trees
   - 
   - 
   - 
