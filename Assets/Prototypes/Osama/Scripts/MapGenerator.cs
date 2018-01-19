@@ -45,10 +45,22 @@ public class MapGenerator : MonoBehaviour
         {
             for(int x = 0; x < mapWidth; x++)
             {
-                noiseMapPerMesh[0][x, y] = noiseMap[x, y];
+                /*noiseMapPerMesh[0][x, y] = noiseMap[x, y];
                 noiseMapPerMesh[1][x, y] = noiseMap[x + mapWidth, y];
                 noiseMapPerMesh[2][x, y] = noiseMap[x, y + mapHeight];
-                noiseMapPerMesh[3][x, y] = noiseMap[x + mapWidth, y + mapHeight];
+                noiseMapPerMesh[3][x, y] = noiseMap[x + mapWidth, y + mapHeight];*/
+
+                noiseMapPerMesh[0][x, y] = noiseMap[x, y];
+                noiseMapPerMesh[1][x, y] = noiseMap[x + mapWidth, y];
+                noiseMapPerMesh[2][x, y] = noiseMap[x + 2 * mapWidth, y];
+                noiseMapPerMesh[3][x, y] = noiseMap[x, y + mapHeight];
+                noiseMapPerMesh[4][x, y] = noiseMap[x + mapWidth, y + mapHeight];
+                noiseMapPerMesh[5][x, y] = noiseMap[x + 2 * mapWidth, y + mapHeight];
+                noiseMapPerMesh[6][x, y] = noiseMap[x, y + 2 * mapHeight];
+                noiseMapPerMesh[7][x, y] = noiseMap[x + mapWidth, y + 2 * mapHeight];
+                noiseMapPerMesh[8][x, y] = noiseMap[x + 2 * mapWidth, y + 2 * mapHeight];
+
+
 
             }
         }

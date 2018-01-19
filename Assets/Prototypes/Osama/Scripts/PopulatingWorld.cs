@@ -22,7 +22,7 @@ public class PopulatingWorld : MonoBehaviour
 
         foreach (GameObject gameObject in allObjects)
         {
-            CalculateHeightObject(gameObject);
+            //CalculateHeightObject(gameObject);
             if (gameObject.name != "Chest(Clone)")
             {
                 gameObject.GetComponent<Collider>().enabled = false;

@@ -25,6 +25,7 @@ TagManager:
   - scifibiggun
   - axe
   - Mesh
+  - Cliff
   layers:
   - Default
   - TransparentFX
@@ -43,7 +44,7 @@ TagManager:
   - Bushes
   - Chest
   - Trees
-  - 
+  - Cliff
   - 
   - 
   - 

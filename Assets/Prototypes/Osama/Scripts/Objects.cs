@@ -5,11 +5,13 @@ public class Objects
 {
     private MapGenerator generatedMap;
     private GameObject[] gameObjectMeshes;
+    private int layerMeshes;
 
     public Objects(MapGenerator generatedMap)
     {
         this.generatedMap = generatedMap;
         gameObjectMeshes = GameObject.FindGameObjectsWithTag("Mesh");
+        layerMeshes = gameObjectMeshes[0].layer;
     }
 
     public bool CheckColoursEqual(Vector3 positionObject, string whereToPlace, GameObject gameObject)
@@ -36,10 +38,10 @@ public class Objects
 
         Vector3[] cornerPositions = new Vector3[4];
 
-        cornerPositions[0] = new Vector3(positionObject.x + colBoundsObject.x, positionObject.y, positionObject.z + colBoundsObject.z);
-        cornerPositions[1] = new Vector3(positionObject.x + colBoundsObject.x, positionObject.y, positionObject.z - colBoundsObject.z);
-        cornerPositions[2] = new Vector3(positionObject.x - colBoundsObject.x, positionObject.y, positionObject.z + colBoundsObject.z);
-        cornerPositions[3] = new Vector3(positionObject.x - colBoundsObject.x, positionObject.y, positionObject.z - colBoundsObject.z);
+        cornerPositions[0] = new Vector3(positionObject.x + colBoundsObject.x, positionObject.y+1f, positionObject.z + colBoundsObject.z);
+        cornerPositions[1] = new Vector3(positionObject.x + colBoundsObject.x, positionObject.y+1f, positionObject.z - colBoundsObject.z);
+        cornerPositions[2] = new Vector3(positionObject.x - colBoundsObject.x, positionObject.y+1f, positionObject.z + colBoundsObject.z);
+        cornerPositions[3] = new Vector3(positionObject.x - colBoundsObject.x, positionObject.y+1f, positionObject.z - colBoundsObject.z);
 
         Ray[] downRayFromCorners = new Ray[4];
 
@@ -85,9 +87,9 @@ public class Objects
 
         float xCoord = verticesAllMeshMaps[index].x;
         float zCoord = verticesAllMeshMaps[index].z;
-        float yCoord = 1000f;
+        //float yCoord = 1000f;
 
-
+        float yCoord = CalculateHeightObject(new Vector3(xCoord, 1000f, zCoord));
 
         Vector3 localCoords = new Vector3(xCoord, yCoord, zCoord);
         Vector3 worldCoords = new Vector3();
@@ -112,8 +114,9 @@ public class Objects
         Collider[] collidersOtherLayers;
 
         collidersSameLayer = Physics.OverlapSphere(new Vector3(positionObject.x, positionObject.y, positionObject.z), radiusSameLayer, 1 << layer);
-        collidersOtherLayers = Physics.OverlapSphere(new Vector3(positionObject.x, positionObject.y, positionObject.z), radiusOtherLayers, ~(1 << 12) & ~(1 << layer));
 
+        collidersOtherLayers = Physics.OverlapSphere(new Vector3(positionObject.x, positionObject.y, positionObject.z), radiusOtherLayers, ~(1 << layerMeshes) & ~(1 << layer) & ~(1 << 8) & ~(1<<5));
+        //collidersOtherLayers = Physics.OverlapSphere(new Vector3(positionObject.x, positionObject.y, positionObject.z), radiusOtherLayers, ~(1 << layerMeshes) & ~(1 << layer));
         if (collidersSameLayer.Length >= 1 || collidersOtherLayers.Length >= 1) { noObjectHit = false; }
 
         return noObjectHit;
@@ -126,10 +129,10 @@ public class Objects
         Vector3 colBoundsObject = gameObject.GetComponent<Collider>().bounds.extents;
         Vector3[] cornerPositions = new Vector3[4];
 
-        cornerPositions[0] = new Vector3(positionObject.x + colBoundsObject.x, positionObject.y, positionObject.z + colBoundsObject.z);
-        cornerPositions[1] = new Vector3(positionObject.x + colBoundsObject.x, positionObject.y, positionObject.z - colBoundsObject.z);
-        cornerPositions[2] = new Vector3(positionObject.x - colBoundsObject.x, positionObject.y, positionObject.z + colBoundsObject.z);
-        cornerPositions[3] = new Vector3(positionObject.x - colBoundsObject.x, positionObject.y, positionObject.z - colBoundsObject.z);
+        cornerPositions[0] = new Vector3(positionObject.x + colBoundsObject.x, positionObject.y+1f, positionObject.z + colBoundsObject.z);
+        cornerPositions[1] = new Vector3(positionObject.x + colBoundsObject.x, positionObject.y+1f, positionObject.z - colBoundsObject.z);
+        cornerPositions[2] = new Vector3(positionObject.x - colBoundsObject.x, positionObject.y+1f, positionObject.z + colBoundsObject.z);
+        cornerPositions[3] = new Vector3(positionObject.x - colBoundsObject.x, positionObject.y+1f, positionObject.z - colBoundsObject.z);
 
         Ray[] downRayFromCorners = new Ray[4];
 
@@ -148,7 +151,7 @@ public class Objects
     {
         RaycastHit hit;
         Vector3 coordinates = gameObject.transform.position;
-        Ray downRay = new Ray(coordinates, Vector3.down);
+        Ray downRay = new Ray(new Vector3(coordinates.x, coordinates.y +1f, coordinates.z), Vector3.down);
         Physics.Raycast(downRay, out hit);
 
         bool whichRotate = Random.value < 0.5 ? true : false;
@@ -164,7 +167,7 @@ public class Objects
                 gameObject.transform.Rotate(0f, 180f, 0f);
             }
         }
-        else if (hit.collider.name == "Mesh2")
+        else if (hit.collider.name == "Mesh3")
         {
             if (whichRotate)
             {
@@ -176,7 +179,7 @@ public class Objects
             }
 
         }
-        else if (hit.collider.name == "Mesh3")
+        else if (hit.collider.name == "Mesh7")
             if (whichRotate)
             {
                 gameObject.transform.Rotate(0f, 0f, 0f);
@@ -185,7 +188,7 @@ public class Objects
             {
                 gameObject.transform.Rotate(0f, 90f, 0f);
             }
-        else
+        else if (hit.collider.name == "Mesh9")
         {
             if (whichRotate)
             {
@@ -197,6 +200,34 @@ public class Objects
             }
 
         }
+    }
+
+    public float CalculateHeightObject(Vector3 positionObject)
+    {
+        RaycastHit hit;
+        Vector3 coordinates = positionObject;
+
+        Ray downRay = new Ray(coordinates, Vector3.down);
+        Physics.Raycast(downRay, out hit);
+        coordinates.y = coordinates.y - hit.distance;
+
+        RaycastHit hit2;
+        Ray downRay2 = new Ray(coordinates, Vector3.down);
+        Physics.Raycast(downRay2, out hit2);
+
+
+        if (hit2.distance >= 1000)
+        {
+            return coordinates.y;
+        }
+        else
+        {
+
+            coordinates.y = coordinates.y - hit2.distance;
+        }
+
+        return coordinates.y;
+
     }
 
 
