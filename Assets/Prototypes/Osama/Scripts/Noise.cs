@@ -4,7 +4,7 @@ public static class Noise
 {
     public static float[,] GenerateNoiseMap(int mapWidth, int mapHeight, int seed, float scale, int octaves, float persistance, float lacunarity, Vector2 offset)
     {
-        float[,] noiseMap = new float[2 * mapWidth, 2 * mapHeight];
+        float[,] noiseMap = new float[3 * mapWidth, 3 * mapHeight];
 
         System.Random prng = new System.Random(seed);
         Vector2[] octaveOffsets = new Vector2[octaves];
@@ -27,9 +27,9 @@ public static class Noise
         float halfHeight = mapHeight / 2f;
 
 
-        for (int y = 0; y < 2 * mapHeight; y++)
+        for (int y = 0; y < 3 * mapHeight; y++)
         {
-            for (int x = 0; x < 2 * mapWidth; x++)
+            for (int x = 0; x < 3 * mapWidth; x++)
             {
 
                 float amplitude = 1;
@@ -60,9 +60,9 @@ public static class Noise
             }
         }
 
-        for (int y = 0; y < 2 * mapHeight; y++)
+        for (int y = 0; y < 3 * mapHeight; y++)
         {
-            for (int x = 0; x < 2 * mapWidth; x++)
+            for (int x = 0; x < 3 * mapWidth; x++)
             {
                 noiseMap[x, y] = Mathf.InverseLerp(minNoiseHeight, maxNoiseHeight, noiseMap[x, y]);
             }

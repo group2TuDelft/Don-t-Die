@@ -44,6 +44,7 @@ public class ClusterObjects : MonoBehaviour
             Vector2 randomNumber = Random.insideUnitCircle * gameObjectArray[index].aroundClusterRadius;
             Vector3 positionObjectAroundCenter = new Vector3(centerObject.transform.position.x + randomNumber.x, centerObject.transform.position.y, centerObject.transform.position.z + randomNumber.y);
 
+
             if (objects.CheckColoursEqual(positionObjectAroundCenter, gameObjectArray[index].place, gameObjectArray[index].type) &&
                 objects.InsideMap(positionObjectAroundCenter, gameObjectArray[index].type) &&
                 objects.SpreadObjects(positionObjectAroundCenter, gameObjectArray[index].radiusSameLayer, gameObjectArray[index].radiusOtherLayers, gameObjectArray[index].type.layer))
