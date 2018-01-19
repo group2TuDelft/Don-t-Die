@@ -4,4 +4,10 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Prototypes/Lorenzo/UI's and scene's/menu screen.unity
+    guid: c7faaab93522d6c4eae15dcfbd67c08f
+  - enabled: 1
+    path: Assets/Prototypes/Sidi/_Scenes/Main.unity
+    guid: ed3a99be65ce21547a86145340fa2ab3

@@ -57,6 +57,7 @@ public class PlayerHealth : MonoBehaviour
 
 		if (currentHealth <= 0 && !isDead) {
 			Die ();
+            FindObjectOfType<GameManager>().GameOver();
 			heartImage.enabled = false;
 		}
     }
