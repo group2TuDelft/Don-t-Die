@@ -42,7 +42,7 @@ public class worldInteraction : MonoBehaviour
             if (interactedObject.tag == "Red Box")
             {
                 interactedObject.SetActive(false);
-                inv.AddItem(2);
+                inv.AddItem(2, 1);
             }
             if (interactedObject.tag == "WorkBench")
             {

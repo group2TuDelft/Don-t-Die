@@ -27,7 +27,7 @@ public class SpawningScript : MonoBehaviour {
     // Use this for initialization
     void Start () {
         radius = 100;
-        spawnradius = 4;
+        spawnradius = 2;
 		alienspawnradius = 40;
         player = GameObject.Find("Player");
     }

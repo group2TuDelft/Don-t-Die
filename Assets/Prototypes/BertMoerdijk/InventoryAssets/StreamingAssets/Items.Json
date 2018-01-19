@@ -10,7 +10,7 @@
     "stackable": true,
     "itemtype": "resource",
     "slug": "wood",
-    "animation":  "None"
+    "animation": "None"
   },
   {
     "id": 1001,
@@ -165,20 +165,20 @@
     "description": "A med kit used for healing",
     "stackable": false,
     "itemtype": "resource",
-    "slug": "beginner_stone",
+    "slug": "med_kit",
     "animation": "None"
   },
   {
-    "id": 9,
-    "title": "Red Box",
+    "id": 24,
+    "title": "BlunderBuss Ammo",
     "stats": {
       "damage": 0,
       "range": 0
     },
-    "description": "A red box",
+    "description": "Ammo for your Blunderbuss",
     "stackable": true,
-    "itemtype": "resource",
-    "slug": "a_red_box",
+    "itemtype": "ammo",
+    "slug": "bluderbuss_ammo",
     "animation": "None"
   },
   {
@@ -188,7 +188,7 @@
       "damage": 1,
       "range": 3
     },
-    "description": "Launches pebbles of 90 grams over 3 meters",
+    "description": "Launches pebbles of 9.0 grams over 3 meters",
     "stackable": false,
     "itemtype": "weapon",
     "slug": "catapult",
@@ -235,7 +235,7 @@
   },
   {
     "id": 26,
-    "title": "Stone tip arrows",
+    "title": "Arrows",
     "stats": {
       "damage": 0,
       "range": 0
@@ -243,11 +243,11 @@
     "description": "Ammo for your bow",
     "stackable": true,
     "itemtype": "ammo",
-    "slug": "arrow",
+    "slug": "arrows",
     "animation": "None"
   },
   {
-    "id": 8,
+    "id": 22,
     "title": "Furnace Blower",
     "stats": {
       "damage": 0,
@@ -273,20 +273,20 @@
     "animation": "AnimHasSpear"
   },
   {
-    "id": 10,
-    "title": "3 Bolt Crossbow",
+    "id": 8,
+    "title": "Crossbow",
     "stats": {
       "damage": 2,
       "range": 0
     },
-    "description": "Medieval shotgun?",
+    "description": "Xbow",
     "stackable": false,
     "itemtype": "weapon",
-    "slug": "three_bolt_crossbow",
-    "animation": "AnimShotgun"
+    "slug": "crossbow",
+    "animation": "AnimHandGun"
   },
   {
-    "id": 11,
+    "id": 16,
     "title": "Bolts",
     "stats": {
       "damage": 0,
@@ -299,7 +299,7 @@
     "animation": "None"
   },
   {
-    "id": 14,
+    "id": 33,
     "title": "Cogg",
     "stats": {
       "damage": 0,
@@ -313,19 +313,19 @@
   },
   {
     "id": 15,
-    "title": "Machete",
+    "title": "Axe",
     "stats": {
       "damage": 8,
       "range": 0
     },
-    "description": "Rambo's favorite stabby thing",
+    "description": "Chop Chop",
     "stackable": false,
     "itemtype": "weapon",
-    "slug": "machete",
+    "slug": "axe",
     "animation": "AnimSlash"
   },
   {
-    "id": 16,
+    "id": 11,
     "title": "Revolver",
     "stats": {
       "damage": 5,
@@ -390,21 +390,21 @@
     "animation": "None"
   },
   {
-    "id": 21,
-    "title": "ChainSaw",
+    "id": 12,
+    "title": "Shotgun",
     "stats": {
-      "damage": 10,
+      "damage": 8,
       "range": 0
     },
-    "description": "Not for chopping wood",
+    "description": "Shotgun",
     "stackable": false,
     "itemtype": "weapon",
-    "slug": "chainsaw",
-    "animation": "AnimSlash"
+    "slug": "shotgun",
+    "animation": "AnimSemiAuto"
   },
   {
-    "id": 22,
-    "title": "Desert Eagle",
+    "id": 10,
+    "title": "M1911",
     "stats": {
       "damage": 8,
       "range": 0
@@ -412,46 +412,46 @@
     "description": "Beautifull hand gun.",
     "stackable": false,
     "itemtype": "weapon",
-    "slug": "desert_eagle",
-    "animation": "AnimHandGun"
+    "slug": "m1911",
+    "animation": "AnimHasHandgun"
   },
   {
     "id": 23,
-    "title": "Desert Eagle Ammo",
+    "title": "M1911 Ammo",
     "stats": {
       "damage": 0,
       "range": 0
     },
-    "description": "Ammo for your desert eagle.",
+    "description": "Ammo for your m1911.",
     "stackable": true,
     "itemtype": "ammo",
-    "slug": "desert_eagle_ammo",
+    "slug": "m1911_ammo",
     "animation": "None"
   },
   {
-    "id": 24,
-    "title": "Semi-Automatic Shotgun",
+    "id": 9,
+    "title": "BlunderBuss",
     "stats": {
       "damage": 8,
       "range": 0
     },
-    "description": "Yep, it is a semi automatic shotgun.",
+    "description": "Boom",
     "stackable": false,
     "itemtype": "weapon",
-    "slug": "semi_auto_shotgun",
+    "slug": "blunderbuss",
     "animation": "AnimSemiAuto"
   },
   {
     "id": 25,
-    "title": "Semi-Automatic Shotgun Ammo",
+    "title": "SMG ammo",
     "stats": {
       "damage": 0,
       "range": 0
     },
-    "description": "Ammo for your semi automatic shotgun.",
+    "description": "Ammo for your SMG.",
     "stackable": true,
     "itemtype": "ammo",
-    "slug": "semi_auto_shotgun_ammo",
+    "slug": "smg_ammo",
     "animation": "None"
   },
   {
@@ -469,7 +469,7 @@
   },
   {
     "id": 27,
-    "title": "M14 Ammo",
+    "title": "M4 Ammo",
     "stats": {
       "damage": 0,
       "range": 0
@@ -477,7 +477,7 @@
     "description": "Ammo for your M14.",
     "stackable": true,
     "itemtype": "resource",
-    "slug": "m14_ammo",
+    "slug": "m4_ammo",
     "animation": "None"
   },
   {
@@ -533,29 +533,29 @@
     "animation": "AnimSlash"
   },
   {
-    "id": 32,
-    "title": "Alien Rifle",
+    "id": 13,
+    "title": "Alien HandGun",
     "stats": {
       "damage": 20,
       "range": 0
     },
-    "description": "It's a rifle but alien.",
+    "description": "It's a handgun but alien.",
     "stackable": false,
     "itemtype": "weapon",
-    "slug": "alien_rifle",
+    "slug": "scifihandgun",
     "animation": "AnimHasGun"
   },
   {
-    "id": 33,
-    "title": "Alien Shotun",
+    "id": 14,
+    "title": "Big Alien Gun",
     "stats": {
       "damage": 26,
       "range": 0
     },
-    "description": "It's a shotgun but alien.",
+    "description": "Let's see what it does.",
     "stackable": false,
     "itemtype": "weapon",
-    "slug": "alien_shotgun",
+    "slug": "scifibiggun",
     "animation": "AnimShotgun"
   },
   {
@@ -566,7 +566,7 @@
       "range": 0
     },
     "description": "Stuff for alien guns.",
-    "stackable": false,
+    "stackable": true,
     "itemtype": "resource",
     "slug": "alien_ammo",
     "animation": "AnimNone"

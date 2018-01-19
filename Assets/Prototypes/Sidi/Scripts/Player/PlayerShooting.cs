@@ -16,13 +16,19 @@ public class PlayerShooting : MonoBehaviour
     Light gunLight;
     float effectsDisplayTime = 0.2f;
 	bool bulletHit = false;
-    private AmmoScript ammoScript;
+
+    // Ammo Related vars.
+    public int ammo_id;
+    private Inventory inv;
+    private Animator anim;
 
     void Awake ()
     {
+        anim = GameObject.Find("Player").GetComponent<Animator>();
         shootableMask = LayerMask.GetMask ("Shootable");
         gunLine = GetComponent <LineRenderer> ();
         gunLight = GetComponent<Light> ();
+        inv = GameObject.Find("Inventory").GetComponent<Inventory>();
     }
 
 
@@ -32,7 +38,17 @@ public class PlayerShooting : MonoBehaviour
 
 		if(Input.GetButton ("Fire1") && timer >= timeBetweenBullets && Time.timeScale != 0)
         {
-            Shoot ();
+            if (inv.CheckItemInInventoryByID(ammo_id))
+            {
+                anim.SetBool("AnimHasGun", true);
+                inv.DeleteItem(ammo_id, 1);
+                Shoot ();
+            }
+            else
+            {
+                anim.SetBool("AnimHasGun", false);
+                Debug.Log("Out of Ammo");
+            }
         }
 
 		if (Input.GetKeyDown(KeyCode.Space))

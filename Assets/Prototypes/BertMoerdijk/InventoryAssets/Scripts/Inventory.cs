@@ -63,23 +63,25 @@ public class Inventory : MonoBehaviour
         }
 
         // Adding Initial Items.
-        AddItem(0);
-        AddItem(4);
-        AddItem(2);
-        AddItem(5);
-        AddItem(7);
-        AddItem(1000);
-        AddItem(1000);
-        AddItem(1000);
-        AddItem(1001);
-        AddItem(1001);  
-        AddItem(1002);
-        AddItem(1003);
+        AddItem(0, 1);
+        AddItem(9, 1);
+        AddItem(13, 1);
+        AddItem(14, 1);
+        AddItem(8, 1);
+        AddItem(34, 20);
+        AddItem(1001, 2); 
+        AddItem(1002, 1);
+        AddItem(1003, 1);
+        AddItem(24, 40);
+        AddItem(18, 40);
+        AddItem(25, 30);
     }
 
     // function used to add an item
-    public void AddItem(int id)
+    public void AddItem(int id, int amount)
     {
+    for (int j = 0; j < amount; j++) {
+
         Item itemToAdd = database.FetchItemByID(id);
 
         if (itemToAdd.Stackable && CheckItemInInventory(itemToAdd))
@@ -126,7 +128,7 @@ public class Inventory : MonoBehaviour
                 }
             }
         }
-
+        }
     }
 
     public void DeleteItem (int id, int amount)
@@ -173,7 +175,7 @@ public class Inventory : MonoBehaviour
     }
 
     // Function that checks if an item is in the inventory, by id.
-    bool CheckItemInInventoryByID(int id)
+    public bool CheckItemInInventoryByID(int id)
     {
         for (int i = 0; i < items.Count; i++)
         {
