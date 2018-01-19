@@ -20,7 +20,7 @@ public class Minion_AI : MonoBehaviour
     public float maxrangefromhivemind = 20f;
     public float agrodistance = 20f;
     public float despawntime = 1.5f;
-    public float attackrange = 2f;
+    public float attackrange = 6f;
     public float rotationspeed = 1f;
 
     private bool seeing;
@@ -38,9 +38,10 @@ public class Minion_AI : MonoBehaviour
     private float randomwalktimer = 1f;
     private float randomwalkchange = 0f;
 
-    public GameObject ParentHivemind;
-    public AudioManager audiomanager;
-    public Animator animator;
+    //private GameObject ParentHivemind;
+    private AudioManager audiomanager;
+    private Animator animator;
+    private GameObject player;
 
 
     // Use this for initialization
@@ -53,6 +54,7 @@ public class Minion_AI : MonoBehaviour
         thisrb.constraints = RigidbodyConstraints.FreezeRotationX;
         audiomanager = FindObjectOfType<AudioManager>();
         animator = this.GetComponent<Animator>();
+        player = GameObject.Find("Player");
 
 
     }
@@ -85,7 +87,7 @@ public class Minion_AI : MonoBehaviour
     {
         if (seeing && !agro)
         {
-            ParentHivemind.GetComponent<Hivemind_AI_Easy>().agro = true;
+            //ParentHivemind.GetComponent<Hivemind_AI_Easy>().agro = true;
             agro = true;
         }
 
@@ -164,6 +166,9 @@ public class Minion_AI : MonoBehaviour
         {
             attacktimer = 0f;
             //playertr.GetComponent<PlayerHealth>().TakeDamage(meleedamage, "Minion");
+            PlayerHealth playerHealth = player.GetComponent<PlayerHealth>();
+            playerHealth.TakeDamage(meleedamage);
+
             int attacktype = Random.Range(1, 3);
             if (attacktype == 1)
             {
@@ -188,8 +193,8 @@ public class Minion_AI : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        CheckLineOfSight();
-        CheckAgro();
+        //CheckLineOfSight();
+        //CheckAgro();
         SetDestinationSelf();
         FaceTarget(goal);
         //SetPath();

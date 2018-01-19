@@ -46,7 +46,7 @@ public class HandGunScript : MonoBehaviour
             }
             else
             {
-                anim.SetBool("AnimHasHandgun", false);
+                //anim.SetBool("AnimHasHandgun", false);
                 Debug.Log("Out of Ammo");
             }
         }

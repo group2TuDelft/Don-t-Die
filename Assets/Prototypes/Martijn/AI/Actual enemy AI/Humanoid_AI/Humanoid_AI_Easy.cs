@@ -49,10 +49,23 @@ public class Humanoid_AI_Easy : MonoBehaviour {
 
     public float despawntime = 1.5f;
 
+    // Bullet Stuff
+
+    public int damagePerShot = 20;
+    public int BulletSpeed = 20;
+    public float range = 100f;
+    public GameObject bulletPrefab;
+    public Transform bulletSpawn;
+    public GameObject Humanoid;
+    int shootableMask;
+    float effectsDisplayTime = 0.2f;
+    bool bulletHit = false;
+
 
 
     // Use this for initialization
     void Start () {
+        shootableMask = LayerMask.GetMask("Shootable");
         current_health = starting_health;
         capsuleCollider = GetComponent<CapsuleCollider>();
         animator = this.GetComponent<Animator>();
@@ -190,7 +203,7 @@ public class Humanoid_AI_Easy : MonoBehaviour {
                 {
                     shooting = true;
                     animator.SetBool("AnimShooting", true);
-                    Debug.Log("BANG"); // Dit moet nog echte schiet functie worden die player damaged
+                    Fire();
                     audiomanager.RandomPlay("plasmarifle");
                     shoottimer = 0f;
                 }
@@ -275,5 +288,19 @@ public class Humanoid_AI_Easy : MonoBehaviour {
 
         //ScoreManager.score += scoreValue;
 
+    }
+    void Fire()
+    {
+        // Create the Bullet from the Bullet Prefab
+        var bullet = (GameObject)Instantiate(
+            bulletPrefab,
+            bulletSpawn.position,
+            bulletSpawn.rotation);
+
+        // Add velocity to the bullet
+        bullet.GetComponent<Rigidbody>().velocity = bullet.transform.forward * BulletSpeed;
+
+        // Destroy the bullet after 2 seconds
+        Destroy(bullet, 2.0f);
     }
 }
