@@ -11,9 +11,8 @@ public class SpearScript : MonoBehaviour {
 
          if (col.gameObject.tag == "Enemy")
         {
-            if (Input.GetButton("Fire1")) { 
-                EnemyHealth enemyHealth = col.GetComponent<EnemyHealth>();
-                enemyHealth.TakeDamage(damage);
+            if (Input.GetButton("Fire1")) {
+                 col.GetComponent<ColliderNameFinder>().scriptname(col.gameObject);
             }
         }
     }

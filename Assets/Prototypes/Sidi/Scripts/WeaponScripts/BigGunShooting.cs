@@ -62,6 +62,7 @@ public class BigGunShooting : MonoBehaviour
 
         if (Input.GetButton("Fire1") && timer >= timeBetweenBullets - animationoffset && Time.timeScale != 0 && shot == false)
         {
+            Debug.Log("Hier BigGunShooting" + ammo_id);
             if (inv.CheckItemInInventoryByID(ammo_id))
             {
                 anim.SetBool("AnimHasGun", true);

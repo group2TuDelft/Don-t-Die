@@ -63,18 +63,9 @@ public class Inventory : MonoBehaviour
         }
 
         // Adding Initial Items.
-        AddItem(0, 1);
+        AddItem(15, 1);
         AddItem(9, 1);
-        AddItem(13, 1);
-        AddItem(14, 1);
-        AddItem(8, 1);
-        AddItem(34, 20);
-        AddItem(1001, 2); 
-        AddItem(1002, 1);
-        AddItem(1003, 1);
-        AddItem(24, 40);
-        AddItem(18, 40);
-        AddItem(25, 30);
+        AddItem(24, 50);
     }
 
     // function used to add an item
@@ -249,7 +240,7 @@ public class Inventory : MonoBehaviour
         {
             Destroy(slots[(chestSlotAmount - j) + weaponSlotAmount + inventorySlotAmount - 1]);
             slots.Remove(slots[(chestSlotAmount - j) + weaponSlotAmount + inventorySlotAmount - 1]);
-            items.Remove(items[(chestSlotAmount - j) + weaponSlotAmount + inventorySlotAmount - 1]);
+            items.RemoveAt(items.Count - 1);
         }
 
     }

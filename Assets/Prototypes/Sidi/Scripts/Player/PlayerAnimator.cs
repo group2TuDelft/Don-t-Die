@@ -57,21 +57,21 @@ public class PlayerAnimator : MonoBehaviour {
     }
 
     // Triggers
-    void OnTriggerEnter(Collider other) {
-        if (other.tag == "Chest") {
-            ChestInteractionText.SetActive(true);
-            chestInrange = true;
-            chestgobj = other.gameObject;
-        }
-    }
+    //void OnTriggerEnter(Collider other) {
+    //    if (other.tag == "Chest") {
+    //        ChestInteractionText.SetActive(true);
+    //        chestInrange = true;
+    //        chestgobj = other.gameObject;
+    //    }
+    //}
 
-    void OnTriggerExit(Collider other) {
-        if (other.tag == "Chest") {
-            ChestInteractionText.SetActive(false);
-            chestInrange = false;
-            chestgobj.GetComponent<Chest>().close(chestgobj);
-        }
-    }
+    //void OnTriggerExit(Collider other) {
+    //    if (other.tag == "Chest") {
+    //        ChestInteractionText.SetActive(false);
+    //        chestInrange = false;
+    //        chestgobj.GetComponent<Chest>().close(chestgobj);
+    //    }
+    //}
 
     void SetAnimation() {
         if (Input.GetKeyDown(KeyCode.W)) {
@@ -81,29 +81,29 @@ public class PlayerAnimator : MonoBehaviour {
             anim.SetBool("AnimLeft", false);
             anim.SetBool("AnimBack", false);
         }
-        if (Input.GetKeyDown(KeyCode.E)) {
-            if (chestInrange == true) {
-                chestgobj.GetComponent<Chest>().interactChest(chestgobj);
-
-                if (playerMovement.enabled == true) {
-                    anim.SetBool("AnimOpenBox", true);
-                    anim.SetBool("AnimCloseBox", false);
-                    playerMovement.enabled = false;
-                    Gun.SetActive(false);
-                } else {
-                    playerMovement.enabled = true;
-                    anim.SetBool("AnimCloseBox", true);
-                    Gun.SetActive(true);
-                }
-                if (playerShooting.enabled == false) {
-                    playerShooting.enabled = true;
-                } else {
-                    playerShooting.enabled = false;
-                }
-            }
-        } else {
-            anim.SetBool("AnimOpenBox", false);
-        }
+        //if (Input.GetKeyDown(KeyCode.E)) {
+        //   if (chestInrange == true) {
+        //        chestgobj.GetComponent<Chest>().interactChest(chestgobj);
+        //
+         //       if (playerMovement.enabled == true) {
+           //         anim.SetBool("AnimOpenBox", true);
+            //        anim.SetBool("AnimCloseBox", false);
+             //       playerMovement.enabled = false;
+          //          Gun.SetActive(false);
+          //      } else {
+          //          playerMovement.enabled = true;
+           //         anim.SetBool("AnimCloseBox", true);
+           //         Gun.SetActive(true);
+           //     }
+          //      if (playerShooting.enabled == false) {
+          //          playerShooting.enabled = true;
+        //        } else {
+       //             playerShooting.enabled = false;
+       //         }
+      //      }
+      //  } else {
+       //     anim.SetBool("AnimOpenBox", false);
+        //}
 
         if (Input.GetKeyUp(KeyCode.W)) {
             anim.SetBool("AnimForward", false);

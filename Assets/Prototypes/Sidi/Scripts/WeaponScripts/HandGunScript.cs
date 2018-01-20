@@ -4,7 +4,7 @@ public class HandGunScript : MonoBehaviour
 {
     public int damagePerShot = 20;
     public float timeBetweenBullets = 0.5f;
-    public float range = 40f;
+    public float range = 100f;
     public GameObject bulletPrefab;
     public Transform bulletSpawn;
 
@@ -46,7 +46,7 @@ public class HandGunScript : MonoBehaviour
             }
             else
             {
-                anim.SetBool("AnimHasHandgun", false);
+                //anim.SetBool("AnimHasHandgun", false);
                 Debug.Log("Out of Ammo");
             }
         }
@@ -79,15 +79,19 @@ public class HandGunScript : MonoBehaviour
 
         if (Physics.Raycast(shootRay, out shootHit, range, shootableMask))
         {
-            EnemyHealth enemyHealth = shootHit.collider.GetComponent<EnemyHealth>();
-            if (enemyHealth != null)
+            Debug.Log("raycasthit");
+            //EnemyHealth enemyHealth = shootHit.collider.GetComponent<EnemyHealth>();
+            if (shootHit.collider.gameObject.tag == "Enemy")
             {
-                enemyHealth.TakeDamage(damagePerShot); //shootHit.point);
+                Debug.Log("tag0");
+                shootHit.collider.GetComponent<ColliderNameFinder>().scriptname(shootHit.collider.gameObject);
+               // enemyHealth.TakeDamage(damagePerShot); //shootHit.point);
             }
             gunLine.SetPosition(1, shootHit.point);
         }
         else
         {
+            Debug.Log("Raycast mis");
             gunLine.SetPosition(1, shootRay.origin + shootRay.direction * range);
         }
     }

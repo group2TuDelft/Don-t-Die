@@ -38,8 +38,10 @@ public class PlayerShooting : MonoBehaviour
 
 		if(Input.GetButton ("Fire1") && timer >= timeBetweenBullets && Time.timeScale != 0)
         {
+            Debug.Log("Hier PlayerShooting" + ammo_id);
             if (inv.CheckItemInInventoryByID(ammo_id))
             {
+
                 anim.SetBool("AnimHasGun", true);
                 inv.DeleteItem(ammo_id, 1);
                 Shoot ();
