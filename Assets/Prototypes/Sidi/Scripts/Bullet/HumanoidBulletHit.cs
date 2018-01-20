@@ -18,7 +18,7 @@ public class HumanoidBulletHit : MonoBehaviour {
 	void OnTriggerEnter( Collider other){
 		if (other.tag == "Player") {
 			PlayerHealth playerHealth = other.GetComponent<PlayerHealth> ();
-			playerHealth.TakeDamage (30);
+			playerHealth.TakeDamage (30,"Humanoid");
 		}
 	}
 

@@ -69,5 +69,8 @@ public class WeaponSelection : MonoBehaviour {
         return inv.items[activeSlotId].ID;
     }
 		
+	public string GetWeaponName(){
+		return inv.items [activeSlotId].Title;
+	}
 
 }

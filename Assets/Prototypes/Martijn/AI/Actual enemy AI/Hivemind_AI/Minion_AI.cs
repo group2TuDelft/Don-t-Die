@@ -167,7 +167,7 @@ public class Minion_AI : MonoBehaviour
             attacktimer = 0f;
             //playertr.GetComponent<PlayerHealth>().TakeDamage(meleedamage, "Minion");
             PlayerHealth playerHealth = player.GetComponent<PlayerHealth>();
-            playerHealth.TakeDamage(meleedamage);
+			playerHealth.TakeDamage(meleedamage, this.name);
 
             int attacktype = Random.Range(1, 3);
             if (attacktype == 1)

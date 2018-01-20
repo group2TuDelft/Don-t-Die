@@ -27,6 +27,8 @@ TagManager:
   - Mesh
   - Cliff
   - Score
+  - HeatMap
+  - Floor
   layers:
   - Default
   - TransparentFX
@@ -45,7 +47,7 @@ TagManager:
   - Bushes
   - Chest
   - Trees
-  - 
+  - HeatMap
   - 
   - 
   - 

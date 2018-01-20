@@ -8,6 +8,7 @@ using UnityEngine.SceneManagement;
 public class PlayerHealth : MonoBehaviour
 {
 	float timer = 0.0f;
+	public string killer;
 
 
 	Animator anim;
@@ -17,8 +18,9 @@ public class PlayerHealth : MonoBehaviour
 	PlayerAnimator playerAnimator;
 	bool isDead;
 	bool damaged;
-	int startingHealth = 200;
-	int currentHealth;
+	int currentHealth = 200;
+
+
 	float flashSpeed = 5f;
 	[SerializeField] Sprite [] hearts;
 	[SerializeField] Image heartImage;
@@ -30,18 +32,17 @@ public class PlayerHealth : MonoBehaviour
 		playerAnimator = GetComponent<PlayerAnimator> ();
 		playerShooting = GetComponentInChildren<PlayerShooting> ();
 		anim = GetComponent<Animator> ();
-		currentHealth = startingHealth;
 
     }
 
 
-    void Update ()
+    void FixedUpdate ()
     {
-		
+
     }
 
 
-    public void TakeDamage (int amount)
+	public void TakeDamage (int amount, string killer)
     {
 		damaged = true;
 		currentHealth -= amount;
@@ -52,11 +53,12 @@ public class PlayerHealth : MonoBehaviour
 		} else if (currentHealth < 25) {
 			heartImage.sprite = hearts [3];
 		}
-		
+
 		healthSlider.value = currentHealth;
 
 		if (currentHealth <= 0 && !isDead) {
 			Die ();
+			this.killer = killer;
             FindObjectOfType<GameManager>().GameOver();
 			heartImage.enabled = false;
 		}

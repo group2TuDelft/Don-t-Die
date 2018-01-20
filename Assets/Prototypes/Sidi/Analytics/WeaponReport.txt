@@ -1,0 +1,73 @@
+ 
+  
+ 
+ 
+0, Rock, 0.69,  
+ 
+0, Rock, 0.93,  
+ 
+0, Rock, 0.91,  
+ 
+0, Rock, 0.91,  
+ 
+0, Rock, 0.91,  
+ 
+0, Rock, 0.91,  
+ 
+0, Rock, 0.9,  
+ 
+0, Rock, 0.91,  
+ 
+0, Rock, 0.9,  
+ 
+0, Rock, 0.91,  
+ 
+0, Rock, 0.92,  
+ 
+0, Rock, 0.92,  
+ 
+0, Rock, 0.82,  
+9, BlunderBuss, 0,  
+ 
+0, Rock, 0.21,  
+9, BlunderBuss, 0.61,  
+ 
+0, Rock, 0.71,  
+9, BlunderBuss, 0.1,  
+ 
+0, Rock, 0.92,  
+ 
+0, Rock, 0.91,  
+ 
+0, Rock, 0.93,  
+ 
+0, Rock, 0.92,  
+ 
+9, BlunderBuss, 0.9,  
+ 
+0, Rock, 0.92,  
+ 
+0, Rock, 0.96,  
+ 
+0, Rock, 0,  
+9, BlunderBuss, 0.88,  
+ 
+0, Rock, 0.95,  
+ 
+0, Rock, 0.95,  
+ 
+0, Rock, 0.94,  
+ 
+0, Rock, 0.94,  
+ 
+0, Rock, 1,  
+ 
+0, Rock, 0.94,  
+ 
+0, Rock, 0.96,  
+ 
+0, Rock, 0.95,  
+ 
+0, Rock, 0.94,  
+ 
+0, Rock, 0.94, 
