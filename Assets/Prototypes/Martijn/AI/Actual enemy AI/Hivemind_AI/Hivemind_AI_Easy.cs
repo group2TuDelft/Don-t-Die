@@ -32,6 +32,7 @@ public class Hivemind_AI_Easy : MonoBehaviour {
 
     public List<GameObject> Minionslist;
     public List<Transform> Minionstransform;
+    
 
     public GameObject Minion;
     public Transform playertr;

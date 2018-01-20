@@ -11,7 +11,7 @@ public class ArrowScript : MonoBehaviour {
 
         if (col.gameObject.tag == "Enemy")
         {
-            EnemyHealth enemyHealth = col.GetComponent<EnemyHealth>();
+            Humanoid_AI_Easy enemyHealth = col.GetComponent<Humanoid_AI_Easy>();
             enemyHealth.TakeDamage(damage);
         }
     }

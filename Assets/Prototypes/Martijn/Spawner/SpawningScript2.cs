@@ -59,13 +59,13 @@ public class SpawningScript2 : MonoBehaviour
         prefablist.Add(new List<GameObject> { EasyHumanoid, MediumHumanoid, HardHumanoid });
         prefablist.Add(new List<GameObject> { EasyHivemind, MediumHivemind, HardHivemind });
 
-        spawningroupamount.Add(new List<int> { 2, 3, 4 }); // Deze lijsten kunnen aangepast worden op te balancen
-        spawningroupamount.Add(new List<int> { 1, 2, 3 });
+        spawningroupamount.Add(new List<int> { 1, 1, 1 }); // Deze lijsten kunnen aangepast worden op te balancen
+        spawningroupamount.Add(new List<int> { 1, 1, 1 });
         spawningroupamount.Add(new List<int> { 1, 1, 1 });
 
-        spawngroups.Add(new List<int> { 1, 3, 5});
-        spawngroups.Add(new List<int> { 1, 2, 4 });
-        spawngroups.Add(new List<int> { 1, 2, 3 });
+        spawngroups.Add(new List<int> { 1, 1, 1});
+        spawngroups.Add(new List<int> { 1, 1, 1 });
+        spawngroups.Add(new List<int> { 1, 1, 1 });
 
         playertr = GameObject.Find("Player").GetComponent<Transform>();
     }

@@ -282,9 +282,7 @@ public class Humanoid_AI_Easy : MonoBehaviour {
         }
         isdead = true;
         navmesh.destination = this_tr.position;
-
-
-        //capsuleCollider.isTrigger = true;
+        capsuleCollider.isTrigger = true;
 
         //ScoreManager.score += scoreValue;
 
