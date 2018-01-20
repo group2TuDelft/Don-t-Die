@@ -55,6 +55,8 @@ public class Humanoid_AI_Easy : MonoBehaviour {
     public int BulletSpeed = 20;
     public float range = 100f;
     public GameObject bulletPrefab;
+
+    //[SerializeField]
     public Transform bulletSpawn;
     public GameObject Humanoid;
     int shootableMask;
@@ -65,6 +67,7 @@ public class Humanoid_AI_Easy : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
+
         shootableMask = LayerMask.GetMask("Shootable");
         current_health = starting_health;
         capsuleCollider = GetComponent<CapsuleCollider>();

@@ -30,6 +30,7 @@ public class Minion_AI : MonoBehaviour
     public float attacktimer = 0f;
     public float attackcooldown = 2f;
 
+    public CapsuleCollider capsuleCollider;
     private Transform playertr;
     private Rigidbody thisrb;
     private Transform thistr;
@@ -47,6 +48,7 @@ public class Minion_AI : MonoBehaviour
     // Use this for initialization
     void Start()
     {
+        capsuleCollider = this.GetComponent<CapsuleCollider>();
         randomwalkchange = Random.Range(2f, 3f);
         playertr = GameObject.Find("Player").GetComponent<Transform>();
         thisrb = this.GetComponent<Rigidbody>();
@@ -243,5 +245,6 @@ public class Minion_AI : MonoBehaviour
         }
         isdead = true;
         goal = thistr.position;
+        capsuleCollider.isTrigger = true;
     }
 }

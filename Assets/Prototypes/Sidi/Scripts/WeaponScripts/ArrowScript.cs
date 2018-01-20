@@ -9,10 +9,9 @@ public class ArrowScript : MonoBehaviour {
     void OnTriggerEnter(Collider col)
     {
 
-        if (col.gameObject.tag == "Enemy")
+        if (col.tag == "Enemy")
         {
-            Humanoid_AI_Easy enemyHealth = col.GetComponent<Humanoid_AI_Easy>();
-            enemyHealth.TakeDamage(damage);
+            col.GetComponent<ColliderNameFinder>().scriptname(col.gameObject);
         }
     }
 

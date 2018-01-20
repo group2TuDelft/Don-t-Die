@@ -32,12 +32,12 @@ public class Hivemind_AI_Easy : MonoBehaviour {
 
     public List<GameObject> Minionslist;
     public List<Transform> Minionstransform;
-    
 
+    public CapsuleCollider capsuleCollider;
     public GameObject Minion;
-    public Transform playertr;
     private Rigidbody thisrb;
     private Transform thistr;
+    public Transform playertr;
     private Animator animator;
     public AudioManager audiomanager;
 
@@ -50,6 +50,7 @@ public class Hivemind_AI_Easy : MonoBehaviour {
         //List<GameObject> Minionslist = new List<GameObject>();
         //List<Transform> Minionstransform = new List<Transform>();
         current_health = starting_health;
+        capsuleCollider = this.GetComponent<CapsuleCollider>();
         thistr = this.GetComponent<Transform>();
         thisrb = this.GetComponent<Rigidbody>();
         animator = this.GetComponent<Animator>();
@@ -234,7 +235,7 @@ public class Hivemind_AI_Easy : MonoBehaviour {
         thisgoal = thistr.position;
 
 
-        //capsuleCollider.isTrigger = true;
+        capsuleCollider.isTrigger = true;
 
         //ScoreManager.score += scoreValue;
 

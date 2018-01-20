@@ -38,26 +38,26 @@ public class WeaponSelection : MonoBehaviour {
     {
         if (Input.GetKeyDown("1"))
         {
-            UpdateSelectedWeapon(1);
+            UpdateSelectedWeapon(0);
         }
         if (Input.GetKeyDown("2"))
         {
-            UpdateSelectedWeapon(2);
+            UpdateSelectedWeapon(1);
         }
         if (Input.GetKeyDown("3"))
         {
-            UpdateSelectedWeapon(3);
+            UpdateSelectedWeapon(2);
         }
         if (Input.GetKeyDown("4"))
         {
-            UpdateSelectedWeapon(4);
+            UpdateSelectedWeapon(3);
         }
     }
 
     private void UpdateSelectedWeapon (int key)
     {
         // Behind the scenes
-        activeSlotId = key - 1;
+        activeSlotId = key;
 
         // Visual
         Slider.transform.position  = inv.slots[activeSlotId].transform.position;

@@ -16,9 +16,10 @@ public class BulletHit : MonoBehaviour {
 	}
 
 	void OnTriggerEnter( Collider other){
-		if (other.tag == "Enemy") {
-			EnemyHealth enemyHealth = other.GetComponent<EnemyHealth> ();
-			enemyHealth.TakeDamage (30);
+        
+		if (other.tag == "Enemy")
+        {
+			other.GetComponent<ColliderNameFinder> ().scriptname( other.gameObject );
 		}
 
 	}

@@ -70,4 +70,11 @@
  
 0, Rock, 0.94,  
  
-0, Rock, 0.94, 
+0, Rock, 0.94,  
+ 
+2, Halbert, 0.17,  
+9, BlunderBuss, 0.71,  
+ 
+11, Revolver, 0.54,  
+15, Axe, 0.32,  
+17, Revolver Ammo, 0, 
