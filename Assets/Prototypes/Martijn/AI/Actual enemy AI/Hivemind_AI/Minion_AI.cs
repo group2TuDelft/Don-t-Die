@@ -226,11 +226,15 @@ public class Minion_AI : MonoBehaviour
     {
         if (isdead)
             return;
-        audiomanager.RandomPlay("HivemindPain");
+        
         current_health -= amount;
         if (current_health <= 0)
         {
             Death();
+        }
+        else
+        {
+         audiomanager.RandomPlay("MinionsPain");
         }
 
     }

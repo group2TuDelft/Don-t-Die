@@ -245,6 +245,7 @@ public class Humanoid_AI_Easy : MonoBehaviour {
         {
             audiotimer = 0f;
             audiocooldown = Random.Range(audiocooldownmin, audiocooldownmax);
+            // Speel random geluid af
         }
 
     }

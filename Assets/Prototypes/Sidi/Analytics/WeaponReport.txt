@@ -77,4 +77,10 @@
  
 11, Revolver, 0.54,  
 15, Axe, 0.32,  
-17, Revolver Ammo, 0, 
+17, Revolver Ammo, 0,  
+ 
+15, Axe, 0.21,  
+9, BlunderBuss, 0.74,  
+ 
+15, Axe, 0,  
+9, BlunderBuss, 0.97, 

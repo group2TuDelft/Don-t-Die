@@ -214,11 +214,15 @@ public class Hivemind_AI_Easy : MonoBehaviour {
     {
         if (isdead)
             return;
-        audiomanager.RandomPlay("HivemindPain");
+        
         current_health -= amount;
         if (current_health <= 0)
         {
             Death();
+        }
+        else
+        {
+        audiomanager.RandomPlay("HivemindPain");
         }
 
     }
