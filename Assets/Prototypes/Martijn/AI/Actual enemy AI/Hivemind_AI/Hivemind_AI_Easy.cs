@@ -241,7 +241,7 @@ public class Hivemind_AI_Easy : MonoBehaviour {
 
         capsuleCollider.isTrigger = true;
 
-        //ScoreManager.score += scoreValue;
+        ScoreManager.score += scoreValue;
 
     }
     void CheckSummon()

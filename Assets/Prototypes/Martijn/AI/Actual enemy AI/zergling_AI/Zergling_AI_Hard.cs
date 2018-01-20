@@ -254,7 +254,7 @@ public class Zergling_AI_Hard : MonoBehaviour
 
         //capsuleCollider.isTrigger = true;
 
-        //ScoreManager.score += scoreValue;
+        ScoreManager.score += scoreValue;
 
     }
 }

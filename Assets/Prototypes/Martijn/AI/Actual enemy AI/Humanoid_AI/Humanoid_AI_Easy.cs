@@ -288,7 +288,7 @@ public class Humanoid_AI_Easy : MonoBehaviour {
         navmesh.destination = this_tr.position;
         capsuleCollider.isTrigger = true;
 
-        //ScoreManager.score += scoreValue;
+        ScoreManager.score += scoreValue;
 
     }
     void Fire()
