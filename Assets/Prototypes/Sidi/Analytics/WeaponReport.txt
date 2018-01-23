@@ -1,0 +1,95 @@
+ 
+  
+ 
+ 
+0, Rock, 0.69,  
+ 
+0, Rock, 0.93,  
+ 
+0, Rock, 0.91,  
+ 
+0, Rock, 0.91,  
+ 
+0, Rock, 0.91,  
+ 
+0, Rock, 0.91,  
+ 
+0, Rock, 0.9,  
+ 
+0, Rock, 0.91,  
+ 
+0, Rock, 0.9,  
+ 
+0, Rock, 0.91,  
+ 
+0, Rock, 0.92,  
+ 
+0, Rock, 0.92,  
+ 
+0, Rock, 0.82,  
+9, BlunderBuss, 0,  
+ 
+0, Rock, 0.21,  
+9, BlunderBuss, 0.61,  
+ 
+0, Rock, 0.71,  
+9, BlunderBuss, 0.1,  
+ 
+0, Rock, 0.92,  
+ 
+0, Rock, 0.91,  
+ 
+0, Rock, 0.93,  
+ 
+0, Rock, 0.92,  
+ 
+9, BlunderBuss, 0.9,  
+ 
+0, Rock, 0.92,  
+ 
+0, Rock, 0.96,  
+ 
+0, Rock, 0,  
+9, BlunderBuss, 0.88,  
+ 
+0, Rock, 0.95,  
+ 
+0, Rock, 0.95,  
+ 
+0, Rock, 0.94,  
+ 
+0, Rock, 0.94,  
+ 
+0, Rock, 1,  
+ 
+0, Rock, 0.94,  
+ 
+0, Rock, 0.96,  
+ 
+0, Rock, 0.95,  
+ 
+0, Rock, 0.94,  
+ 
+0, Rock, 0.94,  
+ 
+2, Halbert, 0.17,  
+9, BlunderBuss, 0.71,  
+ 
+11, Revolver, 0.54,  
+15, Axe, 0.32,  
+17, Revolver Ammo, 0,  
+ 
+15, Axe, 0.21,  
+9, BlunderBuss, 0.74,  
+ 
+15, Axe, 0,  
+9, BlunderBuss, 0.97,  
+ 
+15, Axe, 0.99,  
+ 
+15, Axe, 0.9,  
+8, Crossbow, 0.08,  
+ 
+15, Axe, 0.98,  
+ 
+15, Axe, 0.95, 

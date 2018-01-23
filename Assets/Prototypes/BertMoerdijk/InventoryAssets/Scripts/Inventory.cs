@@ -63,23 +63,16 @@ public class Inventory : MonoBehaviour
         }
 
         // Adding Initial Items.
-        AddItem(0);
-        AddItem(4);
-        AddItem(2);
-        AddItem(5);
-        AddItem(7);
-        AddItem(1000);
-        AddItem(1000);
-        AddItem(1000);
-        AddItem(1001);
-        AddItem(1001);  
-        AddItem(1002);
-        AddItem(1003);
+        AddItem(15, 1);
+        AddItem(9, 1);
+        AddItem(24, 50);
     }
 
     // function used to add an item
-    public void AddItem(int id)
+    public void AddItem(int id, int amount)
     {
+    for (int j = 0; j < amount; j++) {
+
         Item itemToAdd = database.FetchItemByID(id);
 
         if (itemToAdd.Stackable && CheckItemInInventory(itemToAdd))
@@ -126,7 +119,7 @@ public class Inventory : MonoBehaviour
                 }
             }
         }
-
+        }
     }
 
     public void DeleteItem (int id, int amount)
@@ -173,7 +166,7 @@ public class Inventory : MonoBehaviour
     }
 
     // Function that checks if an item is in the inventory, by id.
-    bool CheckItemInInventoryByID(int id)
+    public bool CheckItemInInventoryByID(int id)
     {
         for (int i = 0; i < items.Count; i++)
         {
@@ -247,7 +240,7 @@ public class Inventory : MonoBehaviour
         {
             Destroy(slots[(chestSlotAmount - j) + weaponSlotAmount + inventorySlotAmount - 1]);
             slots.Remove(slots[(chestSlotAmount - j) + weaponSlotAmount + inventorySlotAmount - 1]);
-            items.Remove(items[(chestSlotAmount - j) + weaponSlotAmount + inventorySlotAmount - 1]);
+            items.RemoveAt(items.Count - 1);
         }
 
     }

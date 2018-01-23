@@ -6,12 +6,17 @@ public class worldInteraction : MonoBehaviour
 {
 
     //
+    private bool furnace_unlocked;
+    private bool factory_unlocked;
+    private bool printer_unlocked;
+    private bool alien_machine_unlocked;
 
     private GameObject ChestPanel;
     private GameObject Canvas;
     private GameObject ActiveChest;
     private Inventory inv;
     private Crafting craftingWindows;
+    public string inRangeOf;
 
     void Start()
     {
@@ -39,14 +44,80 @@ public class worldInteraction : MonoBehaviour
         if (Physics.Raycast(interactionRay, out interactionInfo, Mathf.Infinity))
         {
             GameObject interactedObject = interactionInfo.collider.gameObject;
-            if (interactedObject.tag == "Red Box")
+            if (interactedObject.tag == "1000")
             {
-                interactedObject.SetActive(false);
-                inv.AddItem(2);
+                Destroy(interactedObject);
+                inv.AddItem(1000, 1);
+            }
+            if (interactedObject.tag == "1001")
+            {
+                Destroy(interactedObject);
+                inv.AddItem(1001, 1);
+            }
+            if (interactedObject.tag == "1002")
+            {
+                Destroy(interactedObject);
+                inv.AddItem(1002, 1);
+            }
+            if (interactedObject.tag == "1003")
+            {
+                Destroy(interactedObject);
+                inv.AddItem(1003, 1);
+            }
+            if (interactedObject.tag == "1004")
+            {
+                Destroy(interactedObject);
+                inv.AddItem(1004, 1);
+            }
+            if (interactedObject.tag == "1005")
+            {
+                Destroy(interactedObject);
+                inv.AddItem(1005, 1);
+            }
+            if (interactedObject.tag == "1006")
+            {
+                Destroy(interactedObject);
+                inv.AddItem(1006, 1);
+            }
+            if (interactedObject.tag == "1007")
+            {
+                Destroy(interactedObject);
+                inv.AddItem(1007, 1);
+            }
+            if (interactedObject.tag == "1008")
+            {
+                Destroy(interactedObject);
+                inv.AddItem(1008, 1);
+            }
+            if (interactedObject.tag == "1009")
+            {
+                Destroy(interactedObject);
+                inv.AddItem(1009, 1);
+            }
+            if (interactedObject.tag == "1010")
+            {
+                Destroy(interactedObject);
+                inv.AddItem(1010, 1);
             }
             if (interactedObject.tag == "WorkBench")
             {
                 craftingWindows.ActivateWorkBench();
+            }
+            if (interactedObject.tag == "Furnace")
+            {
+                craftingWindows.ActivateFurnaceAndAnvil();
+            }
+            if (interactedObject.tag == "FactoryBelt")
+            {
+                craftingWindows.ActivateFactoryChainBelt();
+            }
+            if (interactedObject.tag == "3dprinter")
+            {
+                craftingWindows.ActivateThreeDPrinter();
+            }
+            if (interactedObject.tag == "alien_machine")
+            {
+                craftingWindows.ActivateWeirdAlienMachine();
             }
             if (interactedObject.tag == "Chest")
             {
@@ -61,7 +132,6 @@ public class worldInteraction : MonoBehaviour
                     ChestPanel.gameObject.SetActive(true);
                     inv.InitializeChest(interactedObject);
                 }
-
             }
         }
     }

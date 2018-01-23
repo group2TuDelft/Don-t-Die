@@ -106,7 +106,7 @@ public class craftingButton : MonoBehaviour {
 
         // Create the item
         for (int i = 0; i < AmountMade; i++) {
-            inv.AddItem(id);
+            inv.AddItem(id, 1);
         }
     }
 }

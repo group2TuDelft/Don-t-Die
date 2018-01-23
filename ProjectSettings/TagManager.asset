@@ -14,7 +14,21 @@ TagManager:
   - SMG
   - Halbert
   - M4
+  - Bow
+  - CrossBow
+  - BlunderBuss
+  - m1911
+  - revolver
+  - shotgun
+  - catapult
+  - scifihandgun
+  - scifibiggun
+  - axe
   - Mesh
+  - Cliff
+  - Score
+  - HeatMap
+  - Floor
   layers:
   - Default
   - TransparentFX
@@ -29,12 +43,12 @@ TagManager:
   - Bullet
   - Gun
   - Mesh
+  - Cabins
+  - Bushes
+  - Chest
   - Trees
-  - Chests
-  - Sheds
-  - 
-  - 
-  - 
+  - HeatMap
+  - Bullet
   - 
   - 
   - 

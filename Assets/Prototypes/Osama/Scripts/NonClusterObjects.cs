@@ -24,7 +24,7 @@ public class NonClusterObjects : MonoBehaviour
                 objects.SpreadObjects(positonObject, gameObjectArray[i].radiusSameLayer, gameObjectArray[i].radiusOtherLayers, gameObjectArray[i].type.layer))
                 {
                     GameObject gameObject = Instantiate(gameObjectArray[i].type, positonObject, Quaternion.identity);
-                    //if (gameObjectArray[i].rotateOn) { objects.RotateObject(gameObject); }
+                    if (gameObjectArray[i].rotateOn) { objects.RotateObject(gameObject); }
                     allNonClusterObjects.Add(gameObject);
                     amountObjectsPlaced++;
                 }

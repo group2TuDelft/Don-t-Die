@@ -6,8 +6,11 @@ public class PopulatingWorld : MonoBehaviour
 
     private void Start()
     {
+        Debug.Log("Load = true");
+
         MapGenerator generatedMap = GetComponent<MapGenerator>();
         generatedMap.seed = Random.Range(0, 10000000);
+
         generatedMap.GenerateMap();
 
         GameObject[] gameObjectMeshes = GameObject.FindGameObjectsWithTag("Mesh");
@@ -22,23 +25,23 @@ public class PopulatingWorld : MonoBehaviour
 
         foreach (GameObject gameObject in allObjects)
         {
-            CalculateHeightObject(gameObject);
+            CalculateExactHeightObject(gameObject);
             if (gameObject.name != "Chest(Clone)")
             {
                 gameObject.GetComponent<Collider>().enabled = false;
             }
         }
+
+        Debug.Log("Load = false");
     }
 
-    public void CalculateHeightObject(GameObject gameObject)
+    public void CalculateExactHeightObject(GameObject gameObject)
     {
         RaycastHit hit;
         Vector3 coordinates = gameObject.transform.position;
 
         Ray downRay = new Ray(coordinates, Vector3.down);
-        Physics.Raycast(downRay, out hit, (1<<10));
-        
-        Debug.Log(gameObject.name + ", " + hit.collider + ", " + hit.distance);
+        Physics.Raycast(downRay, out hit, (1<<12));
         coordinates.y = coordinates.y - hit.distance;
 
         RaycastHit hit2;
