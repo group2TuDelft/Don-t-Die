@@ -6,8 +6,7 @@ public class PopulatingWorld : MonoBehaviour
 
     private void Start()
     {
-        Debug.Log("Load = true");
-
+        Debug.Log("fsfs");
         MapGenerator generatedMap = GetComponent<MapGenerator>();
         generatedMap.seed = Random.Range(0, 10000000);
 
@@ -18,7 +17,6 @@ public class PopulatingWorld : MonoBehaviour
         List<GameObject> clusterObjects = GetComponent<ClusterObjects>().GetClusterObjects(generatedMap);
         List<GameObject> nonClusterObjects = GetComponent<NonClusterObjects>().GetNonClusterObjects(generatedMap);
         List<GameObject> allObjects = new List<GameObject>();
-
 
         allObjects.AddRange(nonClusterObjects);
         allObjects.AddRange(clusterObjects);
@@ -31,8 +29,6 @@ public class PopulatingWorld : MonoBehaviour
                 gameObject.GetComponent<Collider>().enabled = false;
             }
         }
-
-        Debug.Log("Load = false");
     }
 
     public void CalculateExactHeightObject(GameObject gameObject)
@@ -61,7 +57,6 @@ public class PopulatingWorld : MonoBehaviour
         Physics.Raycast(downRay, out hit);
 
         Vector3 generalDirection = Vector3.ProjectOnPlane(hit.normal, Vector3.up).normalized;
-        Debug.Log("hit normal: " + hit.normal + " general direction: " +  generalDirection);
         if (!(generalDirection.y == 0))
         {
             Vector3 preciseDirection = Vector3.ProjectOnPlane(generalDirection, hit.normal).normalized;

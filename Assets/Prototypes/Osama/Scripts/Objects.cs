@@ -6,7 +6,7 @@ public class Objects
     private MapGenerator generatedMap;
     private GameObject[] gameObjectMeshes;
     private int layerMeshes;
-    static private float BEGIN_HEIGHT = 20;
+
     public Objects(MapGenerator generatedMap)
     {
         this.generatedMap = generatedMap;
