@@ -11,9 +11,10 @@ public class Hivemind_AI_Easy : MonoBehaviour {
     public int current_health = 1;
     public float speed = 20f; // Hoe snel is die 
     public int minionsammount = 20; // Hoe veel minions spawnt die
+    public float spawnkromming = 3f; // Hoe sterk de kromming is in de spawn curve
     public float spawnradius = 0.5f;
     public float agrodistance = 20f;  // Afstand waarbij hij player niet meer wilt volgen
-    public float deagrotime = 5f; // Tijd waarna agro verloren wordt
+    public float deagrotime = 10f; // Tijd waarna agro verloren wordt
     public float minionhidedistance = 5f; // Hoe ver die achter de minions wilt hiden in agro
     private float rotationspeed = 4f; // Hoe snel die kan draaien in agro mode
     private float deagrotimer = 0f; // Timer voor deagro
@@ -22,6 +23,8 @@ public class Hivemind_AI_Easy : MonoBehaviour {
     public float summoncooldown = 8f; //Tijd waarna hivemind een nieuwe minion summond
     public int summonammount = 4; //Hoeveel minions die summont per summon ronde
 
+    public float speedset = 20f; //De snelheid waarmee de minions gespawnd worden
+
     private Vector3 minionpositionmean; // Wordt gebruikt om gemiddelde positite van de minions te vinden
     private Vector3 movedirection; // Richting waarin rg addforce wordt gedaan
     private Vector3 minionhidedirection; // Richting waar in die achter minion mean wilt staat wilt minions tussen player en hivemind hebben
@@ -29,17 +32,25 @@ public class Hivemind_AI_Easy : MonoBehaviour {
     public bool seeing = false;
     public bool agro = false;
     public bool isdead = false;
+    public bool minionagro = false;
+
+    public bool medium = false;
+    public bool hard = true;
 
     public List<GameObject> Minionslist;
     public List<Transform> Minionstransform;
 
-    public CapsuleCollider capsuleCollider;
+    private CapsuleCollider capsuleCollider;
     public GameObject Minion;
     private Rigidbody thisrb;
-    private Transform thistr;
-    public Transform playertr;
+    public Transform thistr;
+    private Transform playertr;
     private Animator animator;
-    public AudioManager audiomanager;
+    private AudioManager audiomanager;
+
+
+    private LayerMask layermask;
+
 
     private float randomwalktimer = 0f;
     private Vector3 thisgoal; // De plek waar deze enemy naartoe wilt gaan
@@ -58,20 +69,21 @@ public class Hivemind_AI_Easy : MonoBehaviour {
         playertr = GameObject.Find("Player").GetComponent<Transform>();
         thisgoal = thistr.position;
 
+        var layer = (1 << 9);
+        layermask = ~layer;
+
         for (int i = 1; i <= minionsammount; i++)
         {
-            Vector3 spawnvector = new Vector3(Mathf.Sin(i) * i * spawnradius, 0, Mathf.Cos(i) * i * spawnradius) + this.transform.position;
-            Summon(spawnvector);
+            Vector3 spawnvector = new Vector3(Mathf.Sin(i*spawnkromming) * i * spawnradius, 0, Mathf.Cos(i) * i * spawnradius) + thistr.position;
+            Summon(spawnvector, speedset);
         }
-        //playertr = GameObject.Find("Player").GetComponent<Transform>();    Werkt niet, weet niet waarom, maak ze maar even public
-        
     }
 
     void CheckInLineOfSight()
     {
         RaycastHit hitInfo;
         Vector3 direction = playertr.position - this.transform.position;
-        if (Physics.Raycast(this.transform.position, direction, out hitInfo, agrodistance)) // nog angle erin zetten
+        if (Physics.Raycast(this.transform.position, direction, out hitInfo, agrodistance, layermask)) // nog angle erin zetten
         {
             if (hitInfo.collider.tag == "Player") // Als die iets hit, en de hit is de player, doe dit
             {
@@ -93,14 +105,14 @@ public class Hivemind_AI_Easy : MonoBehaviour {
 
     void CheckAgro()
     {
-        if (seeing && !agro)
+        if ((seeing && !agro) || (minionagro))
         {
             agro = true;
             SetAgroMinions();
         }
         if(seeing && agro)
         {
-            //SetDestinationMinions();
+            SetAgroMinions();
         }
         if(!seeing && agro)
         {
@@ -108,6 +120,7 @@ public class Hivemind_AI_Easy : MonoBehaviour {
             if(deagrotimer > deagrotime)
             {
                 agro = false;
+                minionagro = false;
                 SetAgroMinions();
             }
         }
@@ -132,7 +145,7 @@ public class Hivemind_AI_Easy : MonoBehaviour {
             foreach (GameObject i in Minionslist)
             {
                 i.GetComponent<Minion_AI>().agro = false;
-                i.GetComponent<Minion_AI>().goal = i.GetComponent<Minion_AI>().spawnpoint + thistr.position;
+                //i.GetComponent<Minion_AI>().goal = i.GetComponent<Minion_AI>().spawnpoint + thistr.position;
 
             }
         }
@@ -178,23 +191,15 @@ public class Hivemind_AI_Easy : MonoBehaviour {
         thisrb.AddForce(movedirection.normalized * speed * Time.deltaTime, ForceMode.VelocityChange);
     }
 
-    void GiveMinionsHiveMindPosition()
-    {
-        if (!agro) {
-            foreach (GameObject i in Minionslist)
-            {
-                i.GetComponent<Minion_AI>().hivemindposition = thistr.position;
-            }
-        }
-    }
 // Update is called once per frame
     void Update () {
         CheckInLineOfSight();
         CheckAgro();
-        CheckSummon();
+        if (hard)
+        {
+            CheckSummon();
+        }
         SetDestinationSelf();
-        GiveMinionsHiveMindPosition();
-		
 	}
 
     private void FixedUpdate()
@@ -235,6 +240,13 @@ public class Hivemind_AI_Easy : MonoBehaviour {
             audiomanager.RandomPlay("HivemindDeath");
             Destroy(this.gameObject, despawntime);
         }
+        foreach (GameObject i in Minionslist)
+        {
+            Minion_AI script = i.GetComponent<Minion_AI>();
+            script.hivemindkilled = true;
+            script.Death();
+       
+        }
         isdead = true;
         thisgoal = thistr.position;
 
@@ -246,7 +258,7 @@ public class Hivemind_AI_Easy : MonoBehaviour {
     }
     void CheckSummon()
     {
-        if (agro)
+        if (agro && !isdead)
         {
             summontimer += Time.deltaTime;
             if (summontimer > summoncooldown)
@@ -255,19 +267,20 @@ public class Hivemind_AI_Easy : MonoBehaviour {
                 audiomanager.RandomPlay("HivemindTaunt");
                 summontimer = 0f;
                 Vector3 firstsummon = new Vector3();
-                for (int i = 1; i == summonammount; i++)
+                for (int i = 1; i < summonammount + 1; i++)
                 {
 
                     if (i == 1)
                     {
-                        firstsummon = (thistr.position - playertr.position).normalized * 4;// Afstans van hivemind dat die spawned
-                        Summon(firstsummon);
+                        firstsummon = (playertr.position - thistr.position).normalized * 4 + thistr.position;// Afstans van hivemind dat die spawned
+                        firstsummon.y = 5f;
+                        Summon(firstsummon, speedset);
                     }
                     else
                     {
                         Vector3 spawnvector = firstsummon + new Vector3(Random.Range(2f, 4f), 0, Random.Range(2f, 4f));
                         //Vector3 spawnvector = (Vector3.Cross((firstsummon - thistr.position), Vector3.up) * i) * (-1 ^ i);
-                        Summon(spawnvector);
+                        Summon(spawnvector, speedset);
                     }
                 
                 }
@@ -284,14 +297,16 @@ public class Hivemind_AI_Easy : MonoBehaviour {
         }
         
     }
-    void Summon(Vector3 spawnvector)
+    void Summon(Vector3 spawnvector, float speedset)
     {
+        //Debug.Log("Summon");
         GameObject minion = Instantiate(Minion, spawnvector, Quaternion.identity);
-        minion.GetComponent<Minion_AI>().spawnpoint = spawnvector - thistr.position;
-        minion.GetComponent<Minion_AI>().hivemindposition = thistr.position;
-        minion.GetComponent<Minion_AI>().goal = spawnvector;
-        minion.GetComponent<Minion_AI>().agro = false;
-        minion.layer = 2;
+        Minion_AI script = minion.GetComponent<Minion_AI>();
+        script.speed = speedset;
+        script.ParentHivemind = this.gameObject;
+        script.parenthivemindtransform = thistr;
+        script.spawnpoint = spawnvector;
+        script.spawnpointfromhivemind = spawnvector - thistr.position;
         Minionslist.Add(minion);
         Minionstransform.Add(minion.transform);
     }

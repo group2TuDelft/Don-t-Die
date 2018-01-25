@@ -85,4 +85,40 @@
 15, Axe, 0,  
 9, BlunderBuss, 0.97,  
  
-15, Axe, 0.99, 
+15, Axe, 0.99,  
+ 
+15, Axe, 0.04,  
+9, BlunderBuss, 0.87,  
+ 
+15, Axe, 0,  
+9, BlunderBuss, 0.97,  
+ 
+15, Axe, 0.04,  
+9, BlunderBuss, 0.89,  
+ 
+15, Axe, 0.01,  
+9, BlunderBuss, 0.97,  
+ 
+15, Axe, 0.04,  
+9, BlunderBuss, 0.92,  
+ 
+15, Axe, 0.11,  
+9, BlunderBuss, 0.81,  
+ 
+15, Axe, 0.02,  
+9, BlunderBuss, 0.96,  
+ 
+15, Axe, 0.17,  
+9, BlunderBuss, 0.76,  
+ 
+15, Axe, 0,  
+9, BlunderBuss, 0.98,  
+ 
+15, Axe, 0.01,  
+9, BlunderBuss, 0.96,  
+ 
+15, Axe, 0.02,  
+9, BlunderBuss, 0.96,  
+ 
+15, Axe, 0.02,  
+9, BlunderBuss, 0.95, 

@@ -25,7 +25,7 @@ public class AudioManager : MonoBehaviour {
         foreach (Sound s in sounds)
         {
             s.source = gameObject.AddComponent<AudioSource>();
-            //s.source.name = s.name;
+            s.source.name = s.name;
             s.source.clip = s.clip;
 
             s.source.volume = s.volume;
@@ -65,9 +65,9 @@ public class AudioManager : MonoBehaviour {
             return;
         }
         int index = UnityEngine.Random.Range(0, soundlist.Count);
-        Debug.Log(soundlist.Count);
+        //Debug.Log(soundlist.Count);
         Sound s = soundlist[index];
-        Debug.Log(s.name);
+        //Debug.Log(s.name);
         s.source.Play();
 
     }

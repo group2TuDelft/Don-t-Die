@@ -25,8 +25,12 @@ public class ColliderNameFinder : MonoBehaviour
         }
         if (componentname == "3")
         {
-            Debug.Log("test");
             Minion_AI enemyHealth = obj.GetComponent<Minion_AI>();
+            enemyHealth.TakeDamage(30);
+        }
+        if (componentname == "4")
+        {
+            Zergling_AI_Hard enemyHealth = obj.GetComponent<Zergling_AI_Hard>();
             enemyHealth.TakeDamage(30);
         }
     }

@@ -88,6 +88,7 @@ LightmapSettings:
     m_PVRFilteringAtrousPositionSigmaDirect: 0.5
     m_PVRFilteringAtrousPositionSigmaIndirect: 2
     m_PVRFilteringAtrousPositionSigmaAO: 1
+    m_ShowResolutionOverlay: 1
   m_LightingDataAsset: {fileID: 0}
   m_UseShadowmask: 1
 --- !u!196 &4
@@ -199,37 +200,47 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 4266104852691732, guid: 8a90633863a52ca4e8a6c806196e0889, type: 2}
+    - target: {fileID: 4836167412345600, guid: 8a90633863a52ca4e8a6c806196e0889, type: 2}
       propertyPath: m_LocalPosition.x
       value: -14.93
       objectReference: {fileID: 0}
-    - target: {fileID: 4266104852691732, guid: 8a90633863a52ca4e8a6c806196e0889, type: 2}
+    - target: {fileID: 4836167412345600, guid: 8a90633863a52ca4e8a6c806196e0889, type: 2}
       propertyPath: m_LocalPosition.y
       value: 0.53
       objectReference: {fileID: 0}
-    - target: {fileID: 4266104852691732, guid: 8a90633863a52ca4e8a6c806196e0889, type: 2}
+    - target: {fileID: 4836167412345600, guid: 8a90633863a52ca4e8a6c806196e0889, type: 2}
       propertyPath: m_LocalPosition.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4266104852691732, guid: 8a90633863a52ca4e8a6c806196e0889, type: 2}
+    - target: {fileID: 4836167412345600, guid: 8a90633863a52ca4e8a6c806196e0889, type: 2}
       propertyPath: m_LocalRotation.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4266104852691732, guid: 8a90633863a52ca4e8a6c806196e0889, type: 2}
+    - target: {fileID: 4836167412345600, guid: 8a90633863a52ca4e8a6c806196e0889, type: 2}
       propertyPath: m_LocalRotation.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4266104852691732, guid: 8a90633863a52ca4e8a6c806196e0889, type: 2}
+    - target: {fileID: 4836167412345600, guid: 8a90633863a52ca4e8a6c806196e0889, type: 2}
       propertyPath: m_LocalRotation.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4266104852691732, guid: 8a90633863a52ca4e8a6c806196e0889, type: 2}
+    - target: {fileID: 4836167412345600, guid: 8a90633863a52ca4e8a6c806196e0889, type: 2}
       propertyPath: m_LocalRotation.w
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 4266104852691732, guid: 8a90633863a52ca4e8a6c806196e0889, type: 2}
+    - target: {fileID: 4836167412345600, guid: 8a90633863a52ca4e8a6c806196e0889, type: 2}
       propertyPath: m_RootOrder
       value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 114007246669058618, guid: 8a90633863a52ca4e8a6c806196e0889,
+        type: 2}
+      propertyPath: medium
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114007246669058618, guid: 8a90633863a52ca4e8a6c806196e0889,
+        type: 2}
+      propertyPath: hard
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 8a90633863a52ca4e8a6c806196e0889, type: 2}
@@ -347,6 +358,7 @@ Camera:
   m_TargetEye: 3
   m_HDR: 1
   m_AllowMSAA: 1
+  m_AllowDynamicResolution: 0
   m_ForceIntoRT: 0
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
@@ -705,9 +717,9 @@ MeshCollider:
   m_Material: {fileID: 13400000, guid: f374f0254d7a0b441a72ce2b866e6caa, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
+  serializedVersion: 3
   m_Convex: 0
-  m_InflateMesh: 0
+  m_CookingOptions: 14
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!33 &1291096561

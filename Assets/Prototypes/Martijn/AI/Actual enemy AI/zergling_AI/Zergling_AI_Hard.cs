@@ -12,12 +12,15 @@ public class Zergling_AI_Hard : MonoBehaviour
     public GameObject Howled_Zergling;
     private Animator animator;
     private AudioManager audiomanager;
+    private CapsuleCollider capsuleCollider;
+    private PlayerHealth playerHealth;
 
     public int scoreValue = 10;
     public int starthealth = 200;
     public int currenthealth = 1;
     private float timer = 0f;
 
+    public int meleedamage = 30; // Damage die die doet als die de player raakt
     public float attackdistance = 2f; //Afstand waarbij Zergling aan kan vallen
     public float attackcooldown = 3f; //Tijd die tussen elke attack moet zitten
 
@@ -25,7 +28,7 @@ public class Zergling_AI_Hard : MonoBehaviour
     public float agroangle = 90f;    // De hoek waarbij de enemy je "ziet"  40 - 60 - 120
 
     public float smellingdistance = 10f; //Afstand waarbij die je ruikt
-    public float smellingdeagro = 100f; //Afstand waarbij enemy de gear verliest
+    public float smellingdeagro = 110f; //Afstand waarbij enemy de gear verliest
 
     public float walkingspeed = 10f;
     public float runningspeed = 20f;
@@ -35,12 +38,17 @@ public class Zergling_AI_Hard : MonoBehaviour
     private float walktimer = 0f;           // timer tot dat enemy nieuwe position kiest in RandomWalk()
     private float attacktimer = 0f;     // Timer die tijd tussen aanvallen bij houdt
     private float audiotimer = 0f;      // Een timer om bij te houden hoe veel tijd tussen optionele audiofragmenten zijn gespeeld
+    private float howltimer = 0f;      // Timer die de pauze bij houdt dat de zergling stil staat bij het howlen
+    public float howlstandstiltime = 4f; // Hoe lang staat die stil als die gaat howlen
 
     public float audiocooldownmax = 6f; // Max van de random range waar tussen random geluidsfragmenten worden gespeeld
     public float audiocooldownmin = 4f; // Min van dit hier boven
     private float audiocooldown = 0f; // De daadwerklijke cooldown
 
-    private float despawntime = 1.5f;
+    private float despawntime = 1f;
+
+    public bool medium = false; // Wordt ingesteld door de spawner, is medium niveau active?
+    public bool hard = false; // Wordt ingesteld door de spawner, is hard niveau active?
 
     private bool smelling = false;
     private bool seeing = false;
@@ -50,30 +58,36 @@ public class Zergling_AI_Hard : MonoBehaviour
 
     private void Awake()
     {
+        capsuleCollider = this.GetComponent<CapsuleCollider>();
         navmesh = this.GetComponent<NavMeshAgent>();
         thistr = this.GetComponent<Transform>();
         playertr = GameObject.Find("Player").GetComponent<Transform>();
         animator = this.GetComponent<Animator>();
         audiomanager = FindObjectOfType<AudioManager>();
+        playerHealth = GameObject.Find("Player").GetComponent<PlayerHealth>();
     }
     void Start()
 
     {
-        navmesh.speed = walkingspeed;
-        navmesh.destination = thistr.position;
+        //navmesh.speed = walkingspeed;
+        //navmesh.destination = thistr.position;
         currenthealth = starthealth;
     }
     void Howl()
     {
         var spawn1 = Instantiate(Howled_Zergling);
         spawn1.transform.position = thistr.position - new Vector3(10, 0, -10);
+        spawn1.GetComponent<Zergling_AI_Hard>().howled = true;
+        spawn1.GetComponent<NavMeshAgent>().destination = playertr.position;
+        spawn1.GetComponent<NavMeshAgent>().speed = runningspeed;
+        spawn1.GetComponent<Zergling_AI_Hard>().smelling = true;
 
-        //spawn1.NavMeshAgent.destination = playertr.position;
         var spawn2 = Instantiate(Howled_Zergling);
         spawn2.transform.position = thistr.position - new Vector3(-10, 0, -10);
-        //spawn2.navmesh.destination = playertr.position;
-
-        //Howl animation
+        spawn2.GetComponent<Zergling_AI_Hard>().howled = true;
+        spawn2.GetComponent<NavMeshAgent>().destination = playertr.position;
+        spawn2.GetComponent<NavMeshAgent>().speed = runningspeed;
+        spawn2.GetComponent<Zergling_AI_Hard>().smelling = true;
     }
     void RandomWalk()
     {
@@ -95,24 +109,29 @@ public class Zergling_AI_Hard : MonoBehaviour
     void CheckAgro()
     {
 
-        if ((smelling || seeing) && !howled)
+        if ((smelling || seeing) && !howled && hard)
         {
             animator.SetBool("AnimHowl", true);
             audiomanager.Play("Howl");
             Howl();
             howled = true;
         }
-        if(smelling|| seeing)
+        else if(smelling || seeing)
         {
             chasing = true;
-            animator.SetBool("AnimWalking", true);
+            navmesh.speed = runningspeed;
+
+            animator.SetBool("AnimHowl", false);
+            animator.SetBool("AnimWalking", false);
             animator.SetBool("AnimRunning", true);
         
         }
-        if (!smelling && !seeing)
+        else if (!smelling && !seeing)
         {
+            navmesh.speed = walkingspeed;
             animator.SetBool("AnimHowl", false);
             animator.SetBool("AnimRunning", false);
+            animator.SetBool("AnimWalking", true);
             chasing = false;
 
         }
@@ -144,13 +163,11 @@ public class Zergling_AI_Hard : MonoBehaviour
         {
             if (hitInfo.collider.tag == "Player") // Als die iets hit, en de hit is de player, doe dit
             {
-                Debug.Log("Ik zie je nu");
                 seeing = true;
             }
             // kan hier nog muren kapot maken in zetten
             else // Als die iets hit, maar het is niet player, doe dit
             {
-                Debug.Log("Ik zie je niet nu");
                 seeing = false;
             }
         }
@@ -158,21 +175,22 @@ public class Zergling_AI_Hard : MonoBehaviour
 
     void CheckAttack()
     {
+        attacktimer += Time.deltaTime;
         if (((thistr.position - playertr.position).magnitude < attackdistance) && (attacktimer > attackcooldown)){
             attacktimer = 0f;
             Attack();
         }
         else
         {
-            attacktimer += Time.deltaTime;
             animator.SetBool("AnimAttack", false);
         }
     }
 
     void Attack()
     {
-        audiomanager.Play("Attack");
+        audiomanager.RandomPlay("ZerglingAttack");
         animator.SetBool("AnimAttack", true);
+        playerHealth.TakeDamage(meleedamage, "Zergling");
 
 
     }
@@ -210,8 +228,12 @@ public class Zergling_AI_Hard : MonoBehaviour
     {
         timer += Time.deltaTime;
         CheckInLineOfSight();
-        CheckSmelling();
+        if (medium)
+        {
+            CheckSmelling();
+        }
         CheckAgro();
+
         if (chasing)
         {
             navmesh.destination = playertr.position;
@@ -221,14 +243,24 @@ public class Zergling_AI_Hard : MonoBehaviour
         {
             RandomWalk();
         }
-        if (timer > 8)
+        if (hard)
         {
-            Death();
+            if (howlstandstiltime > howltimer)
+            {
+                if (howled)
+                {
+                    //Debug.Log("sta stil");
+                    howltimer += Time.deltaTime;
+                    navmesh.destination = thistr.position;
+                }
+            }
+
         }
 
     }
     public void TakeDamage(int amount)
     {
+        //Debug.Log("zergling auw");
         if (isdead)
             return;
 
@@ -236,6 +268,10 @@ public class Zergling_AI_Hard : MonoBehaviour
         if (currenthealth <= 0)
         {
             Death();
+        }
+        else
+        {
+            audiomanager.RandomPlay("ZerglingPain");
         }
 
     }
@@ -250,9 +286,7 @@ public class Zergling_AI_Hard : MonoBehaviour
         }
         isdead = true;
         navmesh.destination = thistr.position;
-
-
-        //capsuleCollider.isTrigger = true;
+        capsuleCollider.isTrigger = true;
 
         ScoreManager.score += scoreValue;
 

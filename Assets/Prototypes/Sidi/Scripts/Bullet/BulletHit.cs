@@ -19,13 +19,13 @@ public class BulletHit : MonoBehaviour {
         
 		if (other.tag == "Enemy")
         {
-			other.GetComponent<ColliderNameFinder> ().scriptname( other.gameObject );
+			other.GetComponent<ColliderNameFinder>().scriptname( other.gameObject );
 		}
 
 	}
 
-	void OnCollisionEnter(Collision other){
-
+	void OnCollisionEnter(Collision other)
+    {
 			Explode ();
 	}
 

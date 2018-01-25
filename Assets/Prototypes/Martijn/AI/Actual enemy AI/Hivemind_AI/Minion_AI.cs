@@ -11,26 +11,29 @@ public class Minion_AI : MonoBehaviour
     public int current_health;
     public int meleedamage = 10;
     public float speed = 20f;
+    public float agrodistance = 10f;
+    public float attackrange = 6f;
+    public float rotationspeed = 1f;
 
     public Vector3 goal;
     private Vector3 destination;
     public Vector3 hivemindposition;
     public Vector3 spawnpoint;
+    public Vector3 spawnpointfromhivemind;
 
     public float maxrangefromhivemind = 20f;
-    public float agrodistance = 20f;
+    
     public float despawntime = 1.5f;
-    public float attackrange = 6f;
-    public float rotationspeed = 1f;
 
-    private bool seeing;
-    public bool agro;
+    private bool seeing = false;
+    public bool agro = false;
     public bool isdead = false;
+    public bool hivemindkilled = false;
 
     public float attacktimer = 0f;
     public float attackcooldown = 2f;
 
-    public CapsuleCollider capsuleCollider;
+    private CapsuleCollider capsuleCollider;
     private Transform playertr;
     private Rigidbody thisrb;
     private Transform thistr;
@@ -39,7 +42,9 @@ public class Minion_AI : MonoBehaviour
     private float randomwalktimer = 1f;
     private float randomwalkchange = 0f;
 
-    //private GameObject ParentHivemind;
+    public PlayerHealth playerHealth;
+    public Transform parenthivemindtransform;
+    public GameObject ParentHivemind;
     private AudioManager audiomanager;
     private Animator animator;
     private GameObject player;
@@ -57,8 +62,8 @@ public class Minion_AI : MonoBehaviour
         audiomanager = FindObjectOfType<AudioManager>();
         animator = this.GetComponent<Animator>();
         player = GameObject.Find("Player");
-
-
+        playerHealth = player.GetComponent<PlayerHealth>();
+        goal = thistr.position;
     }
 
     void CheckLineOfSight()
@@ -89,11 +94,9 @@ public class Minion_AI : MonoBehaviour
     {
         if (seeing && !agro)
         {
-            //ParentHivemind.GetComponent<Hivemind_AI_Easy>().agro = true;
+            ParentHivemind.GetComponent<Hivemind_AI_Easy>().minionagro = true;
             agro = true;
         }
-
-
     }
     void SetDestinationSelf()
     {
@@ -114,19 +117,19 @@ public class Minion_AI : MonoBehaviour
 
     void RandomWalk()
     {
-        if (((goal - thistr.position).magnitude < 1f) || ((hivemindposition - thistr.position).magnitude > maxrangefromhivemind))
+        if ((((goal - thistr.position).magnitude < 1f) || ((hivemindposition - thistr.position).magnitude > maxrangefromhivemind)) && !isdead)
         {
             //randomwalktimer += Time.deltaTime; Niet nodig
             if (true) // randomwalktimer > 3f
             {
-                randomwalkmedian = hivemindposition + spawnpoint;
+                randomwalkmedian = spawnpointfromhivemind + parenthivemindtransform.position;
                 randomwalktimer = 0f;
                 goal = randomwalkmedian + new Vector3(Random.Range(-6.0f, 6.0f), 0f, Random.Range(-6.0f, 6.0f));
             }
         }
     }
 
-    void SetPath()
+    void SetPath() // Wil dat dit een meer advance form van pathfinding wordt
     {
         RaycastHit hitInfo;
         Vector3 direction = playertr.position - thistr.position;
@@ -167,9 +170,7 @@ public class Minion_AI : MonoBehaviour
         if ((thistr.position - playertr.position).magnitude < attackrange && attacktimer > attackcooldown)
         {
             attacktimer = 0f;
-            //playertr.GetComponent<PlayerHealth>().TakeDamage(meleedamage, "Minion");
-            PlayerHealth playerHealth = player.GetComponent<PlayerHealth>();
-			playerHealth.TakeDamage(meleedamage, this.name);
+			playerHealth.TakeDamage(meleedamage, "Minion");
 
             int attacktype = Random.Range(1, 3);
             if (attacktype == 1)
@@ -195,13 +196,13 @@ public class Minion_AI : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //CheckLineOfSight();
-        //CheckAgro();
+        CheckLineOfSight();
+        CheckAgro();
         SetDestinationSelf();
         FaceTarget(goal);
         //SetPath();
         CheckAttack();
-        PlayAudio();
+        PlayAudio(); // Speel random geluiden af
     }
 
     private void FixedUpdate()
@@ -239,16 +240,24 @@ public class Minion_AI : MonoBehaviour
 
     }
 
-    void Death()
+    public void Death()
     {
         if (!isdead)
         {
             animator.SetBool("AnimDead", true);
             audiomanager.RandomPlay("MinionsDeath");
-            Destroy(this.gameObject, despawntime);
+            isdead = true;
+            if (!hivemindkilled)
+            {
+                ParentHivemind.GetComponent<Hivemind_AI_Easy>().Minionslist.Remove(this.gameObject); // Hopelijk delete die allen deze
+                ParentHivemind.GetComponent<Hivemind_AI_Easy>().Minionstransform.Remove(this.transform); // Hopelijk delete die allen deze
+            }
+
         }
-        isdead = true;
         goal = thistr.position;
+        agro = false;
+        agrodistance = 0f;
         capsuleCollider.isTrigger = true;
+        Destroy(this.gameObject, despawntime);
     }
 }

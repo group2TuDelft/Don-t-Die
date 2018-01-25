@@ -13,6 +13,8 @@ public class Humanoid_AI_Easy : MonoBehaviour {
     private Animator animator;
     private AudioManager audiomanager;
     CapsuleCollider capsuleCollider;
+    RuntimeAnimatorController ac;
+    private GameObject playerscript;
 
     public int scoreValue = 10;
     public int starting_health = 300; //health waarmee de enemy begint
@@ -32,11 +34,20 @@ public class Humanoid_AI_Easy : MonoBehaviour {
     public float audiocooldownmax = 10f;
     public float audiocooldown = 0f; //Tijd waar tussen optionele sound effects mogen worden afgespeeld
 
+    public float shootsinctimer = 0f;
+    public float firstshotsinc = 0.2f; // Al deze dingen werken samen om animatie en schieten goed samen te laten lopen
+    public float secondshotsinc = 0.4f;
+    public bool firstshotshot = false;
+ 
+
     private bool seeing = false; // Boolean of deze enemy de player ziet
     private bool agro = false; // Boolean of deze enemy de player probeert aan te vallen
     private bool shooting = false; // Is die nu aan het schieten of niet
     private bool foundcover = false; // Boolean of deze enemy een valid cover heeft gevonden
     private bool isdead = false; // Is this enemy dead?
+
+    public bool medium = false;
+    public bool hard = false;
 
     private bool findcoverloop = true; // Boolean die de radius find voor find cover functie bepaald
     private float findcoverradius = 0f; // Float die in de findcoverloop steeds groter wordt
@@ -75,7 +86,10 @@ public class Humanoid_AI_Easy : MonoBehaviour {
         navmesh = this.GetComponent<NavMeshAgent>();
         this_tr = this.GetComponent<Transform>();
         player_tr = GameObject.Find("Player").GetComponent<Transform>();
+        playerscript = GameObject.Find("Player");
+
         audiomanager = FindObjectOfType<AudioManager>();
+        ac = animator.runtimeAnimatorController;
 
         navmesh.speed = normalspeed;
     }
@@ -88,13 +102,13 @@ public class Humanoid_AI_Easy : MonoBehaviour {
         {
             if (hitInfo.collider.tag == "Player") // Als die iets hit, en de hit is de player, doe dit
             {
-                Debug.Log("Ik zie je nu");
+                //Debug.Log("Ik zie je nu");
                 seeing = true;
             }
             // kan hier nog muren kapot maken in zetten
             else // Als die iets hit, maar het is niet player, doe dit
             {
-                Debug.Log("Ik zie je niet nu");
+                //Debug.Log("Ik zie je niet nu");
                 seeing = false;
             }
         }
@@ -108,7 +122,7 @@ public class Humanoid_AI_Easy : MonoBehaviour {
             audiomanager.RandomPlay("HumanoidSeePlayer");
             navmesh.speed = agrospeed;
         }
-        if (agro && (player_tr.position - this_tr.position).magnitude > de_agro_range)
+        else if (agro && (player_tr.position - this_tr.position).magnitude > de_agro_range)
         {
             agro = false;
             navmesh.speed = normalspeed;
@@ -117,7 +131,7 @@ public class Humanoid_AI_Easy : MonoBehaviour {
 
     void DecideDestination() //Kiest wat voor een loop functie de enemy gaat nemen
     {
-        if (agro && !foundcover) // Moet nog agro && foundcover bij
+        if (agro && !foundcover && medium) // Moet nog agro && foundcover bij
         {
             FindCover();
         }
@@ -133,10 +147,11 @@ public class Humanoid_AI_Easy : MonoBehaviour {
         if (navmesh.FindClosestEdge(out hit))
         {
             Collider[] hitColliders = Physics.OverlapSphere(hit.position, 10);
-            Debug.Log(hitColliders[0]);
-            Debug.Log(hitColliders[1]);
+            //Debug.Log(hitColliders[0]);
+            //Debug.Log(hitColliders[1]);
             if (hit.distance < find_cover_range && foundcover == false)
             {
+                animator.SetBool("AnimWalk", true);
                 foundcover = true;
                 navmesh.destination = hit.position;
                 
@@ -172,7 +187,7 @@ public class Humanoid_AI_Easy : MonoBehaviour {
         }
 
         Collider cover = hitColliders[0];
-        Debug.Log(cover);
+        //Debug.Log(cover);
     }
 
     void RandomWalk() // Picks random points to walk to
@@ -196,7 +211,7 @@ public class Humanoid_AI_Easy : MonoBehaviour {
     void Shoot() // Tries to shoot at the player if possible, and adjusts speed accordingly
     {
         shoottimer += Time.deltaTime;
-        if (agro && seeing)
+        if (agro && seeing && !isdead)
         {
             if ((player_tr.position - this_tr.position).magnitude < shoot_range)
             {
@@ -204,13 +219,30 @@ public class Humanoid_AI_Easy : MonoBehaviour {
 
                 if (shoottimer > reloadtime)
                 {
-                    shooting = true;
+                    if (!firstshotshot)
+                    {
+
+                    }
                     animator.SetBool("AnimShooting", true);
-                    Fire();
-                    audiomanager.RandomPlay("plasmarifle");
-                    shoottimer = 0f;
+                    shooting = true;
+                    shootsinctimer += Time.deltaTime;
+                    if(shootsinctimer >= firstshotsinc && !firstshotshot)
+                    {
+                        Fire(1);
+                        audiomanager.RandomPlay("plasmarifle");
+                        firstshotshot = true;
+                        animator.SetBool("AnimShooting", false); 
+                    }
+                    if(shootsinctimer >= secondshotsinc)
+                    {
+                        Fire(2);
+                        audiomanager.RandomPlay("plasmarifle");
+                        shootsinctimer = 0f;
+                        shoottimer = 0f;
+                        firstshotshot = false;
+                    }
                 }
-                else if (shooting)
+                else
                 {
                     animator.SetBool("AnimShooting", false);
                 }
@@ -291,7 +323,7 @@ public class Humanoid_AI_Easy : MonoBehaviour {
         ScoreManager.score += scoreValue;
 
     }
-    void Fire()
+    void Fire(int shot)
     {
         // Create the Bullet from the Bullet Prefab
         var bullet = (GameObject)Instantiate(
@@ -299,8 +331,28 @@ public class Humanoid_AI_Easy : MonoBehaviour {
             bulletSpawn.position,
             bulletSpawn.rotation);
 
-        // Add velocity to the bullet
-        bullet.GetComponent<Rigidbody>().velocity = bullet.transform.forward * BulletSpeed;
+        // Add velocity to the bullet\
+        if (hard)
+        {
+            if (shot == 1)
+            {
+            bullet.GetComponent<Rigidbody>().velocity = (player_tr.position - bullet.transform.position).normalized * BulletSpeed;
+            }
+            else
+            {
+                float tijd = (bullet.transform.position - player_tr.position).magnitude / BulletSpeed;
+                Vector3 estamtionplayer = player_tr.position + (player_tr.forward * playerscript.GetComponent<PlayerMovement>().speed * tijd);
+                bullet.GetComponent<Rigidbody>().velocity = (estamtionplayer - bullet.transform.position).normalized * BulletSpeed;
+
+            }
+
+
+        }
+        else //normaal schieten
+        {
+            bullet.GetComponent<Rigidbody>().velocity = (player_tr.position - bullet.transform.position).normalized * BulletSpeed;
+        }
+
 
         // Destroy the bullet after 2 seconds
         Destroy(bullet, 2.0f);

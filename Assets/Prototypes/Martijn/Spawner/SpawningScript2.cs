@@ -14,15 +14,19 @@ public class SpawningScript2 : MonoBehaviour
 {
 
     public float despawnradius = 100f;
-    public float alienspawnradius = 40f;
-    public float spawnradius = 4f;     // Afstand
+    public float alienspawnradius = 40f; // Afstand waarop enemt spawnt
+    public float spawnradius = 4f;     // Afstand??
     private float spawncooldowntimer = 0f;   // soort van timer tussen het spawnen van enemies
-    public float spawncooldown = 3f; // Tijd die tussen het spannen gaan zitten
+    public float spawncooldown = 5f; // Tijd die tussen het spannen gaan zitten
     public float groupspawnradius = 3f; //Afstand waar tussen enemies in een group bij elkaar spawnen
 
-    public float mediumtimestart = 300f; //Time wanneer enemies medium diffeculty gaan worden
-    public float hardtimestart = 600f;  //Time wanneer enemies hard diffeculty gaan worden
-    public float waveinterval = 100f;   //Intervallen waartussen grote waves mogen komen
+    public float mediumtimestart = 100f; //Time wanneer enemies medium diffeculty gaan worden
+    public float hardtimestart = 200f;  //Time wanneer enemies hard diffeculty gaan worden
+    public float waveinterval = 50f;   //Wanneer komt de eerste wave
+    public float waveintervalcooldown = 100f; //Na hoe veel tijd kan komt er nog een wave
+    public int wavespawngroups = 4; // Hoe veel groups er spawnen per wave
+    public float timebetweenwavegroups = 3f; // Hoe veel tijd er tussen elke group spawn zit in waves
+    public int wavegroupincrement = 1;
 
     public int despawncheckfraction = 2;
     private float gametimer; // De tijd dat er gespeeld wordt
@@ -34,6 +38,7 @@ public class SpawningScript2 : MonoBehaviour
     private List<List<int>> spawngroups = new List<List<int>>();
 
     private Transform playertr;
+    private AudioManager audiomanager;
     public List<GameObject> Enemies = new List<GameObject>();
 
     // Enemy Prefabs:
@@ -55,19 +60,22 @@ public class SpawningScript2 : MonoBehaviour
     // Use this for initialization
     void Start()
     {
+        
         prefablist.Add(new List<GameObject> { EasyZergling, MediumZergling, HardZergling });
         prefablist.Add(new List<GameObject> { EasyHumanoid, MediumHumanoid, HardHumanoid });
         prefablist.Add(new List<GameObject> { EasyHivemind, MediumHivemind, HardHivemind });
 
-        spawningroupamount.Add(new List<int> { 1, 1, 1 }); // Deze lijsten kunnen aangepast worden op te balancen
-        spawningroupamount.Add(new List<int> { 1, 1, 1 });
+        spawningroupamount.Add(new List<int> { 1, 2, 2 }); // Deze lijsten kunnen aangepast worden op te balancen
+        spawningroupamount.Add(new List<int> { 2, 2, 3 }); // Hoe veel groepen spawnen er
         spawningroupamount.Add(new List<int> { 1, 1, 1 });
 
-        spawngroups.Add(new List<int> { 1, 1, 1});
-        spawngroups.Add(new List<int> { 1, 1, 1 });
-        spawngroups.Add(new List<int> { 1, 1, 1 });
+        spawngroups.Add(new List<int> { 2, 2, 2}); // Hoe veel spawnen er per groep
+        spawngroups.Add(new List<int> { 1, 2, 2 });
+        spawngroups.Add(new List<int> { 1, 1, 2 });
 
         playertr = GameObject.Find("Player").GetComponent<Transform>();
+        audiomanager = GameObject.FindObjectOfType<AudioManager>();
+        audiomanager.Play("Platformer");
     }
 
     // Update is called once per frame
@@ -95,7 +103,19 @@ public class SpawningScript2 : MonoBehaviour
 
     void CheckWave()
     {
-        // Nog implenteren    
+        if (gametimer > waveinterval)
+        {
+            audiomanager.Play("Epic Stinger");
+            waveinterval += waveintervalcooldown; // adjust the timer
+            for (int i = 0; i < wavespawngroups; i++)
+            {
+                Spawn();
+
+            }
+            wavespawngroups += wavegroupincrement;
+
+
+        }
     }
 
     void CheckActiveEnemies()
@@ -149,7 +169,7 @@ public class SpawningScript2 : MonoBehaviour
         GameObject tobespawned = prefablist[enemyindex][difficultyindex];
         List<Vector3> spawnlocations = new List<Vector3>();
         spawnlocations = PickLocations(spawngroups[enemyindex][difficultyindex], spawningroupamount[enemyindex][difficultyindex]);
-        for (int i = 0; i < spawnlocations.Count; i++)
+        for (int i = 1; i < spawnlocations.Count; i++)
         {
             Enemies.Add(Instantiate(tobespawned, spawnlocations[i], Quaternion.Euler(0, Random.Range(0, 180),0))); /////// Deze quaterion moet nog goed en 
         }
@@ -193,7 +213,7 @@ public class SpawningScript2 : MonoBehaviour
         {
             for (int j = 0; j < ingroupammount; j++)
             {
-                Debug.Log("Error Check 4");
+                //Debug.Log("Error Check 4");
                 Vector3 center = list[i];
                 Vector3 suggestedposition = RandomCircle(center, groupspawnradius);
                 Vector3 pos2 = suggestedposition;
