@@ -1,0 +1,534 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &100100000
+Prefab:
+  m_ObjectHideFlags: 1
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 1856339405587130}
+  m_IsPrefabParent: 1
+--- !u!1 &1856339405587130
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4418764376479212}
+  - component: {fileID: 114929332760688232}
+  m_Layer: 0
+  m_Name: AudioManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4418764376479212
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1856339405587130}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &114929332760688232
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1856339405587130}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9cb4e0e548c101e4dac44ccd4d5cd927, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sounds:
+  - name: plasmarifle1
+    clip: {fileID: 8300000, guid: 58fe1632e0c8ddf4dbeacbf22c53a5ba, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: plasmarifle2
+    clip: {fileID: 8300000, guid: 1d7bd932c5302f042a409d2631420dc7, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: plasmarifle3
+    clip: {fileID: 8300000, guid: 3327a2400db11fc4ab2a9d75bd11b2d3, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: plasmarifle4
+    clip: {fileID: 8300000, guid: f47929a906834d9489f92dcc552afe8a, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: HumanoidSeePlayer1
+    clip: {fileID: 8300000, guid: 73bc94bc498de514687f86f183b95bdc, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: HumanoidSeePlayer2
+    clip: {fileID: 8300000, guid: 8c6d9bae688a9184b983177730a73224, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: HumanoidSeePlayer3
+    clip: {fileID: 8300000, guid: 3a58eef2ab7078842856020504a7884c, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: HumanoidSeePlayer4
+    clip: {fileID: 8300000, guid: 7187d770c8dd7644e8b2add2d81ff2e6, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: HumanoidSeePlayer5
+    clip: {fileID: 8300000, guid: 7f4f1507785102143af96647f5d65d8a, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: HumanoidSeePlayer6
+    clip: {fileID: 8300000, guid: d83c19570b480d24b8c27d1932418751, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: HumanoidSeePlayer7
+    clip: {fileID: 8300000, guid: 74212ef106b09614f943d2982269a359, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: HumanoidSeePlayer8
+    clip: {fileID: 8300000, guid: 72b750d93ac50e749bb86ce10d2cfacb, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: HumanoidSeePlayer9
+    clip: {fileID: 8300000, guid: 7f71256acdadc4f449767d47daf65375, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: HumanoidDeath1
+    clip: {fileID: 8300000, guid: 734869eacaf31de49bc591f90523a5d3, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: HumanoidDeath2
+    clip: {fileID: 8300000, guid: fe776ad1e1ab7ed4ea69e478172d4111, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: HumanoidDeath3
+    clip: {fileID: 8300000, guid: 240fd955a66bb044fafdf77cc4314804, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: HumanoidDeath4
+    clip: {fileID: 8300000, guid: 7767b4978149e7a4b8574804489ecd99, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: HumanoidDeath5
+    clip: {fileID: 8300000, guid: f02cb48390aa5d641b01adaccf9d4860, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: HumanoidDeath6
+    clip: {fileID: 8300000, guid: ca5069b38fc89464fb6b39438a1788f4, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: HumanoidDeath7
+    clip: {fileID: 8300000, guid: 4f8a2b6a6dda4c443ac3f29f88ab284f, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: HumanoidDeath8
+    clip: {fileID: 8300000, guid: 7502a90b46418584885fc2cf3b2e8530, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: HumanoidDeath9
+    clip: {fileID: 8300000, guid: 31acda5c39d7aa942a012123e95837bc, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: HumanoidDeath10
+    clip: {fileID: 8300000, guid: 5a13fee23738a83439d94bc1d16a449c, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: HumanoidDeath11
+    clip: {fileID: 8300000, guid: 5f2425ae88543244fa982a22d33c6d55, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: HumanoidDeath12
+    clip: {fileID: 8300000, guid: 3b7b89903e8a06246b8a7fb0bc07fe45, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: HivemindTaunt1
+    clip: {fileID: 8300000, guid: 94cc4a19cc9053d42ad5f733a65a7f17, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: HivemindTaunt2
+    clip: {fileID: 8300000, guid: 12dffbd551020b14fbe2af842fc37119, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: HivemindTaunt3
+    clip: {fileID: 8300000, guid: 2da9369e26a88874dbac0415b6deeea2, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: HivemindTaunt4
+    clip: {fileID: 8300000, guid: 1306195941de42745a500970c7ae7f59, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: HivemindTaunt5
+    clip: {fileID: 8300000, guid: 4a0c4a9b226c07e49b0b44aae5efea1a, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: HivemindTaunt6
+    clip: {fileID: 8300000, guid: 3da6d6900d0163e47b036adfbdc51ce0, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: HivemindTaunt7
+    clip: {fileID: 8300000, guid: 40d1070e6f26ff441a45a456960da39d, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: HivemindTaunt8
+    clip: {fileID: 8300000, guid: 851a0d33cb0b05d478a931c51e41d4d7, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: HivemindTaunt9
+    clip: {fileID: 8300000, guid: 0128863d6293bbb4785c4191eed52903, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: HivemindPain1
+    clip: {fileID: 8300000, guid: 59d9337115c02a64dbc10b6e7331b6b3, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: HivemindPain2
+    clip: {fileID: 8300000, guid: c27d81b7b8bb1e6448753de42a959ddd, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: HivemindPain3
+    clip: {fileID: 8300000, guid: 00b6448f6b10acd4f8612763e9165d06, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: HivemindPain4
+    clip: {fileID: 8300000, guid: 3c16d5e7b953ad747ba6147fe4719eed, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: HivemindPain5
+    clip: {fileID: 8300000, guid: 3af9d3e664cceb74da150cc8490993bd, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: HivemindDeath1
+    clip: {fileID: 8300000, guid: 573ee37799ef05a498e83561e3a6c541, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: HivemindDeath2
+    clip: {fileID: 8300000, guid: 5ba428f80b1b18e4eb8469470806a2cb, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: HivemindDeath3
+    clip: {fileID: 8300000, guid: c8942a3c5648636458117eab62aada79, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: HivemindDeath4
+    clip: {fileID: 8300000, guid: bf9823b7c6aa25744b15cb279cc63970, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: HivemindDeath5
+    clip: {fileID: 8300000, guid: 043e5211d4b64924a88303072c0a94bf, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: HivemindDeath6
+    clip: {fileID: 8300000, guid: 35c3e81b7068f1d4f9e79350de94aed1, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: HivemindDeath7
+    clip: {fileID: 8300000, guid: a8cc6e43fa91d6244bcaf34082018e50, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: HivemindDeath8
+    clip: {fileID: 8300000, guid: 070205e91803b824f89aea66afd068aa, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: MinionsMelee1
+    clip: {fileID: 8300000, guid: 032253c1e9003424c8957619285352b9, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: MinionsMelee2
+    clip: {fileID: 8300000, guid: 37f442a57dab4924d996093c8e0ce29d, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: MinionsMelee3
+    clip: {fileID: 8300000, guid: 7dce282abc17ba24fb3dbbef8082b47e, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: MinionsMelee4
+    clip: {fileID: 8300000, guid: eedc6ec9a8a5ea747bc0850b93f678ea, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: MinionsMelee5
+    clip: {fileID: 8300000, guid: 5f3821bc9dda07d4bb8f341a386d7298, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: MinionsMelee6
+    clip: {fileID: 8300000, guid: 7f8b3a05879048742b273bfe0aae5330, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: MinionsMelee7
+    clip: {fileID: 8300000, guid: 69377356bc003ce4cba7b3a1e5bce81e, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: MinionsMelee8
+    clip: {fileID: 8300000, guid: f96f87256fc1a3540a6f80b58ec1bfbd, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: MinionsMelee9
+    clip: {fileID: 8300000, guid: d40cc899ad5c2834aa4357af43db5f2a, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: MinionsMelee10
+    clip: {fileID: 8300000, guid: a6489bc6db61d9940807bf7571633439, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: MinionsPain1
+    clip: {fileID: 8300000, guid: ee1fd4e7bcd853c49b26115575d9c150, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: MinionsPain2
+    clip: {fileID: 8300000, guid: 666d92fcb2582c94aad19de11225316a, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: MinionsPain3
+    clip: {fileID: 8300000, guid: 80a64a815d2ad4848a4b858982a646ce, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: MinionsPain4
+    clip: {fileID: 8300000, guid: ee91eb6b86d2fa347a219603041b828b, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: MinionsPain5
+    clip: {fileID: 8300000, guid: e20a803d7e715fd4cbe21a112865a6bb, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: MinionsPain6
+    clip: {fileID: 8300000, guid: a4b82463d604a1a489835f864c598707, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: MinionsPain7
+    clip: {fileID: 8300000, guid: e4a7097f5f26d2d4d80d63ead60ca196, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: MinionsPain8
+    clip: {fileID: 8300000, guid: 29967374502e05448b3c1d3c46c20b97, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: MinionsPain9
+    clip: {fileID: 8300000, guid: a26c31cd492a9204b847bf9bd14d6438, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: MinionsDeath1
+    clip: {fileID: 8300000, guid: 8dc4bc90dea03434682b8a8c05c3343d, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: MinionsDeath2
+    clip: {fileID: 8300000, guid: 3d039989a890f2d4ebe6b2b05773b1b0, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: MinionsDeath3
+    clip: {fileID: 8300000, guid: 3846798b85ca9c945898e98d378214e2, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: MinionsDeath4
+    clip: {fileID: 8300000, guid: 95acbd07a48d4cb43ba5759f95269224, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: ZerglingAttack1
+    clip: {fileID: 8300000, guid: 65d240d92b9c11942b595745d8fd57ab, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: ZerglingAttack2
+    clip: {fileID: 8300000, guid: e386e7a09b74ce84dbb533bdedb7d287, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: ZerglingDeath1
+    clip: {fileID: 8300000, guid: b2feae44149b2664f8b470363f47a249, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: ZerglingDeath2
+    clip: {fileID: 8300000, guid: 875c2442e7e489b4daf85546862d2632, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Platformer
+    clip: {fileID: 8300000, guid: b568957e8c8ab114e9a028835e326835, type: 3}
+    volume: 0.477
+    pitch: 1
+    loop: 1
+    source: {fileID: 0}
+  - name: Epic Stringer
+    clip: {fileID: 8300000, guid: 34e5239f4edbd4a4f850ff783ae22c00, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: MinionsDeath4
+    clip: {fileID: 8300000, guid: 95acbd07a48d4cb43ba5759f95269224, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: MinionsDeath4
+    clip: {fileID: 8300000, guid: 95acbd07a48d4cb43ba5759f95269224, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: MinionsDeath4
+    clip: {fileID: 8300000, guid: 95acbd07a48d4cb43ba5759f95269224, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: MinionsDeath4
+    clip: {fileID: 8300000, guid: 95acbd07a48d4cb43ba5759f95269224, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
