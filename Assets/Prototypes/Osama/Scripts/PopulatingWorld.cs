@@ -6,6 +6,7 @@ public class PopulatingWorld : MonoBehaviour
 
     private void Start()
     {
+
         MapGenerator generatedMap = GetComponent<MapGenerator>();
         generatedMap.seed = Random.Range(0, 10000000);
         generatedMap.GenerateMap();

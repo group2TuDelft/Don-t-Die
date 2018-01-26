@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 625e23747ff190a459b0f8530f0317be
-timeCreated: 1515501433
+timeCreated: 1516891359
 licenseType: Free
 ModelImporter:
   serializedVersion: 22
@@ -14,6 +14,9 @@ ModelImporter:
     100012: Plane.004
     100014: Point
     100016: //RootNode
+    100018: trigger
+    100020: collider
+    100022: windows
     400000: dak
     400002: muren
     400004: Plane
@@ -23,10 +26,14 @@ ModelImporter:
     400012: Plane.004
     400014: Point
     400016: //RootNode
+    400018: trigger
+    400020: collider
+    400022: windows
     2100000: shed window
     2100002: shed glass
     2100004: roof_material
     2100006: shed_walls_material
+    2100008: No Name
     2300000: dak
     2300002: muren
     2300004: Plane
@@ -34,6 +41,9 @@ ModelImporter:
     2300008: Plane.002
     2300010: Plane.003
     2300012: Plane.004
+    2300014: trigger
+    2300016: collider
+    2300018: windows
     3300000: dak
     3300002: muren
     3300004: Plane
@@ -41,6 +51,9 @@ ModelImporter:
     3300008: Plane.002
     3300010: Plane.003
     3300012: Plane.004
+    3300014: trigger
+    3300016: collider
+    3300018: windows
     4300000: Plane.004
     4300002: Plane.003
     4300004: Plane.002
@@ -48,6 +61,9 @@ ModelImporter:
     4300008: Plane
     4300010: dak
     4300012: muren
+    4300014: trigger
+    4300016: collider
+    4300018: windows
     10800000: Point
   externalObjects: {}
   materials:

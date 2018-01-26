@@ -1,56 +1,42 @@
 fileFormatVersion: 2
 guid: 4e7adcb0ca513c14bb060c21eb9ec8b8
-timeCreated: 1515501432
+timeCreated: 1516888219
 licenseType: Free
 ModelImporter:
   serializedVersion: 22
   fileIDToRecycleName:
     100000: //RootNode
-    100002: Plane
-    100004: Plane.001
-    100006: Plane.002
-    100008: Plane.003
-    100010: Plane.004
-    100012: Point
-    100014: Point.001
-    100016: roof
-    100018: walls
+    100002: Point
+    100004: Point.001
+    100006: roof
+    100008: trigger
+    100010: walls
+    100012: windows
     400000: //RootNode
-    400002: Plane
-    400004: Plane.001
-    400006: Plane.002
-    400008: Plane.003
-    400010: Plane.004
-    400012: Point
-    400014: Point.001
-    400016: roof
-    400018: walls
-    2100000: house window
-    2100002: house glass
-    2100004: house wall
-    2100006: house floor
-    2100008: huis dakpannen_
-    2300000: Plane
-    2300002: Plane.001
-    2300004: Plane.002
-    2300006: Plane.003
-    2300008: Plane.004
-    2300010: roof
-    2300012: walls
-    3300000: Plane
-    3300002: Plane.001
-    3300004: Plane.002
-    3300006: Plane.003
-    3300008: Plane.004
-    3300010: roof
-    3300012: walls
-    4300000: Plane.001
-    4300002: Plane.004
-    4300004: Plane.003
-    4300006: Plane.002
-    4300008: Plane
-    4300010: walls
-    4300012: roof
+    400002: Point
+    400004: Point.001
+    400006: roof
+    400008: trigger
+    400010: walls
+    400012: windows
+    2100000: No Name
+    2100002: house window
+    2100004: house glass
+    2100006: house wall
+    2100008: house floor
+    2100010: huis dakpannen_
+    2300000: roof
+    2300002: trigger
+    2300004: walls
+    2300006: windows
+    3300000: roof
+    3300002: trigger
+    3300004: walls
+    3300006: windows
+    4300000: trigger
+    4300002: windows
+    4300004: walls
+    4300006: roof
     10800000: Point
     10800002: Point.001
   externalObjects: {}

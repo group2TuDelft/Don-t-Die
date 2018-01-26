@@ -145,7 +145,7 @@ public class PlayerAnimator : MonoBehaviour {
         }
 
 
-        if (Input.GetKey(KeyCode.LeftControl) && Input.GetKey(KeyCode.W)) {
+        if (Input.GetKey(KeyCode.LeftShift) && Input.GetKey(KeyCode.W)) {
             anim.SetBool("AnimRun", true);
         } else {
             anim.SetBool("AnimRun", false);

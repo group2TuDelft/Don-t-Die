@@ -62,7 +62,7 @@ public class PlayerMovement : MonoBehaviour
 			speed = 6;
 		}
 		if (direction == true) {
-			if (v == 1 && Input.GetKey (KeyCode.LeftControl)) {
+			if (v == 1 && Input.GetKey (KeyCode.LeftShift)) {
 				speed = 17;
 			} else {
 				speed = 8;

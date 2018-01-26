@@ -1,25 +1,26 @@
 fileFormatVersion: 2
 guid: e145cea7ef4d77d4da127dd9fd621e25
-timeCreated: 1516094058
+timeCreated: 1516978594
 licenseType: Free
 ModelImporter:
   serializedVersion: 22
   fileIDToRecycleName:
-    100000: Cylinder.004
-    100002: Plane
+    100000: cliff
+    100002: collider
     100004: //RootNode
-    400000: Cylinder.004
-    400002: Plane
+    400000: cliff
+    400002: collider
     400004: //RootNode
-    2100000: cliff_grass
+    2100000: No Name
     2100002: cliff material 1
     2100004: cliff material 2
-    2300000: Cylinder.004
-    2300002: Plane
-    3300000: Cylinder.004
-    3300002: Plane
-    4300000: Plane
-    4300002: Cylinder.004
+    2100006: groen
+    2300000: cliff
+    2300002: collider
+    3300000: cliff
+    3300002: collider
+    4300000: collider
+    4300002: cliff
   externalObjects: {}
   materials:
     importMaterials: 1

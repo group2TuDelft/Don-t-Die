@@ -1,0 +1,153 @@
+fileFormatVersion: 2
+guid: 404162cef787b184eb0ceb215c164076
+timeCreated: 1516891359
+licenseType: Free
+ModelImporter:
+  serializedVersion: 22
+  fileIDToRecycleName:
+    100000: dak
+    100002: fences
+    100004: grass
+    100006: muren
+    100008: Plane
+    100010: Point
+    100012: //RootNode
+    100014: trigger
+    100016: windows
+    100018: collider
+    100020: trigger.001
+    400000: dak
+    400002: fences
+    400004: grass
+    400006: muren
+    400008: Plane
+    400010: Point
+    400012: //RootNode
+    400014: trigger
+    400016: windows
+    400018: collider
+    400020: trigger.001
+    2100000: Material
+    2100002: Material.001
+    2100004: No Name
+    2100006: shed window
+    2100008: shed glass
+    2100010: roof_material
+    2100012: shed_walls_material
+    2100014: grass material
+    2100016: roof_material.001
+    2100018: shed_walls_material.001
+    2100020: shed window.001
+    2100022: shed glass.001
+    2100024: roof_material.002
+    2100026: shed_walls_material.002
+    2100028: shed window.002
+    2100030: shed glass.002
+    2300000: dak
+    2300002: fences
+    2300004: grass
+    2300006: muren
+    2300008: Plane
+    2300010: trigger
+    2300012: windows
+    2300014: collider
+    2300016: trigger.001
+    3300000: dak
+    3300002: fences
+    3300004: grass
+    3300006: muren
+    3300008: Plane
+    3300010: trigger
+    3300012: windows
+    3300014: collider
+    3300016: trigger.001
+    4300000: fences
+    4300002: trigger
+    4300004: windows
+    4300006: Plane
+    4300008: dak
+    4300010: muren
+    4300012: grass
+    4300014: collider
+    4300016: trigger.001
+    10800000: Point
+  externalObjects: {}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
