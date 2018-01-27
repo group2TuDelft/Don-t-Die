@@ -65,10 +65,11 @@ public class AnalyticsManager : MonoBehaviour {
 
 	void reportDeath(){
 
-		string path = "Assets/Prototypes/Sidi/Analytics/Death.txt";
-		string path1 = "Assets/Prototypes/Sidi/Analytics/Killer.txt";
-		string path2 = "Assets/Prototypes/Sidi/Analytics/Score.txt";
-		string killer = playerHealth.killer;
+        DDPaths ddPaths = new DDPaths();
+        string path = ddPaths.textPathDeath;
+        string path1 = ddPaths.textPathKiller;
+        string path2 = ddPaths.textPathScore;
+        string killer = playerHealth.killer;
 		//Report Death time
 		StreamWriter writer = new StreamWriter(path, true);
 		writer.WriteLine(string.Format("{0:N3}", deathTimer) + ",");
@@ -92,8 +93,9 @@ public class AnalyticsManager : MonoBehaviour {
 	}
 
 	void WeaponReport(){
-		string path = "Assets/Prototypes/Sidi/Analytics/WeaponReport.txt" ;
-		StreamWriter writer = new StreamWriter(path, true);
+        DDPaths ddPaths = new DDPaths();
+        string path = ddPaths.textPathWeaponReport;
+        StreamWriter writer = new StreamWriter(path, true);
 		writer.WriteLine (" ");
 		for (int i = 0; i < data.Count; i++) {
 			writer.WriteLine (" ");

@@ -10,7 +10,9 @@ public class Leaderboard_menu : MonoBehaviour
 
     void Main()
     {
-        const string f = "Assets/Prototypes/Sidi/Analytics/Score.txt";
+
+        DDPaths ddPaths = new DDPaths();
+        string f = ddPaths.textPathScore;
         List<string> lines = new List<string>();
 
         using (StreamReader r = new StreamReader(f))
@@ -31,6 +33,25 @@ public class Leaderboard_menu : MonoBehaviour
         }
         newlines.Sort((a, b) => -1 * a.CompareTo(b));
 
-        highscore_List.text = "score: " + newlines[0] + "\nscore: " + newlines[1] + "\nscore: " + newlines[2];
+        if (newlines.Count == 0)
+        {
+            highscore_List.text = "score: 0" + "\nscore: 0" + "\nscore: 0";
+        }
+
+        if (newlines.Count == 1)
+        {
+            highscore_List.text = "score: " + newlines[0] + "\nscore: 0" + "\nscore: 0";
+        }
+
+        if (newlines.Count == 2)
+        {
+            highscore_List.text = "score: " + newlines[0] + "\nscore: " + newlines[1] + "\nscore: 0";
+        }
+
+        if (newlines.Count >= 3)
+        {
+            highscore_List.text = "score: " + newlines[0] + "\nscore: " + newlines[1] + "\nscore: " + newlines[2];
+        }
+        
     }
 }
